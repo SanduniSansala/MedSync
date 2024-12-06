@@ -1,7 +1,12 @@
+import React from "react";
+import LoginPage from "./Doctor/Doctor";
 
-
-function App() {
-  return ;
-}
+const App: React.FC = () => {
+  return (
+    <div>
+      <LoginPage />
+    </div>
+  );
+};
 
 export default App;
