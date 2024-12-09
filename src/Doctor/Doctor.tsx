@@ -17,7 +17,10 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
+    >
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
           Login Page
@@ -36,9 +39,9 @@ const LoginPage: React.FC = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">-- Select ID --</option>
-            <option value="1">Admin</option>
-            <option value="2">User</option>
-            <option value="3">Guest</option>
+            <option value="1">12345</option>
+            <option value="2">56789</option>
+            <option value="3">45678</option>
           </select>
         </div>
         <div className="mb-4">
@@ -72,3 +75,4 @@ const LoginPage: React.FC = () => {
 };
 
 export default LoginPage;
+
