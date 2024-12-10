@@ -5,7 +5,7 @@ import DoctorRegistration from "./Doctor/doctor-registration-form";
 const App: React.FC = () => {
   return (
     <div>
-      <LoginPage />
+      {/*<LoginPage />*/}
       <DoctorRegistration/>
     </div>
     

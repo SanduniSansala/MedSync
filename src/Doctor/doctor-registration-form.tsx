@@ -1,164 +1,223 @@
 import React, { useState } from 'react';
+import { AtSign, Phone, User, KeyRound, Stethoscope, Hospital } from 'lucide-react';
 
-interface DoctorRegistrationForm {
-  name: string;
-  email: string;
-  phoneNumber: string;
-  specialty: string;
-  password: string;
-}
-
-const DoctorRegistration: React.FC = () => {
-  const [formData, setFormData] = useState<DoctorRegistrationForm>({
+const DoctorRegistrationForm: React.FC = () => {
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phoneNumber: '',
+    phone: '',
     specialty: '',
+    doctorId: '',
     password: ''
   });
 
-  const [errors, setErrors] = useState<Partial<DoctorRegistrationForm>>({});
-  const [registrationError, setRegistrationError] = useState<string | null>(null);
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    specialty: '',
+    doctorId: '',
+    password: ''
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    setErrors(prev => ({
+      ...prev,
+      [name]: ''
+    }));
   };
 
-  const validateForm = (): boolean => {
-    const newErrors: Partial<DoctorRegistrationForm> = {};
+  const validateForm = () => {
+    const newErrors = { ...errors };
+    let isValid = true;
 
     // Name validation
-    if (!formData.name || formData.name.length < 2) {
-      newErrors.name = 'Name must be at least 2 characters';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+      isValid = false;
     }
 
     // Email validation
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if (!formData.email || !emailRegex.test(formData.email)) {
-      newErrors.email = 'Invalid email address';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+      isValid = false;
     }
 
-    // Phone number validation
+    // Phone validation
     const phoneRegex = /^[0-9]{10}$/;
-    if (!formData.phoneNumber || !phoneRegex.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone number must be 10 digits';
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+      isValid = false;
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = 'Phone number must be 10 digits';
+      isValid = false;
     }
 
     // Specialty validation
-    if (!formData.specialty) {
+    if (!formData.specialty.trim()) {
       newErrors.specialty = 'Specialty is required';
+      isValid = false;
+    }
+
+    // Doctor ID validation
+    if (!formData.doctorId.trim()) {
+      newErrors.doctorId = 'Doctor ID is required';
+      isValid = false;
     }
 
     // Password validation
-    if (!formData.password || formData.password.length < 8) {
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+      isValid = false;
+    } else if (formData.password.length < 8) {
       newErrors.password = 'Password must be at least 8 characters';
+      isValid = false;
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return isValid;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (validateForm()) {
-      try {
-        // Simulate registration process
-        console.log('Registration Data:', formData);
-        setRegistrationError(null);
-        // Add actual registration logic here
-      } catch (error) {
-        setRegistrationError('Registration failed');
-      }
+      // Submit form logic here
+      console.log('Form submitted', formData);
+      alert('Registration Successful!');
     }
   };
 
-  const specialtyOptions = [
-    'Cardiology', 'Neurology', 'Pediatrics', 
-    'Orthopedics', 'Oncology', 'Dermatology'
-  ];
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Doctor Registration</h2>
+    <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4" 
+         style={{
+           backgroundImage: 'url("/images/doctor.jpeg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
+    
+      <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-bold text-blue-800 mb-2">Doctor Registration</h2>
+          <p className="text-gray-600">Join Our Medical Team</p>
+        </div>
+        
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <input 
-              type="text" 
+          {/* Name Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <User className="text-blue-500" />
+            </div>
+            <input
+              type="text"
               name="name"
-              placeholder="Full Name" 
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border rounded focus:outline-blue-500"
+              placeholder="Full Name"
+              className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
             />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
 
-          <div>
-            <input 
-              type="email" 
+          {/* Email Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <AtSign className="text-blue-500" />
+            </div>
+            <input
+              type="email"
               name="email"
-              placeholder="Email Address" 
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border rounded focus:outline-blue-500"
+              placeholder="Email Address"
+              className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
 
-          <div>
-            <input 
-              type="tel" 
-              name="phoneNumber"
-              placeholder="Phone Number" 
-              value={formData.phoneNumber}
+          {/* Phone Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Phone className="text-blue-500" />
+            </div>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
-              className="w-full p-2 border rounded focus:outline-blue-500"
+              placeholder="Phone Number"
+              className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                ${errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
             />
-            {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber}</p>}
+            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </div>
 
-          <div>
-            <select 
+          {/* Specialty Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Stethoscope className="text-blue-500" />
+            </div>
+            <input
+              type="text"
               name="specialty"
               value={formData.specialty}
               onChange={handleChange}
-              className="w-full p-2 border rounded focus:outline-blue-500"
-            >
-              <option value="">Select Specialty</option>
-              {specialtyOptions.map(specialty => (
-                <option key={specialty} value={specialty}>{specialty}</option>
-              ))}
-            </select>
-            {errors.specialty && <p className="text-red-500 text-sm">{errors.specialty}</p>}
+              placeholder="Medical Specialty"
+              className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                ${errors.specialty ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+            />
+            {errors.specialty && <p className="text-red-500 text-sm mt-1">{errors.specialty}</p>}
           </div>
 
-          <div>
-            <input 
-              type="password" 
+          {/* Doctor ID Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Hospital className="text-blue-500" />
+            </div>
+            <input
+              type="text"
+              name="doctorId"
+              value={formData.doctorId}
+              onChange={handleChange}
+              placeholder="Doctor ID"
+              className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                ${errors.doctorId ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+            />
+            {errors.doctorId && <p className="text-red-500 text-sm mt-1">{errors.doctorId}</p>}
+          </div>
+
+          {/* Password Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <KeyRound className="text-blue-500" />
+            </div>
+            <input
+              type="password"
               name="password"
-              placeholder="Password" 
               value={formData.password}
               onChange={handleChange}
-              className="w-full p-2 border rounded focus:outline-blue-500"
+              placeholder="Password"
+              className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                ${errors.password ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
             />
-            {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
           </div>
 
-          {registrationError && (
-            <div className="text-red-500 text-sm text-center">
-              {registrationError}
-            </div>
-          )}
-
+          {/* Submit Button */}
           <button 
             type="submit" 
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 ease-in-out"
           >
             Register
           </button>
@@ -168,4 +227,4 @@ const DoctorRegistration: React.FC = () => {
   );
 };
 
-export default DoctorRegistration;
+export default DoctorRegistrationForm;
