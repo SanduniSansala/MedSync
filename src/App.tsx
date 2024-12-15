@@ -5,8 +5,8 @@ import DoctorRegistration from "./Doctor/doctor-registration-form";
 const App: React.FC = () => {
   return (
     <div>
-      {/*<LoginPage />*/}
-      <DoctorRegistration/>
+       {/*<LoginPage />*/}
+     <DoctorRegistration/>
     </div>
     
   );
