@@ -45,6 +45,17 @@ const DoctorPortalHomepage = () => {
         </div>
       </main>
 
+      {/* Footer */}
+      <footer className="bg-blue-600 text-white p-4 text-center">
+        <div className="container mx-auto">
+          <p>&copy; 2024 Doctor Portal. All Rights Reserved.</p>
+          <div className="mt-2 space-x-4">
+            <a href="#" className="hover:underline">Privacy Policy</a>
+            <a href="#" className="hover:underline">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
         </div>
         )
     }
