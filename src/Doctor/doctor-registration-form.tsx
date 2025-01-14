@@ -98,14 +98,14 @@ const DoctorRegistrationForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4" 
+    <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
          style={{
            backgroundImage: 'url("/images/doctor.jpeg")',
            backgroundBlendMode: 'overlay',
            backgroundColor: ''
          }}>
     
-      <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
+      <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-blue-800 mb-2">Doctor Registration</h2>
           <p className="text-gray-600">Join Our Medical Team</p>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AtSign, Phone, User, KeyRound, Stethoscope, Hospital } from 'lucide-react';
 
 const LoginPage: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string>("");
@@ -18,11 +19,11 @@ const LoginPage: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      className="min-h-screen flex items-center justify-center bg-cover bg-center "
       style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
     >
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
-        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
+      <div className="bg-white/65 shadow-lg rounded-lg p-8 max-w-sm w-full">
+        <h2 className="text-2xl font-bold text-center text-black mb-6">
           Login Page
         </h2>
         <div className="mb-4">

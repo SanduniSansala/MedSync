@@ -7,11 +7,13 @@ export default {
   theme: {
     extend: {
       colors:{
-        "primary-color":"#007E85",
-        "secondary-color":"#6EAB36"
+        lors: {
+          "primary-color": "#007E85",
+          "secondary-color": "#6EAB36",
+          "background-color": "#ECECEC",
       }
     },
   },
   plugins: [],
 }
-
+}
