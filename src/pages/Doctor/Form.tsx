@@ -103,10 +103,9 @@ const Form:React.FC = () => {
     if (validateForm()) {
       
       const data = {doctorID: formData.doctorId, name: formData.name, contactNumber: formData.contactNumber, speciality: formData.specialty, password: formData.password}
-      await createDoctor(data);
-      // Submit form logic here
-      console.log('Form submitted', formData);
-      alert('Registration Successful!');
+
+      const responseData = await createDoctor(data);
+    
       
     }
   };

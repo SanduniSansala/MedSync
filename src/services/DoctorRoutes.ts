@@ -1,13 +1,19 @@
 import axios from "axios";
 import { Doctor } from "../types/doctorTypes";
+import apiClient from "../axios/axios";
 
 const BASE_URL = "http://localhost:8080/Doctors";
 
-
-
 export const createDoctor = async (doctor: Doctor) => {
-    const response = await axios.post(`${BASE_URL}/create`, doctor);
-    return response.data;
+
+    apiClient.post('/Docter/create', doctor).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+    })
+
+    // const response = await axios.post(`${BASE_URL}/create`, doctor);
+    // return response.data;
 }
 
 export const getDoctorById = async (id: string) => {

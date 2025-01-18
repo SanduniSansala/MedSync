@@ -1,12 +1,20 @@
 import axios from "axios";
 import { Patient } from "../types/patientTypes";
+import apiClient from "../axios/axios";
 
 const BASE_URL = "http://localhost:8080/Patients";
 
 
 export const createPatient = async (patient: Patient) => {
-    const response = await axios.post(`${BASE_URL}/create`, patient);
-    return response.data;
+
+    apiClient.post('/patient/create', patient).then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(err);
+    });
+
+    // const response = await axios.post(`${BASE_URL}/create`, patient);
+    // return response.data;
 }
 
 export const getPatientById = async (id: string) => {
