@@ -101,11 +101,11 @@ const Form:React.FC = () => {
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      await createDoctor(formData);
+      const data = {doctorID: formData.doctorId, name: formData.name, contactNumber: formData.contactNumber, speciality: formData.specialty, password: formData.password}
+      await createDoctor(data);
       // Submit form logic here
       console.log('Form submitted', formData);
       alert('Registration Successful!');
-      
     }
   };
   return (
