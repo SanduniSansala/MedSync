@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const PatientLogin: React.FC = () => {
   const navigate= useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
