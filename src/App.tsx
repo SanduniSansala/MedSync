@@ -15,7 +15,7 @@ import Register from "./pages/doctor/Register";
 import Schedule from "./pages/doctor/Schedule";
 import AHome from "./pages/admin/AHome";
 import NotFoundPage from "./pages/patient/NotFoundPage";
-import { Profile } from "./pages/patient/Profile";
+import Profile from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
 import AdminProfile from "./pages/admin/AdminProfile";
 import DocterList from "./components/DoctorList";
