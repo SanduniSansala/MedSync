@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
+
 
 const PatientLogin: React.FC = () => {
+  const navigate= useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,7 +41,7 @@ const PatientLogin: React.FC = () => {
             </div>
             <div className="col-span-2">
               <button
-                onClick={() => handleSubmit()}
+                onClick={() => navigate("/Profile")}
                 className="bg-emerald-600 p-3 rounded-lg text-white"
               >
                 Login
