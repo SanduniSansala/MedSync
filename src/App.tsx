@@ -1,4 +1,7 @@
 import "./App.css";
+
+
+import PatientLogin from "./pages/patient/PatientLogin";
 import Home from "./pages/Patient/Home";
 import About from "./pages/Patient/About";
 import DoctorChannel from "./pages/Patient/DoctorChannel";
@@ -15,6 +18,7 @@ import Schedule from "./pages/Doctor/Schedule";
 import AHome from "./pages/Admin/AHome";
 import NotFoundPage from "./pages/Patient/NotFoundPage";
 import { Profile } from "./pages/Patient/Profile";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -23,23 +27,24 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/DoctorChannel" >
-        <Route index element={<DoctorChannel />}/>
+        <Route path="/DoctorChannel">
+        <Route index element={<DoctorChannel />} />
           <Route path="Channel" element={<Channel />} />
         </Route>
         <Route path="/Book" element={<Book />} />
         <Route path="/ContactUs" element={<Contact />} />
         <Route path="/Loging" element={<Loging />} />
         <Route path="/Payment" element={<Payment />} />
-
         <Route path="/DHome" element={<DHome />} />
         <Route path="/Form" element={<Form />} />
         <Route path="/DLoging" element={<DLoging />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Schedule" element={<Schedule />} />
         <Route path="/AHome" element={<AHome />} />
-        <Route path="/NotFoundPage" element={<NotFoundPage />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/*" element={<NotFoundPage />} />
+       
+        <Route path="/PatientLogin" element={<PatientLogin />} />
+
       </Routes>
     </BrowserRouter>
   );
