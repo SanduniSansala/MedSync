@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Home from "./pages/patient/Home";
 import About from "./pages/patient/About";
 import DoctorChannel from "./pages/patient/DoctorChannel";
@@ -38,7 +39,7 @@ function App() {
         <Route path="/Form" element={<Form />} />
         <Route path="/DLoging" element={<DLoging />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Shedule" element={<Schedule />} />
+        <Route path="/Schedule" element={<Schedule />} />
         <Route path="/AHome" element={<AHome />} />
         <Route path="/*" element={<NotFoundPage />} />
         <Route path="/PatientLogin" element={<PatientLogin />} />
