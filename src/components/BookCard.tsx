@@ -41,7 +41,7 @@ const BookCard:React.FC= () => {
               <span className="text-primary-color font-bold">{appointment.activeAppointments.toString().padStart(2, '0')}</span>
             </div>
             <div  >
-            <button className="bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color"  onClick={() => navigate("/Loging")}>
+            <button className="bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color"  onClick={() => navigate("/PatientRegistration")}>
               <span className="material-icons text-white mr-2" ></span>
               Book 
             </button></div>
