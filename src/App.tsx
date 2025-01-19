@@ -18,7 +18,7 @@ import NotFoundPage from "./pages/patient/NotFoundPage";
 import { Profile } from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
 import AdminProfile from "./pages/admin/AdminProfile";
-import DocterList from "./pages/admin/DoctorList";
+import DocterList from "./components/DoctorList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
