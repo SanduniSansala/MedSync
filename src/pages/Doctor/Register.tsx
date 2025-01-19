@@ -72,7 +72,7 @@ const Register:React.FC = () => {
           <div className="text-red-500 text-sm mb-4">{errorMessage}</div>
         )}
         <button
-          onClick={() => navigate("/Form")}
+          onClick={() => navigate("/Schedule")}
           className="w-full bg-primary-color text-white py-2 rounded hover:bg-secondary-color transition" 
         >
           Login
