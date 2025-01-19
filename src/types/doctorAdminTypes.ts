@@ -1,7 +1,4 @@
 export interface DoctorAdmin {
-    doctorID?: string;
-    name: string;
-    contactNumber: string;
-    speciality: string;
+    adminId?: string;
     password: string;
 }
