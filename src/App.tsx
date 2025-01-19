@@ -15,6 +15,7 @@ import Schedule from "./pages/doctor/Schedule";
 import AHome from "./pages/admin/AHome";
 import NotFoundPage from "./pages/patient/NotFoundPage";
 import { Profile } from "./pages/patient/Profile";
+import PatientLogin from "./pages/patient/PatientLogin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -23,8 +24,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/DoctorChannel" >
-        <Route index element={<DoctorChannel />}/>
+        <Route path="/DoctorChannel">
+        <Route index element={<DoctorChannel />} />
           <Route path="Channel" element={<Channel />} />
         </Route>
         <Route path="/Book" element={<Book />} />
@@ -38,8 +39,10 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Shedule" element={<Schedule />} />
         <Route path="/AHome" element={<AHome />} />
-        <Route path="/NotFoundPage" element={<NotFoundPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/PatientLogin" element={<PatientLogin />} />
+
       </Routes>
     </BrowserRouter>
   );
