@@ -14,7 +14,7 @@ import Register from "./pages/doctor/Register";
 import Schedule from "./pages/doctor/Schedule";
 import AHome from "./pages/admin/AHome";
 import NotFoundPage from "./pages/patient/NotFoundPage";
-import { Profile } from "./pages/patient/Profile";
+//import Profile from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -39,7 +39,7 @@ function App() {
         <Route path="/Shedule" element={<Schedule />} />
         <Route path="/AHome" element={<AHome />} />
         <Route path="/*" element={<NotFoundPage />} />
-        <Route path="/Profile" element={<Profile />} />
+       
         <Route path="/PatientLogin" element={<PatientLogin />} />
 
       </Routes>
