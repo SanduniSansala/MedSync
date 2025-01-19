@@ -3,14 +3,20 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
 
-
 const PatientLogin: React.FC = () => {
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = () => {
-
+    if (!email || !password) {
+      setError("Email and password are both required.");
+      return;
+    }
+    setError("");
+    // Add your login logic here
+    navigate("/Profile");
   };
 
   return (
@@ -29,7 +35,7 @@ const PatientLogin: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div>password</div>
+            <div>Password</div>
             <div>
               <input
                 className="border w-full"
@@ -38,9 +44,12 @@ const PatientLogin: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            {error && (
+              <div className="col-span-2 text-red-500">{error}</div>
+            )}
             <div className="col-span-2">
               <button
-                onClick={() => navigate("/Profile")}
+                onClick={handleSubmit}
                 className="bg-emerald-600 p-3 rounded-lg text-white"
               >
                 Login
