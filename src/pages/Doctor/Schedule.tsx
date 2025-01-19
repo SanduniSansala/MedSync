@@ -11,10 +11,7 @@ const Schedule: React.FC = () => {
   const timeSlots = [
     { id: 1, time: "09:00 AM", available: 10 },
     { id: 2, time: "10:00 AM", available: 8 },
-    { id: 3, time: "11:00 AM", available: 5 },
-    { id: 4, time: "02:00 PM", available: 12 },
-    { id: 5, time: "03:00 PM", available: 6 },
-    { id: 6, time: "04:00 PM", available: 4 },
+    
   ];
 
   const handleDateChange = (value: string) => {
