@@ -10,7 +10,7 @@ const Schedule: React.FC = () => {
 
   const timeSlots = [
     { id: 1, time: "09:00 AM", available: 10 },
-    { id: 2, time: "10:00 AM", available: 8 },
+    { id: 2, time: "10:00 AM", available: 8 }, 
     
   ];
 
