@@ -3,6 +3,7 @@ import { useState } from "react";
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
+import { createPatient } from "../../services/PatientRoutes";
 
 interface GetInfo {
   Name: string;
@@ -13,7 +14,7 @@ interface GetInfo {
 }
 
 const GetInfo: React.FC = () => {
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   const [GetInfo, setGetInfo] = useState<GetInfo>({
     Name: "",
     nic: "",
@@ -52,22 +53,26 @@ const GetInfo: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value, type } = e.target as HTMLInputElement;
     setGetInfo({
       ...GetInfo,
-      [name]: type === "checkbox" ? ( e.target as HTMLInputElement).checked : value,
+      [name]:
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     });
 
     // Clear errors on change
     setErrors({ ...errors, [name]: "" });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
 
-      
 
       console.log("Form submitted successfully: ", GetInfo);
       alert("Form submitted successfully!");
@@ -148,33 +153,18 @@ const GetInfo: React.FC = () => {
             {errors.email && <p className="text-primary-color text-sm">{errors.email}</p>}
           </div>
           
-          <div>
-            <label className="block text-gray-700">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              value={GetInfo.password}
-              onChange={handleChange}
-              className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                errors.password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-              }`}
-            />
-            {errors.password && <p className="text-primary-color text-sm">{errors.password}</p>}
-          </div>
+          
           
         </div>
 
 
         {/* Submit Button */}
-        <div>
-          <button
-            type="submit"
-            className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300" 
-             >
-            Submit
-          </button>
-        </div>
+        <button
+              type="submit"
+              className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
+            >
+              Submit
+            </button>
       </form>
     </div>
     <Footer/>
