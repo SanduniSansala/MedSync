@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:underline  hover:text-blue-900">
               Ongoing Number
                 </a></li>
-              <li><a href="#" className="hover:underline  hover:text-blue-900">
+              {/* <li><a href="#" className="hover:underline  hover:text-blue-900">
               Audio/Video Consultation
                 </a></li>
               <li><a href="#" className="hover:underline  hover:text-blue-900">
@@ -31,24 +31,24 @@ const Footer: React.FC = () => {
                 </a></li>
               <li><a href="#" className="hover:underline  hover:text-blue-900">
               Vet Care by SLVA
-                </a></li>
+                </a></li> */}
             </ul>
           </div>
           <div className="w-full md:w-1/3 mb-6">
             <h3 className="text-lg font-bold mb-4">MedSync</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:underline  hover:text-blue-900">
+              {/* <li><a href="#" className="hover:underline  hover:text-blue-900">
               Partners
-                </a></li>
+                </a></li> */}
               <li><a href="#" className="hover:underline  hover:text-blue-900">
               About Us
                 </a></li>
-              <li><a href="#" className="hover:underline hover:text-blue-900">
+              {/* <li><a href="#" className="hover:underline hover:text-blue-900">
               Terms & Conditions
                 </a></li>
               <li><a href="#" className="hover:underline hover:text-blue-900">
               Privacy Notice
-                </a></li>
+                </a></li> */}
               <li><a href="#" className="hover:underline hover:text-blue-900">
               Contact Us
                 </a></li>
@@ -65,18 +65,14 @@ const Footer: React.FC = () => {
                   Facebook
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:underline  hover:text-blue-900">
-                  Twitter
-                </a>
-              </li>
+             
               <li>
                 <a href="#" className="hover:underline hover:text-blue-900">
                   TouTube
                 </a>
               </li>
             </ul>
-            <p className="text-xl">📞
+            <p className="text-xl">
               <a href="tel:+94117990990" className="hover:underline text-red-500  hover:text-blue-900 ">
                  +94 999 999 999
               </a>{" "}
