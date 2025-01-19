@@ -12,6 +12,7 @@ interface PatientInfo {
 }
 
 const PatientRegistration: React.FC = () => {
+    
   const navigate = useNavigate();
   const [patientInfo, setPatientInfo] = useState<PatientInfo>({
     Name: "",
@@ -69,7 +70,6 @@ const PatientRegistration: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       console.log("Form submitted successfully: ", patientInfo);
-      alert("Form submitted successfully!");
       navigate("/Payment");
     } else {
       console.log("Validation errors: ", errors);
