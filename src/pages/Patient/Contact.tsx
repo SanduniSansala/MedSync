@@ -7,6 +7,8 @@ import {
   PhoneCall,
   MailIcon
 } from 'lucide-react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const ContactPage: React.FC = () => {
   const socialLinks = [
@@ -32,8 +34,10 @@ const ContactPage: React.FC = () => {
 
   
   return (
- 
-<div
+ <>
+ <Header/>
+ <div
+  
       className="min-h-screen flex items-center justify-center bg-cover bg-center "
       style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
     >
@@ -95,6 +99,9 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
     </div>
+ <Footer/>
+ </>
+
   );
 };
 
