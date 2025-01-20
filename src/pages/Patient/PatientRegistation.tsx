@@ -3,7 +3,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
 
-interface GetInfo {
+interface PatientInfo {
   Name: string;
   email: string;
   phone: string;
@@ -11,9 +11,10 @@ interface GetInfo {
   password: string;
 }
 
-const GetInfo: React.FC = () => {
+const PatientRegistration: React.FC = () => {
+    
   const navigate = useNavigate();
-  const [getInfo, setGetInfo] = useState<GetInfo>({
+  const [patientInfo, setPatientInfo] = useState<PatientInfo>({
     Name: "",
     nic: "",
     email: "",
@@ -27,22 +28,22 @@ const GetInfo: React.FC = () => {
     const newErrors: { [key: string]: string } = {};
 
     // Name Validation
-    if (!getInfo.Name.trim()) {
+    if (!patientInfo.Name.trim()) {
       newErrors.Name = "Name is required";
     }
 
     // Phone Number Validation (10 digits)
-    if (!/^\d{10}$/.test(getInfo.phone)) {
+    if (!/^\d{10}$/.test(patientInfo.phone)) {
       newErrors.phone = "Phone number must be 10 digits";
     }
 
     // Email Validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(getInfo.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(patientInfo.email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
     // Password Validation
-    if (!getInfo.password.trim()) {
+    if (!patientInfo.password.trim()) {
       newErrors.password = "Password is required";
     }
 
@@ -56,8 +57,8 @@ const GetInfo: React.FC = () => {
     >
   ) => {
     const { name, value, type } = e.target as HTMLInputElement;
-    setGetInfo({
-      ...getInfo,
+    setPatientInfo({
+      ...patientInfo,
       [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     });
 
@@ -68,8 +69,7 @@ const GetInfo: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form submitted successfully: ", getInfo);
-      alert("Form submitted successfully!");
+      console.log("Form submitted successfully: ", patientInfo);
       navigate("/Payment");
     } else {
       console.log("Validation errors: ", errors);
@@ -89,7 +89,7 @@ const GetInfo: React.FC = () => {
                 type="text"
                 name="Name"
                 placeholder="Enter your name"
-                value={getInfo.Name}
+                value={patientInfo.Name}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.Name ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -104,7 +104,7 @@ const GetInfo: React.FC = () => {
                 type="tel"
                 name="phone"
                 placeholder="Enter your phone number"
-                value={getInfo.phone}
+                value={patientInfo.phone}
                 onChange={handleChange}
                 maxLength={10}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
@@ -119,7 +119,7 @@ const GetInfo: React.FC = () => {
                 type="text"
                 name="nic"
                 placeholder="Enter your NIC"
-                value={getInfo.nic}
+                value={patientInfo.nic}
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
@@ -130,7 +130,7 @@ const GetInfo: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                value={getInfo.email}
+                value={patientInfo.email}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.email ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -144,7 +144,7 @@ const GetInfo: React.FC = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                value={getInfo.password}
+                value={patientInfo.password}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -166,4 +166,4 @@ const GetInfo: React.FC = () => {
   );
 };
 
-export default GetInfo;
+export default PatientRegistration;
