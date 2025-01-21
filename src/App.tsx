@@ -9,8 +9,7 @@ import Contact from "./pages/patient/Contact";
 import PatientRegistration from "./pages/patient/PatientRegistation";
 import Payment from "./pages/patient/Payment";
 import Doctor from "./pages/doctor/Doctor";
-import Form from "./pages/doctor/Form";
-import DLoging from "./pages/doctor/DLoging";
+import Form from "./pages/admin/AddDoctor";
 import DoctorLogin from "./pages/doctor/DoctorLogin";
 import Schedule from "./pages/doctor/Schedule";
 import Admin from "./pages/admin/Admin";
@@ -19,6 +18,8 @@ import Profile from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
 import AdminProfile from "./pages/admin/AdminProfile";
 import DocterList from "./components/DoctorList";
+import AddDoctor from "./pages/admin/AddDoctor";
+import { PatientList } from "./pages/admin/PatientList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -37,7 +38,6 @@ function App() {
         <Route path="/Payment" element={<Payment />} />
         <Route path="/Doctor" element={<Doctor />} />
         <Route path="/Form" element={<Form />} />
-        <Route path="/DLoging" element={<DLoging />} />
         <Route path="/DoctorLogin" element={<DoctorLogin />} />
         <Route path="/Schedule" element={<Schedule />} />
         <Route path="/Admin" element={<Admin />} />
@@ -46,7 +46,8 @@ function App() {
         <Route path="/AdminProfile" element={<AdminProfile />} />
         <Route path="/DoctorList" element={<DocterList />} />
         <Route path="/Profile" element={<Profile />} />
-
+        <Route path="/AddDoctor" element={<AddDoctor />} />
+        <Route path="/DoctorList" element={<PatientList />} />
       </Routes>
     </BrowserRouter>
   );
