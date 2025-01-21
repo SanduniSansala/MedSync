@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
+import apiClient from '../../axios/axios'; // Make sure to import your apiClient
 
 interface PatientInfo {
   Name: string;
@@ -12,7 +13,6 @@ interface PatientInfo {
 }
 
 const PatientRegistration: React.FC = () => {
-    
   const navigate = useNavigate();
   const [patientInfo, setPatientInfo] = useState<PatientInfo>({
     Name: "",
@@ -69,17 +69,22 @@ const PatientRegistration: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form submitted successfully: ", patientInfo);
-      navigate("/Payment");
+      try {
+        const response = await apiClient.post('/patient/create', patientInfo);
+        console.log('Form submitted successfully:', response.data);
+        navigate("/Profile", { state: { patientInfo } });
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      }
     } else {
-      console.log("Validation errors: ", errors);
+      console.log("Validation errors:", errors);
     }
   };
 
   return (
     <>
       <Header />
-      <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md h-96">
+      <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
         <h2 className="text-3xl font-bold text-center mb-4">Registration</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
