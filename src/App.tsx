@@ -11,7 +11,7 @@ import Payment from "./pages/patient/Payment";
 import DHome from "./pages/doctor/DHome";
 import Form from "./pages/doctor/Form";
 import DLoging from "./pages/doctor/DLoging";
-import Register from "./pages/doctor/Register";
+import DoctorLogin from "./pages/doctor/DoctorLogin";
 import Schedule from "./pages/doctor/Schedule";
 import AHome from "./pages/admin/AHome";
 import NotFoundPage from "./pages/patient/NotFoundPage";
@@ -38,7 +38,7 @@ function App() {
         <Route path="/DHome" element={<DHome />} />
         <Route path="/Form" element={<Form />} />
         <Route path="/DLoging" element={<DLoging />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/DoctorLogin" element={<DoctorLogin />} />
         <Route path="/Schedule" element={<Schedule />} />
         <Route path="/AHome" element={<AHome />} />
         <Route path="/*" element={<NotFoundPage />} />
