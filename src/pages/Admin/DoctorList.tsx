@@ -4,7 +4,7 @@ export const DoctorList:React.FC = () => {
   return (
     <>
     <div>
-        
+
     </div>
     </>
   )
