@@ -1,6 +1,6 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom"
-
+import apiClient from '../axios/axios';
 interface ChannelCard {
     name: string;
     specialty: string;
@@ -8,7 +8,6 @@ interface ChannelCard {
 const ChannelCard:React.FC= () => {
     const navigate= useNavigate();
     const doctors: ChannelCard[] = [
-        { name: "Prof. SISIRA RANARAJA", specialty: "Obstetrician & Gynaecologist" },
     { name: "Dr. JOHN DOE", specialty: "Cardiologist" },
     { name: "Dr. JANE SMITH", specialty: "Dermatologist" },
     { name: "Dr. ALEX BROWN", specialty: "Pediatrician" },
