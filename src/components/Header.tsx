@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-full flex justify-center bg-background-color items-center ">
-      <div className="flex flex-row container bg-background-color px- ">
+      <div className="flex flex-row container bg-background-color  ">
         <div className="basis-1/4 hover:cursor-pointer" onClick={() => navigate("/")} >
           <img 
             className="flex items-center w-[130px]  rounded-xl"
