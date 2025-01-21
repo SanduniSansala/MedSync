@@ -28,15 +28,15 @@ const Dheader: React.FC = () => {
           </div>
           <div
             className=" hover:text-[#007E85] bg-white p-2 rounded-md"
-            onClick={() => navigate("/Register")}
+            onClick={() => navigate("/DoctorLogin")}
           >
-            Register
+            Login
           </div>
           <div
             className=" hover:text-[#007E85] bg-white p-2 rounded-md"
-            onClick={() => navigate("/DLoging")}
+            onClick={() => navigate("/Form")}
           >
-            Loging
+            Register
           </div>
           </div>
           <div className="relative">
