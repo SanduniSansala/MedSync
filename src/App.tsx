@@ -8,12 +8,12 @@ import Book from "./pages/patient/Book";
 import Contact from "./pages/patient/Contact";
 import PatientRegistration from "./pages/patient/PatientRegistation";
 import Payment from "./pages/patient/Payment";
-import DHome from "./pages/doctor/DHome";
+import Doctor from "./pages/doctor/Doctor";
 import Form from "./pages/doctor/Form";
 import DLoging from "./pages/doctor/DLoging";
 import DoctorLogin from "./pages/doctor/DoctorLogin";
 import Schedule from "./pages/doctor/Schedule";
-import AHome from "./pages/admin/AHome";
+import Admin from "./pages/admin/Admin";
 import NotFoundPage from "./pages/patient/NotFoundPage";
 import Profile from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
@@ -35,12 +35,12 @@ function App() {
         <Route path="/ContactUs" element={<Contact />} />
         <Route path="/PatientRegistration" element={<PatientRegistration/>} />
         <Route path="/Payment" element={<Payment />} />
-        <Route path="/DHome" element={<DHome />} />
+        <Route path="/Doctor" element={<Doctor />} />
         <Route path="/Form" element={<Form />} />
         <Route path="/DLoging" element={<DLoging />} />
         <Route path="/DoctorLogin" element={<DoctorLogin />} />
         <Route path="/Schedule" element={<Schedule />} />
-        <Route path="/AHome" element={<AHome />} />
+        <Route path="/Admin" element={<Admin />} />
         <Route path="/*" element={<NotFoundPage />} />
         <Route path="/PatientLogin" element={<PatientLogin />} />
         <Route path="/AdminProfile" element={<AdminProfile />} />

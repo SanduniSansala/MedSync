@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import bgimg from "../../assets/images/1.png";
 
-const MyBooking: React.FC = () => {
+const DoctorChannel: React.FC = () => {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     //stop refresh page
@@ -17,8 +17,8 @@ const MyBooking: React.FC = () => {
     const data = {
       name: formData.get("name"),
       special: formData.get("special"),
-    }
-    fetch( `${import.meta.env.VITE_API_BASE_URL}/api/doctor`, {
+    };
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/doctor`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,6 @@ const MyBooking: React.FC = () => {
       .catch((err) => console.error("Error fetching data:", err));
     //api
 
-
     const name = formData.get("name");
     console.log(name);
     const special = formData.get("special");
@@ -45,7 +44,7 @@ const MyBooking: React.FC = () => {
         confirmButtonColor: "#6eab36", // Orange color
       });
     } else if (name != "Select") {
-      navigate("/DoctorChannel/Channel");    
+      navigate("/DoctorChannel/Channel");
     } else {
       navigate("/Book");
     }
@@ -84,13 +83,12 @@ const MyBooking: React.FC = () => {
               <label className="block text-sm font-medium text-gray-700">
                 <span className="flex items-center">Doctor</span>
               </label>
-              <select
-                className="w-full border border-gray-300 rounded-md py-2 px-3 "
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded-md py-2 px-3"
                 name="special"
-              >
-                <option>Select</option>
-                <option>Name</option>
-              </select>
+                placeholder="Enter doctor's name"
+              />
               <br />
               <br />
             </div>
@@ -110,4 +108,4 @@ const MyBooking: React.FC = () => {
   );
 };
 
-export default MyBooking;
+export default DoctorChannel;

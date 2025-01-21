@@ -54,7 +54,7 @@ export const ProfileHeader:React.FC = () => {
       User
       </button>
 
-      {/* Dropdown Menu */}
+      Dropdown Menu
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg font-semibold">
           <Link
