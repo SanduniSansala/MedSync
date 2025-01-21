@@ -2,7 +2,7 @@ import axios from "axios";
 import { Patient } from "../types/patientTypes";
 import apiClient from "../axios/axios";
 
-const BASE_URL = "http://localhost:8080/Patients";
+const BASE_URL = "http://localhost:8080/patient";
 
 
 export const createPatient = async (patient: Patient) => {
@@ -14,13 +14,19 @@ export const createPatient = async (patient: Patient) => {
 }
 
 export const getPatientById = async (id: string) => {
-    const response = await axios.get<Patient>(`${BASE_URL}/getById/${id}`);
-    return response.data;
+    apiClient.post('/patient/getById/{id}').then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(err);
+    });
 }
 
-export const getAllPatients = async () => {
-    const response = await axios.get<Patient[]>(`${BASE_URL}/getAll`);
-    return response.data;
+export const getAllPatients = async (patient:Patient) => {
+     apiClient.post('/patient/getAll', patient).then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(err);
+    });
 }
 
 export const updatePatient = async (id: string, patient: Patient) => {
