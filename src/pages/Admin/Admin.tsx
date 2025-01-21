@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
-import Dheader from '../../components/Dheader';
 import bgimg from '../../assets/Images/1.png';
+import image from '../../assets/Images/logo.png';
 
 const Admin: React.FC = () => {
   const navigate = useNavigate();
@@ -24,14 +24,29 @@ const Admin: React.FC = () => {
 
   return (
     <div>
-      <Dheader />
+      <div className="w-full flex justify-center bg-background-color items-center ">
+      <div className="flex flex-row container bg-background-color  ">
+        <div
+          className="basis-1/4 hover:cursor-pointer"
+          onClick={() => navigate("/Admin")}
+        >
+          <img
+            className="flex items-center w-[130px]  rounded-xl"
+            src={image}
+            alt="logo"
+          />
+        </div>
+        
+       
+      </div>
+    </div>
       <div
         className="flex justify-center py-3 bg-cover"
         style={{ backgroundImage: `url(${bgimg})` }}
       >
         <div className="bg-white/65 shadow-lg rounded-lg p-8 max-w-sm w-full">
           <h2 className="text-2xl font-bold text-center text-black mb-6">
-            Login Page
+            Admin Login Page
           </h2>
           <div className="mb-4">
             <label htmlFor="userId" className="block text-gray-600 font-medium mb-2">

@@ -1,9 +1,12 @@
+
+
+
 import React, { useState } from 'react';
 import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import AdminHeader from '../../components/AdminHeader';
 import apiClient from '../../axios/axios'; // Make sure to import your apiClient
 
-interface DoctorInfo {
+interface AddDoctor {
   name: string;
   email: string;
   phone: string;
@@ -11,8 +14,8 @@ interface DoctorInfo {
   password: string;
 }
 
-const Form: React.FC = () => {
-  const [doctorInfo, setDoctorInfo] = useState<DoctorInfo>({
+const AddDoctor: React.FC = () => {
+  const [Add, setAdd] = useState<AddDoctor>({
     name: "",
     email: "",
     phone: "",
@@ -26,22 +29,22 @@ const Form: React.FC = () => {
     const newErrors: { [key: string]: string } = {};
 
     // Name Validation
-    if (!doctorInfo.name.trim()) {
+    if (!Add.name.trim()) {
       newErrors.name = "Name is required";
     }
 
     // Phone Number Validation (10 digits)
-    if (!/^\d{10}$/.test(doctorInfo.phone)) {
+    if (!/^\d{10}$/.test(Add.phone)) {
       newErrors.phone = "Phone number must be 10 digits";
     }
 
     // Email Validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(doctorInfo.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Add.email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
     // Password Validation
-    if (!doctorInfo.password.trim()) {
+    if (!Add.password.trim()) {
       newErrors.password = "Password is required";
     }
 
@@ -55,8 +58,8 @@ const Form: React.FC = () => {
     >
   ) => {
     const { name, value, type } = e.target as HTMLInputElement;
-    setDoctorInfo({
-      ...doctorInfo,
+    setAdd({
+      ...Add,
       [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     });
 
@@ -68,8 +71,8 @@ const Form: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       try {
-        const response = await apiClient.post('/Docter/create', doctorInfo);
-        console.log('Form submitted successfully:', response.data);
+        const response = await apiClient.post('/Docter/create', Add);
+        console.log('Addeded Doctor successfully:', response.data);
         // Navigate to another page or show a success message
       } catch (error) {
         console.error('Error submitting form:', error);
@@ -81,9 +84,9 @@ const Form: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <AdminHeader />
       <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
-        <h2 className="text-3xl font-bold text-center mb-4">Doctor Registration</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">Add Doctor </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -92,7 +95,7 @@ const Form: React.FC = () => {
                 type="text"
                 name="name"
                 placeholder="Enter your name"
-                value={doctorInfo.name}
+                value={Add.name}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.name ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -107,7 +110,7 @@ const Form: React.FC = () => {
                 type="tel"
                 name="phone"
                 placeholder="Enter your phone number"
-                value={doctorInfo.phone}
+                value={Add.phone}
                 onChange={handleChange}
                 maxLength={10}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
@@ -122,7 +125,7 @@ const Form: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                value={doctorInfo.email}
+                value={Add.email}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.email ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -136,7 +139,7 @@ const Form: React.FC = () => {
                 type="text"
                 name="specialization"
                 placeholder="Enter your specialization"
-                value={doctorInfo.specialization}
+                value={Add.specialization}
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
@@ -147,7 +150,7 @@ const Form: React.FC = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                value={doctorInfo.password}
+                value={Add.password}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -169,4 +172,4 @@ const Form: React.FC = () => {
   );
 };
 
-export default Form;
+export default AddDoctor;
