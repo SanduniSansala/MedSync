@@ -1,24 +1,9 @@
+import React from "react";
 
-import React from 'react'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import DocterList from '../../components/DoctorList'
-
-
-const AdminProfile:React.FC = () => {
-
+const AdminProfile: React.FC = () => {
+  return <div>
     
+  </div>;
+};
 
-  return (
-    <div>
-       <Header/>
-
-       <div>
-      `   <DocterList/>
-       </div>
-       <Footer/>
-    </div>
-  )
-}
-
-export default AdminProfile
+export default AdminProfile;

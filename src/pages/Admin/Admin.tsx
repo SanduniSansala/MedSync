@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Dheader from '../../components/Dheader';
 import bgimg from '../../assets/Images/1.png';
 
-const AHome: React.FC = () => {
+const Admin: React.FC = () => {
   const navigate = useNavigate();
 
   const [selectedId, setSelectedId] = useState<string>('');
@@ -75,4 +75,4 @@ const AHome: React.FC = () => {
   );
 };
 
-export default AHome;
+export default Admin;

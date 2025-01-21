@@ -2,10 +2,9 @@ import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import homeimage from "../../assets/Images/Home.png";
-import {LogIn , UserPlus} from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PatientLogin from "./PatientLogin";
+
 
 const Home: React.FC = () => {
   const navigate= useNavigate();
@@ -13,26 +12,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Header />
-      <div className="bg-white/60 rounded-xl shadow-2xl p-8 w-full max-w-md text-center">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Doctor Portal</h2>
-          <p className="text-gray-600 mb-8">Please choose an option below</p>
-          
-          <div className="flex justify-center space-x-6">
-            <button 
-              className="flex flex-col items-center bg-blue-500 text-white p-4 rounded-lg hover:bg-blue-600 transition w-40 " onClick={() => navigate("/")}
-            >
-              <UserPlus size={40} className="mb-2"  />
-              <span>Register</span>
-            </button>
-            
-            <button 
-              className="flex flex-col items-center bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition w-40" onClick={() => navigate("/PatientLogin")}
-            >
-              <LogIn size={40} className="mb-2" />
-              <span>Login</span>
-            </button>
-          </div>
-        </div>
+      
 
       <div className="w-full flex justify-end h-auto items-end">
         <div>
