@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import bgimg from '../../assets/Images/1.png'
 
-const Register:React.FC = () => {
+const DoctorLogin:React.FC = () => {
    const navigate= useNavigate();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -31,7 +31,7 @@ const Register:React.FC = () => {
         style={{backgroundImage:`url(${bgimg})`}}>
         <div className="bg-white/65 shadow-lg rounded-lg p-8 max-w-sm w-full">
         <h2 className="text-2xl font-bold text-center text-black mb-6">
-          Loging Page
+          Login Page
         </h2>
         <div className="mb-4">
           <label
@@ -84,4 +84,4 @@ const Register:React.FC = () => {
   )
 }
 
-export default Register
+export default DoctorLogin
