@@ -38,9 +38,19 @@ const Dprofile:React.FC = () => {
             {isAvailable ? 'Available' : 'Unavailable'}
           </span>
         </div>
-
-                </div>   
-    
+    </div> 
+    <div className="space-y-6">
+        <div className="space-y-2">
+          <p className="flex items-center gap-2 text-gray-600">
+            <Clock className="w-4 h-4" />
+            Practice: 15+ years
+          </p>
+          <p className="flex items-center gap-2 text-gray-600">
+            <Phone className="w-4 h-4" />
+            Contact: (555) 123-4567
+          </p>
+        </div>
+    </div>
             </div>
             <Footer/>
           
