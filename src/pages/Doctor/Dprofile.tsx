@@ -1,5 +1,7 @@
 import React from 'react';
 import { Calendar, Phone, Clock } from 'lucide-react';
+import Dheader from '../../components/Dheader'
+import Footer from '../../components/Footer'
 
 const DoctorProfile = () => {
     const [isAvailable, setIsAvailable] = React.useState(true);
@@ -14,3 +16,19 @@ const DoctorProfile = () => {
     };
 }
 
+const Loging:React.FC = () => {
+    return (
+      <div>
+          <Dheader/>
+          <div>
+  
+          </div>
+          <Footer/>
+        
+      </div>
+    )
+  }
+  
+  
+  
+    
