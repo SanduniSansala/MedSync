@@ -9,7 +9,14 @@ const Dprofile:React.FC = () => {
             <Dheader/>
             <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
              <div className="text-center">
-                
+             <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+          <img
+            src="/api/placeholder/96/96"
+            alt="Doctor profile"
+            className="rounded-full"
+          />
+        </div>
+        
                 </div>   
     
             </div>
