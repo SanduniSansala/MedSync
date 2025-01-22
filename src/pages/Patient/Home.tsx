@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   const images = [
     '/src/assets/Images/doc1.webp',
     '/src/assets/Images/Doc2.webp',
-    '/src/assets/Images/doctor.jpeg',
+    '/src/assets/Images/Doc3.jpg',
 
   ];
 
