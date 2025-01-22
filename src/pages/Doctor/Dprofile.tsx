@@ -50,8 +50,23 @@ const Dprofile:React.FC = () => {
             Contact: (555) 123-4567
           </p>
         </div>
+        <button 
+            onClick={handleAvailability}
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            <Clock className="w-4 h-4" />
+            Toggle Status
+          </button>
+          
+          <button 
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            Contact
+          </button>
+        </div>
     </div>
-            </div>
+        
             <Footer/>
           
         </div>
