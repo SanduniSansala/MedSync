@@ -77,10 +77,6 @@ const Dprofile:React.FC = () => {
       )
     }  
 
-
-
-    
-  
-  export default Dprofile;
+     export default Dprofile;
   
     
