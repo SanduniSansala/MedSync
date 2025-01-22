@@ -66,7 +66,11 @@ const Dprofile:React.FC = () => {
           </button>
         </div>
     </div>
-        
+    <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+          <h3 className="font-semibold mb-2">Statistics</h3>
+          <p>Total Appointments: {appointmentsCount}</p>
+          <p>Current Status: {isAvailable ? 'Taking Patients' : 'Not Available'}</p>
+        </div> 
             <Footer/>
           
         </div>
