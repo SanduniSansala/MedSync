@@ -16,6 +16,7 @@ import AHome from "./pages/Admin/AHome";
 import NotFoundPage from "./pages/Patient/NotFoundPage";
 import { Profile } from "./pages/Patient/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dprofile from "./pages/Doctor/Dprofile";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/AHome" element={<AHome />} />
         <Route path="/NotFoundPage" element={<NotFoundPage />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/Dprofile" element={<Dprofile />} />
       </Routes>
     </BrowserRouter>
   );
