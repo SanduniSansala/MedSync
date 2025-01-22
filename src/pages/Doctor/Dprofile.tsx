@@ -7,7 +7,10 @@ const Dprofile:React.FC = () => {
     return (
         <div>
             <Dheader/>
-            <div>
+            <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+             <div className="text-center">
+                
+                </div>   
     
             </div>
             <Footer/>
