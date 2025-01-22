@@ -13,3 +13,4 @@ const DoctorProfile = () => {
       setIsAvailable(prev => !prev);
     };
 }
+
