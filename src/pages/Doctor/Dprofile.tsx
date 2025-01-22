@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, Phone, Clock } from 'lucide-react';
 import Dheader from '../../components/Dheader'
 import Footer from '../../components/Footer'
+import homeimage from "../../assets/Images/Home.png";
 
 const Dprofile:React.FC = () => {
     return (
@@ -16,7 +17,8 @@ const Dprofile:React.FC = () => {
             className="rounded-full"
           />
         </div>
-        
+
+
                 </div>   
     
             </div>
