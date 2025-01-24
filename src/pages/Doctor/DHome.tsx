@@ -14,8 +14,13 @@ const DHome:React.FC = () => {
     <div>
         <Dheader/>
         <div>
-
+        
            <main className="flex-grow flex items-center justify-center p-6 ">
+           <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center "
+      style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
+    >
+      </div>
         <div className="bg-white/60 rounded-xl shadow-2xl p-8 w-full max-w-md text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Doctor Portal</h2>
           <p className="text-gray-600 mb-8">Please choose an option below</p>
