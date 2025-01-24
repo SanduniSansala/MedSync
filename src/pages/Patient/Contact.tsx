@@ -37,12 +37,12 @@ const ContactPage: React.FC = () => {
       className="min-h-screen flex items-center justify-center bg-cover bg-center "
       style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
     >
-   <div className="max-w-5xl mx-auto">
-     <div className="bg-white/70 shadow-xl rounded-lg overflow-hidden">
+   <div className="max-w-5xl mx-auto p-2">
+     <div className="bg-white/70 shadow-x1 rounded-lg overflow-hidden ">
 
           
           {/* Contact Information Section */}
-          <div className="px-6 py-8 sm:p-10 ">
+          <div className="px-2 py-2 sm:p-12 width-100">
             <h1 className="text-3xl font-bold text-blue-600 mb-6">Contact Us</h1>
             
             {/* Contact Details */}
