@@ -50,9 +50,7 @@ const Dheader: React.FC = () => {
       </button> 
 
        Dropdown Menu 
-       {isOpen && (
        
-      )}
       
     </div>
           
