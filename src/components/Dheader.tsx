@@ -38,16 +38,16 @@ const Dheader: React.FC = () => {
             onClick={() => navigate("/Form")}
           >
             Register
-          </div> */}
+          </div> 
           </div>
-          <div className="relative">
+          {/* <div className="relative">
       Button to toggle dropdown
       
 
        Dropdown Menu 
        
       
-    </div>
+    </div> */}
           
         </div>
       </div>
