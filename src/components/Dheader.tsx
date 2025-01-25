@@ -42,12 +42,7 @@ const Dheader: React.FC = () => {
           </div>
           <div className="relative">
       Button to toggle dropdown
-      <button
-        className="px-4 py-2 bg-primary-color text-white rounded-md hover:bg-secondary-color focus:outline-none"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        User
-      </button> 
+      
 
        Dropdown Menu 
        
