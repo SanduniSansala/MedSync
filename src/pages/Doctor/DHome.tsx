@@ -18,7 +18,7 @@ const DHome:React.FC = () => {
            <main className="flex-grow flex items-center justify-center p-6 ">
            <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center "
-      style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
+      style={{ backgroundImage: `url('/images/Home.png')` }}
     >
       </div>
         <div className="bg-white/60 rounded-xl shadow-2xl p-8 w-full max-w-md text-center">
