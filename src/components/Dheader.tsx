@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const Dheader: React.FC = () => {
   const navigate= useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   
   return (
     <div>
