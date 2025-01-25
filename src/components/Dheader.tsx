@@ -52,12 +52,7 @@ const Dheader: React.FC = () => {
        Dropdown Menu 
        {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
-          <Link
-            to="/"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Patient
-          </Link>
+          
           
           
         </div>
