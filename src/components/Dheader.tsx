@@ -33,48 +33,14 @@ const Dheader: React.FC = () => {
           >
             Login
           </div>
-          {/* <div
+          <div
             className=" hover:text-[#007E85] bg-white p-2 rounded-md"
             onClick={() => navigate("/Form")}
           >
             Register
-          </div> */}
+          </div> 
           </div>
-          <div className="relative">
-      {/* Button to toggle dropdown */}
-      {/* <button
-        className="px-4 py-2 bg-primary-color text-white rounded-md hover:bg-secondary-color focus:outline-none"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        User
-      </button> */}
-
-      {/* Dropdown Menu */}
-      {/* {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
-          <Link
-            to="/"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Patient
-          </Link>
-          <Link
-            to="/Dhome"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Doctor
-          </Link>
-          <Link
-            to="/AHome"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Admin
-          </Link>
           
-        </div>
-      )} */}
-      
-    </div>
           
         </div>
       </div>
