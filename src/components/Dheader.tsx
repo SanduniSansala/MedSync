@@ -64,12 +64,6 @@ const Dheader: React.FC = () => {
           >
             Doctor
           </Link>
-          <Link
-            to="/AHome"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Admin
-          </Link>
           
         </div>
       )}
