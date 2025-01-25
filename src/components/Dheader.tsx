@@ -40,14 +40,7 @@ const Dheader: React.FC = () => {
             Register
           </div> 
           </div>
-          <div className="relative">
-      Button to toggle dropdown
-      
-
-       Dropdown Menu 
-       
-      
-    </div>
+          
           
         </div>
       </div>
