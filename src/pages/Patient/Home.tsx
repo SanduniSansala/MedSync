@@ -10,9 +10,9 @@ const Home: React.FC = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const images = [
-    '/src/assets/Images/doc1.webp',
-    '/src/assets/Images/Doc2.webp',
-    '/src/assets/Images/Doc3.jpg',
+    '/src/assets/Images/Hospital.png',
+    '/src/assets/Images/Home.png',
+    '/src/assets/Images/Surgery.png',
 
   ];
 
