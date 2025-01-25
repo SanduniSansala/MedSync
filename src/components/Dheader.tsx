@@ -1,12 +1,9 @@
 import React from "react";
 import image from "../assets/images/logo.png";
-import {useState} from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Dheader: React.FC = () => {
   const navigate= useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   
   return (
     <div>
