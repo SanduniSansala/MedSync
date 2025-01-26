@@ -1,4 +1,4 @@
 export interface DoctorAdmin {
-    adminId?: string;
+    adminId: string;
     password: string;
 }

@@ -3,6 +3,6 @@ export interface Booking {
     paymentMethod: string;
     day: string;
     time: string;
-    doctorID: string;
-    patientID: string;   
+    doctorID?: string;
+    patientID?: string;   
 }
