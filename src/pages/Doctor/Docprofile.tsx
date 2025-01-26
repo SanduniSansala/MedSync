@@ -18,7 +18,7 @@ export const Docprofile:React.FC = () => {
            <main className="flex-grow flex items-center justify-center p-6 ">
            <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center "
-      style={{ backgroundImage: `url('/images/doctor.jpeg')` }}
+      style={{ backgroundImage: `url('/images/8.jpg')` }}
     >
            </div>
             </main>  
