@@ -30,6 +30,13 @@ export const Docprofile:React.FC = () => {
               <UserPlus size={40} className="mb-2"  />
               <span>Register</span>
             </button>
+            <button 
+              className="flex flex-col items-center bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition w-40" onClick={() => navigate("/DLoging")}
+            >
+              <LogIn size={40} className="mb-2" />
+              <span>Login</span>
+            </button>
+            
             </div>
           </div>
            </div>
