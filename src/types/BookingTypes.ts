@@ -1,8 +1,8 @@
 export interface Booking {
     id?: string;
-    patientID: string;
-    doctorID: string;
     paymentMethod: string;
     day: string;
-    time: string;   
+    time: string;
+    doctorID: string;
+    patientID: string;   
 }
