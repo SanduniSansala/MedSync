@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Dheader from '../../components/Dheader';
 import Footer from '../../components/Footer';
-// import bgimg from '../../assets/Images/bgimg.jpg';
 const DoctorLogin: React.FC = () => {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState<string>("");
