@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const Docprofile:React.FC = () => {
+  const navigate= useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
   return (
     <div>Docprofile</div>
   )
