@@ -1,25 +1,24 @@
 import "./App.css";
-
 import Home from "./pages/patient/Home";
 import About from "./pages/patient/About";
 import DoctorChannel from "./pages/patient/DoctorChannel";
 import Channel from "./pages/patient/Channel";
 import Book from "./pages/patient/Book";
 import Contact from "./pages/patient/Contact";
-import PatientRegistration from "./pages/patient/PatientRegistation";
+import PatientRegistation from "./pages/patient/PatientRegistation";
 import Payment from "./pages/patient/Payment";
 import Doctor from "./pages/doctor/Doctor";
-import Form from "./pages/admin/AddDoctor";
+import Form from "./pages/Admin/AddDoctor"
 import DoctorLogin from "./pages/doctor/DoctorLogin";
 import Schedule from "./pages/doctor/Schedule";
-import Admin from "./pages/admin/Admin";
+import Admin from "./pages/Admin/Admin";
 import NotFoundPage from "./pages/patient/NotFoundPage";
 import Profile from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
-import AdminProfile from "./pages/admin/AdminProfile";
+import AdminProfile from "./pages/Admin/AdminProfile";
 import DocterList from "./components/DoctorList";
-import AddDoctor from "./pages/admin/AddDoctor";
-import { PatientList } from "./pages/admin/PatientList";
+import AddDoctor from "./pages/Admin/AddDoctor";
+import { PatientList } from "./pages/Admin/PatientList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -34,7 +33,7 @@ function App() {
         </Route>
         <Route path="/Book" element={<Book />} />
         <Route path="/ContactUs" element={<Contact />} />
-        <Route path="/PatientRegistration" element={<PatientRegistration/>} />
+        <Route path="/PatientRegistation" element={<PatientRegistation/>} />
         <Route path="/Payment" element={<Payment />} />
         <Route path="/Doctor" element={<Doctor />} />
         <Route path="/Form" element={<Form />} />
