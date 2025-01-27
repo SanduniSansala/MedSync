@@ -5,13 +5,16 @@ import apiClient from "../axios/axios";
 const BASE_URL = "http://localhost:8080/patient";
 
 
+
 export const createPatient = async (patient: Patient) => {
-    apiClient.post('/patient/create', patient).then((res) => {
+    await axios.post(`${BASE_URL}/patient/create`, patient)
+      .then((res) => {
         console.log(res);
-    }).catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
-    });
-}
+      });
+  };
 
 export const getPatientById = async (id: string) => {
     apiClient.post('/patient/getById/{id}').then((res) => {
