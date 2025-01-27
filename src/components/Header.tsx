@@ -53,6 +53,12 @@ const Header: React.FC = () => {
         >
           Login
         </div>
+        <div
+          className="px-4 py-2 bg-primary-color text-white rounded-md hover:bg-secondary-color focus:outline-none"
+          onClick={() => navigate("/PatientRegistation")}
+        >
+          Register
+        </div>
       </div>
     </div>
   );
