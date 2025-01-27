@@ -2,24 +2,18 @@ import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
-import apiClient from '../../axios/axios'; // Make sure to import your apiClient
+import { createPatient } from '../../services/PatientRoutes';
+import { Patient } from '../../types/patientTypes';
 
-interface PatientInfo {
-  Name: string;
-  email: string;
-  phone: string;
-  nic: string;
-  password: string;
-}
-
-const PatientRegistration: React.FC = () => {
+const PatientRegistation: React.FC = () => {
   const navigate = useNavigate();
-  const [patientInfo, setPatientInfo] = useState<PatientInfo>({
-    Name: "",
-    nic: "",
+  const [patientRegistation, setPatientRegistation] = useState<Patient>({
+    id: "",
+    name: "",
+    NIC: "",
     email: "",
-    phone: "",
-    password: "",
+    Password: "",
+    ContactNo: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -28,23 +22,28 @@ const PatientRegistration: React.FC = () => {
     const newErrors: { [key: string]: string } = {};
 
     // Name Validation
-    if (!patientInfo.Name.trim()) {
-      newErrors.Name = "Name is required";
-    }
-
-    // Phone Number Validation (10 digits)
-    if (!/^\d{10}$/.test(patientInfo.phone)) {
-      newErrors.phone = "Phone number must be 10 digits";
+    if (!patientRegistation.name.trim()) {
+      newErrors.name = "Name is required";
     }
 
     // Email Validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(patientInfo.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(patientRegistation.email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
+    // NIC Validation
+    if (!patientRegistation.NIC.trim()) {
+      newErrors.NIC = "NIC is required";
+    }
+
     // Password Validation
-    if (!patientInfo.password.trim()) {
-      newErrors.password = "Password is required";
+    if (!patientRegistation.Password.trim()) {
+      newErrors.Password = "Password is required";
+    }
+
+    // Contact Number Validation (10 digits)
+    if (!/^\d{10}$/.test(patientRegistation.ContactNo)) {
+      newErrors.ContactNo = "Contact number must be 10 digits";
     }
 
     setErrors(newErrors);
@@ -57,8 +56,8 @@ const PatientRegistration: React.FC = () => {
     >
   ) => {
     const { name, value, type } = e.target as HTMLInputElement;
-    setPatientInfo({
-      ...patientInfo,
+    setPatientRegistation({
+      ...patientRegistation,
       [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     });
 
@@ -70,9 +69,8 @@ const PatientRegistration: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       try {
-        const response = await apiClient.post('/patient/create', patientInfo);
-        console.log('Form submitted successfully:', response.data);
-        navigate("/Profile", { state: { patientInfo } });
+        await createPatient(patientRegistation);
+        navigate('/');
       } catch (error) {
         console.error('Error submitting form:', error);
       }
@@ -92,42 +90,28 @@ const PatientRegistration: React.FC = () => {
               <label className="block text-gray-700">Name</label>
               <input
                 type="text"
-                name="Name"
+                name="name"
                 placeholder="Enter your name"
-                value={patientInfo.Name}
+                value={patientRegistation.name}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.Name ? "border-primary-color" : "focus:ring focus:ring-blue-300"
+                  errors.name ? "border-primary-color" : "focus:ring focus:ring-blue-300"
                 }`}
                 required
               />
-              {errors.Name && <p className="text-primary-color text-sm">{errors.Name}</p>}
-            </div>
-            <div>
-              <label className="block text-gray-700">Phone number</label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Enter your phone number"
-                value={patientInfo.phone}
-                onChange={handleChange}
-                maxLength={10}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.phone ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
-              />
-              {errors.phone && <p className="text-primary-color text-sm">{errors.phone}</p>}
+              {errors.name && <p className="text-primary-color text-sm">{errors.name}</p>}
             </div>
             <div>
               <label className="block text-gray-700">NIC</label>
               <input
                 type="text"
-                name="nic"
+                name="NIC"
                 placeholder="Enter your NIC"
-                value={patientInfo.nic}
+                value={patientRegistation.NIC}
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
+              {errors.NIC && <p className="text-primary-color text-sm">{errors.NIC}</p>}
             </div>
             <div>
               <label className="block text-gray-700">Email</label>
@@ -135,7 +119,7 @@ const PatientRegistration: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                value={patientInfo.email}
+                value={patientRegistation.email}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.email ? "border-primary-color" : "focus:ring focus:ring-blue-300"
@@ -146,16 +130,31 @@ const PatientRegistration: React.FC = () => {
             <div>
               <label className="block text-gray-700">Password</label>
               <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                value={patientInfo.password}
+                type="Password"
+                name="Password"
+                placeholder="Enter your Password"
+                value={patientRegistation.Password}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
+                  errors.Password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
                 }`}
               />
-              {errors.password && <p className="text-primary-color text-sm">{errors.password}</p>}
+              {errors.Password && <p className="text-primary-color text-sm">{errors.Password}</p>}
+            </div>
+            <div>
+              <label className="block text-gray-700">Contact Number</label>
+              <input
+                type="tel"
+                name="ContactNo"
+                placeholder="Enter your contact number"
+                value={patientRegistation.ContactNo}
+                onChange={handleChange}
+                maxLength={10}
+                className={`w-full border rounded px-3 py-2 focus:outline-none ${
+                  errors.ContactNo ? "border-primary-color" : "focus:ring focus:ring-blue-300"
+                }`}
+              />
+              {errors.ContactNo && <p className="text-primary-color text-sm">{errors.ContactNo}</p>}
             </div>
           </div>
           <button
@@ -171,4 +170,4 @@ const PatientRegistration: React.FC = () => {
   );
 };
 
-export default PatientRegistration;
+export default PatientRegistation;

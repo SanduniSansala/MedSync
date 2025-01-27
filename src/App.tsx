@@ -1,25 +1,23 @@
 import "./App.css";
-
-import Home from "./pages/Patient/Home";
-import About from "./pages/Patient/About";
-import DoctorChannel from "./pages/Patient/DoctorChannel";
-import Channel from "./pages/Patient/Channel";
-import Book from "./pages/Patient/Book";
-import Contact from "./pages/Patient/Contact";
-import PatientRegistration from "./pages/Patient/PatientRegistation";
-import Payment from "./pages/Patient/Payment";
-import Doctor from "./pages/Doctor/Doctor";
-import Form from "./pages/Admin/AddDoctor";
-import DoctorLogin from "./pages/Doctor/DoctorLogin";
-import Schedule from "./pages/Doctor/Schedule";
+import Home from "./pages/patient/Home";
+import About from "./pages/patient/About";
+import DoctorChannel from "./pages/patient/DoctorChannel";
+import Channel from "./pages/patient/Channel";
+import Book from "./pages/patient/Book";
+import Contact from "./pages/patient/Contact";
+import PatientRegistation from "./pages/patient/PatientRegistation";
+import Payment from "./pages/patient/Payment";
+import Doctor from "./pages/doctor/Doctor";
+import Form from "./pages/Admin/AddDoctor"
+import DoctorLogin from "./pages/doctor/DoctorLogin";
+import Schedule from "./pages/doctor/Schedule";
 import Admin from "./pages/Admin/Admin";
-import NotFoundPage from "./pages/Patient/NotFoundPage";
-import Profile from "./pages/Patient/Profile";
-import PatientLogin from "./pages/Patient/PatientLogin";
+import NotFoundPage from "./pages/patient/NotFoundPage";
+import Profile from "./pages/patient/Profile";
+import PatientLogin from "./pages/patient/PatientLogin";
 import AdminProfile from "./pages/Admin/AdminProfile";
 import DocterList from "./components/DoctorList";
 import AddDoctor from "./pages/Admin/AddDoctor";
-import Docprofile from "./pages/Doctor/Docprofile";
 import { PatientList } from "./pages/Admin/PatientList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -35,7 +33,7 @@ function App() {
         </Route>
         <Route path="/Book" element={<Book />} />
         <Route path="/ContactUs" element={<Contact />} />
-        <Route path="/PatientRegistration" element={<PatientRegistration/>} />
+        <Route path="/PatientRegistation" element={<PatientRegistation/>} />
         <Route path="/Payment" element={<Payment />} />
         <Route path="/Doctor" element={<Doctor />} />
         <Route path="/Form" element={<Form />} />
