@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import AdminHeader from '../../components/AdminHeader';
 import apiClient from '../../axios/axios'; // Make sure to import your apiClient
-import { AtSign, Phone, User, KeyRound, Stethoscope, Hospital } from 'lucide-react';
-
 
 interface AddDoctor {
   name: string;
@@ -143,10 +141,7 @@ const AddDoctor: React.FC = () => {
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
             </div>
-
-            {/*Password Input*/}
-            <div >
-           
+            <div>
               <label className="block text-gray-700">Password</label>
               <input
                 type="password"
@@ -161,8 +156,6 @@ const AddDoctor: React.FC = () => {
               {errors.password && <p className="text-primary-color text-sm">{errors.password}</p>}
             </div>
           </div>
-
-          {/*Submit button*/} 
           <button
             type="submit"
             className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
