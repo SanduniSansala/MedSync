@@ -146,9 +146,7 @@ const AddDoctor: React.FC = () => {
 
             {/*Password Input*/}
             <div >
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <KeyRound className="text-primary-color" />
-            </div>
+           
               <label className="block text-gray-700">Password</label>
               <input
                 type="password"
