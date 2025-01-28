@@ -143,7 +143,12 @@ const AddDoctor: React.FC = () => {
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
             </div>
-            <div>
+
+            {/*Password Input*/}
+            <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <KeyRound className="text-primary-color" />
+            </div>
               <label className="block text-gray-700">Password</label>
               <input
                 type="password"
@@ -158,6 +163,8 @@ const AddDoctor: React.FC = () => {
               {errors.password && <p className="text-primary-color text-sm">{errors.password}</p>}
             </div>
           </div>
+
+          {/*Submit button*/} 
           <button
             type="submit"
             className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
