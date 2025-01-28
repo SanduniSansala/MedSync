@@ -45,36 +45,20 @@ import { useNavigate } from 'react-router-dom';
 
      <div className="space-y-6">
         <div className="space-y-2">
+          <div>
         <label className="block text-gray-700">Specialization</label>
         <p className="border rounded px-3 py-2"></p>
-            
-           
+            </div> 
+          <div>
           
-          <p className="flex items-center gap-2 text-gray-600">
-            <Phone className="w-4 h-4" />
-            Contact: (555) 123-4567
-          </p>
-        </div>
-        <button 
-            onClick={handleAvailability}
-            className="flex items-center justify-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            <Clock className="w-4 h-4" />
-            Toggle Status
-          </button>
-          
-          <button 
-            className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            Contact
-          </button>
-        </div>
+          <label className="block text-gray-700">Phone number</label>
+          <p className="border rounded px-3 py-2"></p>
+            </div>
+           </div>
+      </div>
     </div>
     <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-          <h3 className="font-semibold mb-2">Statistics</h3>
-          <p>Total Appointments: {appointmentsCount}</p>
-          <p>Current Status: {isAvailable ? 'Taking Patients' : 'Not Available'}</p>
+          
         </div> 
             <Footer/>
           
