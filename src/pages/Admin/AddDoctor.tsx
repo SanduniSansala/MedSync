@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import AdminHeader from '../../components/AdminHeader';
 import apiClient from '../../axios/axios'; // Make sure to import your apiClient
+import { AtSign, Phone, User, KeyRound, Stethoscope, Hospital } from 'lucide-react';
+
 
 interface AddDoctor {
   name: string;
