@@ -38,8 +38,8 @@ const AddDoctor: React.FC = () => {
             <label htmlFor="doctorID">Doctor ID</label>
             <input
               type="text"
-              id="doctorID"
-              name="doctorID"
+              id="docterID"
+              name="docterID"
               className="form-control"
               value={doctor.docterID}
               onChange={handleChange}
