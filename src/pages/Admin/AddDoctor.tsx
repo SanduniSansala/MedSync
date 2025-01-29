@@ -5,7 +5,7 @@ import { createDoctor, Doctor } from '../../services/DoctorRoutes';
 
 const AddDoctor: React.FC = () => {
   const [doctor, setDoctor] = useState<Doctor>({
-    doctorID: "",
+    docterID: "",
     name: "",
     email: "",
     contactNumber: "",
@@ -41,7 +41,7 @@ const AddDoctor: React.FC = () => {
               id="doctorID"
               name="doctorID"
               className="form-control"
-              value={doctor.doctorID}
+              value={doctor.docterID}
               onChange={handleChange}
               required
             />
