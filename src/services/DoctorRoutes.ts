@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:8080/doctor';
 
 export interface Doctor {
-  doctorID: string;
+  docterID: string;
   name: string;
   email: string;
   contactNumber: string;
