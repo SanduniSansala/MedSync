@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import Footer from '../../components/Footer';
-import AdminHeader from '../../components/AdminHeader';
-import { createDoctor, Doctor } from '../../services/DoctorRoutes';
+import React, { useEffect, useState } from "react";
+import Footer from "../../components/Footer";
+import AdminHeader from "../../components/AdminHeader";
+import { createDoctor, Doctor } from "../../services/DoctorRoutes";
+import apiClient from "../../axios/axios";
 
 const AddDoctor: React.FC = () => {
   const [doctor, setDoctor] = useState<Doctor>({
-    doctorID: "",
+    docterID: "",
     name: "",
     email: "",
     contactNumber: "",
@@ -24,7 +25,7 @@ const AddDoctor: React.FC = () => {
       await createDoctor(doctor);
       // Add navigation or success message here if needed
     } catch (error) {
-      console.error('Error creating doctor:', error);
+      console.error("Error creating doctor:", error);
     }
   };
 
@@ -41,7 +42,7 @@ const AddDoctor: React.FC = () => {
               id="doctorID"
               name="doctorID"
               className="form-control"
-              value={doctor.doctorID}
+              value={doctor.docterID}
               onChange={handleChange}
               required
             />
