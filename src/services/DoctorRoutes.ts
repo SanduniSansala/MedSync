@@ -13,22 +13,24 @@ export interface Doctor {
 }
 
 export const createDoctor = async (doctor: Doctor) => {
-  try {
-    const response = await apiClient.post(`${BASE_URL}/create`, doctor);
-    return response.data;
-  } catch (err) {
+
+  apiClient.post('/Docter/create', doctor).then((res) => {
+    console.log(res.data);
+  }).catch((err) => {
     console.log(err);
-  }
+  })
 };
 
 export const getDoctorById = async (id: string) => {
-  await axios.get<Doctor>(`${BASE_URL}/getById/${id}`)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+  apiClient.get(`/Docter/getById/${id}`).then((res) => {
+    console.log(res.data);
+  }).catch((err) => {
+    console.log(err);
+  })
+
+  // const response = await axios.get<Doctor>(`${BASE_URL}/getById/${id}`);
+  // return response.data;
 };
 
 export const getAllDoctors = async () => {

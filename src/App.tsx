@@ -47,6 +47,7 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/AddDoctor" element={<AddDoctor />} />
         <Route path="/DoctorList" element={<PatientList />} />
+        
       </Routes>
     </BrowserRouter>
   );
