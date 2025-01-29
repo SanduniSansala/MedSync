@@ -1,6 +1,7 @@
 import axios from 'axios';
+import apiClient from '../axios/axios';
 
-const BASE_URL = 'http://localhost:8080/doctor';
+const BASE_URL = 'http://localhost:8081/doctor';
 
 export interface Doctor {
   docterID: string;
@@ -13,7 +14,7 @@ export interface Doctor {
 
 export const createDoctor = async (doctor: Doctor) => {
   try {
-    const response = await axios.post(`${BASE_URL}/create`, doctor);
+    const response = await apiClient.post(`${BASE_URL}/create`, doctor);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -21,21 +22,41 @@ export const createDoctor = async (doctor: Doctor) => {
 };
 
 export const getDoctorById = async (id: string) => {
-  const response = await axios.get<Doctor>(`${BASE_URL}/getById/${id}`);
-  return response.data;
+  await axios.get<Doctor>(`${BASE_URL}/getById/${id}`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export const getAllDoctors = async () => {
-  const response = await axios.get<Doctor[]>(`${BASE_URL}/getAll`);
-  return response.data;
+  await axios.get<Doctor[]>(`${BASE_URL}/getAll`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export const updateDoctor = async (id: string, doctor: Doctor) => {
-  const response = await axios.put<Doctor>(`${BASE_URL}/update/${id}`, doctor);
-  return response.data;
+  await axios.put<Doctor>(`${BASE_URL}/update/${id}`, doctor)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export const deleteDoctor = async (id: string) => {
-  const response = await axios.delete<string>(`${BASE_URL}/delete/${id}`);
-  return response.data;
+  await axios.delete<string>(`${BASE_URL}/delete/${id}`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
