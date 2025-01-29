@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Footer from "../../components/Footer";
-import AdminHeader from "../../components/AdminHeader";
-import { createDoctor, Doctor } from "../../services/DoctorRoutes";
-import apiClient from "../../axios/axios";
+import React, { useState } from 'react';
+import Footer from '../../components/Footer';
+import AdminHeader from '../../components/AdminHeader';
+import { createDoctor, Doctor } from '../../services/DoctorRoutes';
 
 const AddDoctor: React.FC = () => {
   const [doctor, setDoctor] = useState<Doctor>({
@@ -25,7 +24,7 @@ const AddDoctor: React.FC = () => {
       await createDoctor(doctor);
       // Add navigation or success message here if needed
     } catch (error) {
-      console.error("Error creating doctor:", error);
+      console.error('Error creating doctor:', error);
     }
   };
 
