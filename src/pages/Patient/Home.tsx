@@ -125,7 +125,7 @@ const Home: React.FC = () => {
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold mb-4">About MedSync</h3>
-            <p className="text-gray-600">Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <p className="text-gray-600">Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold mb-4">Feature 3</h3>
