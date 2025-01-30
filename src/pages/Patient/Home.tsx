@@ -77,7 +77,7 @@ const Home: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                   <div className="text-center text-white">
-                    <h2 className="text-4xl font-bold mb-4">Welcome to Our Site</h2>
+                    <h2 className="text-4xl font-bold mb-4">Welcome to MedSync</h2>
                     <p className="text-xl mb-6">Discover amazing content and features</p>
                     <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors">
                       Get Started
