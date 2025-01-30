@@ -128,7 +128,7 @@ const Home: React.FC = () => {
             <p className="text-gray-600">Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Feature 3</h3>
+            <h3 className="text-xl font-bold mb-4">Awards & Recognition</h3>
             <p className="text-gray-600">Ut enim ad minim veniam, quis nostrud exercitation.</p>
           </div>
         </div>
