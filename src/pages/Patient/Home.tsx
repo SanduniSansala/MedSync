@@ -129,7 +129,7 @@ const Home: React.FC = () => {
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold mb-4">Awards & Recognition</h3>
-            <p className="text-gray-600">Ut enim ad minim veniam, quis nostrud exercitation.</p>
+            <p className="text-gray-600">The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health, including Magnet Recognition and Level 1 Surgical Center.</p>
           </div>
         </div>
       </div>
