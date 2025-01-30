@@ -64,15 +64,13 @@ const Home: React.FC = () => {
           className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-<div className="flex h-full">
+    <div className="flex h-full">
             {images.map((src, index) => (
               <div
                 key={index}
                 className="min-w-full h-full relative"
               >
-<img
-                  src={src}
-                  alt={`Slide ${index + 1}`}
+              <img src={src} alt={`Slide ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
@@ -117,24 +115,12 @@ const Home: React.FC = () => {
       </div>
 
       {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Meet Our Doctors</h3>
-            <p className="text-gray-600">The medical team at MedSync provides the highest quality healthcare for patients.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">About MedSync</h3>
-            <p className="text-gray-600">Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Awards & Recognition</h3>
-            <p className="text-gray-600">The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health, including Magnet Recognition and Level 1 Surgical Center.</p>
-          </div>
-        </div>
-      </div>
-    </div>
       
+      <div className="container mx-auto px-4 -mt-20 relative z-30">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+      
+    </div>
+      </div>    
       <Footer />
     </div>
   );
