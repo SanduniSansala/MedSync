@@ -120,7 +120,7 @@ const Home: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Feature 1</h3>
+            <h3 className="text-xl font-bold mb-4">Meet Our Doctors</h3>
             <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
