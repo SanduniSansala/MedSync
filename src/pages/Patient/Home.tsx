@@ -118,6 +118,20 @@ const Home: React.FC = () => {
       
       <div className="container mx-auto px-4 -mt-20 relative z-30">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
+            <div className="p-6 border-b-4 border-blue-500">
+                <div className="flex items-center space-x-4 mb-4">
+                    <div className="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-500 transition-colors duration-300">
+                        <svg className="w-6 h-6 text-blue-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-800">Meet Our Doctors</h2>
+                </div>
+                <p className="text-gray-600">The medical team at MedSync provides the highest quality healthcare for patients.</p>
+            </div>
+        </div>
       
     </div>
       </div>    
