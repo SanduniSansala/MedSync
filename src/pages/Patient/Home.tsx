@@ -149,8 +149,8 @@ const Home: React.FC = () => {
         <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
             <div className="p-6 border-b-4 border-purple-500">
             <div className="flex items-center space-x-4 mb-4">
-
-              
+            <div className="p-3 bg-purple-100 rounded-lg group-hover:bg-purple-500 transition-colors duration-300">
+            </div>
             </div>
             </div>
         </div>
