@@ -147,7 +147,12 @@ const Home: React.FC = () => {
             </div>
         </div>
         <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
-            <div className="p-6 border-b-4 border-purple-500"></div>
+            <div className="p-6 border-b-4 border-purple-500">
+            <div className="flex items-center space-x-4 mb-4">
+
+              
+            </div>
+            </div>
         </div>
     </div>
       </div>    
