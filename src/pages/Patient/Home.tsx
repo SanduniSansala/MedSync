@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {ChevronLeft, ChevronRight} from "lucide-react";
+import {ChevronLeft, ChevronRight, Building2, User, Award} from "lucide-react";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
                       onClick={() => navigate("/DoctorChannel")}>
                         Get Started
                       </button>
-                    </div>
+                   </div>
                   </div>
                 </div>
               ))}
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
         {/* Content Sections */}
 
         <div className="container mx-auto px-4 -mt-20 relative z-30">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
             <div className="p-6 border-b-4 border-blue-500">
