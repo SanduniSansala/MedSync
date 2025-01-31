@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiClient from "../axios/axios";
 
-const BASE_URL = "http://localhost:8080/patient";
+const BASE_URL = "http://localhost:8081/patient";
 
 export interface Patient{
     id?: string;
