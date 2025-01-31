@@ -1,16 +1,11 @@
 import React from 'react'
 import Dheader from '../../components/Dheader'
 import Footer from '../../components/Footer'
-import {LogIn , UserPlus} from 'lucide-react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-
-const Doctor:React.FC = () => {
-  const navigate= useNavigate();
-    const [isOpen, setIsOpen] = useState(false);
+const Doctor: React.FC = () => {
   return (
     <div>
+
         <Dheader/>
         <div>
         
@@ -39,9 +34,16 @@ const Doctor:React.FC = () => {
 
    </div>
         <Footer/>
+
       
+      <div
+        
+      >
+        
+      </div>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Doctor;
