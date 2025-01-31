@@ -13,12 +13,13 @@ export interface Doctor {
 }
 
 export const createDoctor = async (doctor: Doctor) => {
-
-  apiClient.post('/Docter/create', doctor).then((res) => {
-    console.log(res.data);
-  }).catch((err) => {
-    console.log(err);
-  })
+  try {
+    const response = await axios.post('http://localhost:8081/Doctor/create', doctor); // Fix the URL typo
+    return response.data;
+  } catch (error) {
+    console.error('Error creating doctor:', error);
+    throw error;
+  }
 };
 
 export const getDoctorById = async (id: string) => {
