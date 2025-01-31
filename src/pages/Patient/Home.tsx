@@ -129,21 +129,19 @@ const Home: React.FC = () => {
           The medical team at MedSync provides the highest quality healthcare for patients.
         </p>
       </div>
-      
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
-            <div className="p-6 border-b-4 border-green-500">
-                <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 bg-green-100 rounded-lg group-hover:bg-green-500 transition-colors duration-300">
-                        <svg className="w-6 h-6 text-green-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                        </svg>
-                    </div>
-                    <h2 className="text-2xl font-bold text-gray-800">About MedSync</h2>
-                </div>
-                <p className="text-gray-600">Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.</p>
-            </div>
-        </div>
 
+        {/* About MedSync Section */}
+      <div className="p-6 space-y-4 bg-emerald-50 border border-emerald-200 rounded-lg shadow-sm">
+        <div className="flex items-center space-x-3">
+          <div className="bg-emerald-200 p-2 rounded-lg">
+            <Building2 className="w-6 h-6 text-emerald-700" />
+          </div>
+          <h2 className="text-xl font-bold text-emerald-900">About MedSync</h2>
+        </div>
+        <p className="text-emerald-800">
+          Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.
+        </p>
+      </div>
 
         <div className="bg-purple rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
             <div className="p-6 border-b-4 border-purple-500">
