@@ -70,7 +70,7 @@ const PatientRegistation: React.FC = () => {
     if (validate()) {
       try {
         await createPatient(patientRegistation);
-        navigate('/');
+        navigate('/Profile');
       } catch (error) {
         console.error('Error submitting form:', error);
       }

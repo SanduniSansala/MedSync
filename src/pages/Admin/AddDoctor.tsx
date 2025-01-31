@@ -13,7 +13,7 @@ const AddDoctor: React.FC = () => {
     password: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setDoctor({ ...doctor, [name]: value });
   };
@@ -44,6 +44,7 @@ const AddDoctor: React.FC = () => {
             </label>
             <input
               type="text"
+              name="docterID"
               className="w-full px-3 py-2 bg-white/50 border border-gray-300/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/80"
               value={doctor.docterID}
               onChange={handleChange}
@@ -100,15 +101,17 @@ const AddDoctor: React.FC = () => {
             <label className="block text-gray-700 text-sm font-medium mb-2">
               Specialty
             </label>
-            <input
-              type="text"
+            <select
               id="specialty"
               name="specialty"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={doctor.specialty}
               onChange={handleChange}
               required
-            />
+            >
+              <option value="">Select</option>
+              <option value="Specialization">Specialization</option>
+            </select>
           </div>
   
           <div className="mb-6">
