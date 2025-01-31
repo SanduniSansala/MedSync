@@ -114,6 +114,7 @@ const Home: React.FC = () => {
           </div>
         </div>
 
+
         {/* Content Sections */}
 
         <div className="container mx-auto px-4 -mt-20 relative z-30">
@@ -209,6 +210,52 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Content Sections */}
+      
+      <div className="grid grid-cols-3 gap-6 p-6 max-w-6xl mx-auto">
+      {/* Meet Our Doctors Section */}
+      <div className="p-6 space-y-4 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
+        <div className="flex items-center space-x-3">
+          <div className="bg-blue-200 p-2 rounded-lg">
+            <User className="w-6 h-6 text-blue-700" />
+          </div>
+          <h2 className="text-xl font-bold text-blue-900">Meet Our Doctors</h2>
+        </div>
+        <p className="text-blue-800">
+          The medical team at MedSync provides the highest quality healthcare for patients.
+        </p>
+      </div>
+
+        {/* About MedSync Section */}
+      <div className="p-6 space-y-4 bg-emerald-50 border border-emerald-200 rounded-lg shadow-sm">
+        <div className="flex items-center space-x-3">
+          <div className="bg-emerald-200 p-2 rounded-lg">
+            <Building2 className="w-6 h-6 text-emerald-700" />
+          </div>
+          <h2 className="text-xl font-bold text-emerald-900">About MedSync</h2>
+        </div>
+        <p className="text-emerald-800">
+          Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.
+        </p>
+      </div>
+
+         {/* Awards Section */}
+      <div className="p-6 space-y-4 bg-purple-50 border border-purple-200 rounded-lg shadow-sm">
+        <div className="flex items-center space-x-3">
+          <div className="bg-purple-200 p-2 rounded-lg">
+            <Award className="w-6 h-6 text-purple-700" />
+          </div>
+          <h2 className="text-xl font-bold text-purple-900">Awards & Recognition</h2>
+        </div>
+        <p className="text-purple-800">
+          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health.
+        </p>
+      </div>
+       </div>
+    
+       </div>
+
       <Footer />
     </div>
   );
