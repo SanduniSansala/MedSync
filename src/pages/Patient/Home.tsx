@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useState , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight,User, Building2, Award } from 'lucide-react';
 
 
 const Home: React.FC = () => {
@@ -146,7 +146,9 @@ const Home: React.FC = () => {
                 <p className="text-gray-600">Our focus on patient care, research, education and prevention helps make healthier today and happier tomorrow.</p>
             </div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
+
+
+        <div className="bg-purple rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
             <div className="p-6 border-b-4 border-purple-500">
                 <div className="flex items-center space-x-4 mb-4">
                     <div className="p-3 bg-purple-100 rounded-lg group-hover:bg-purple-500 transition-colors duration-300">
