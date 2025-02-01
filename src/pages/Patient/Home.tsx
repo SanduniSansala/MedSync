@@ -161,7 +161,8 @@ const Home: React.FC = () => {
           <h2 className="text-xl font-bold text-purple-900">Awards & Recognition</h2>
         </div>
         <p className="text-purple-800">
-          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health.
+          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health .
+          
         </p>
       </div>
        </div>
