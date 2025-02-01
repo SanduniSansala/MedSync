@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiClient from "../axios/axios";
 
-const BASE_URL = "http://localhost:8081/patient";
+const BASE_URL = "http://localhost:8081/Patient";
 
 export interface Patient{
     id?: string;
@@ -14,7 +14,7 @@ export interface Patient{
 
 
 export const createPatient = async (patient: Patient) => {
-    await axios.post(`${BASE_URL}/patient/create`, patient)
+    await axios.post(`${BASE_URL}/Patient/create`, patient)
       .then((res) => {
         console.log(res);
       })
