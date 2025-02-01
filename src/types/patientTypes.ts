@@ -1,8 +1,8 @@
 export interface Patient{
-    id?: "string",
-    name: "string",
-    email: "stringuvuged",
-    password: "string",
-    nic: "string",
-    contactNo: "string"
+    id?: string;
+    name: string;
+    email: string;
+    NIC: string;
+    Password: string;
+    ContactNo: string;
   }
