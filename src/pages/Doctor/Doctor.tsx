@@ -20,6 +20,7 @@ const Doctor: React.FC = () => {
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Doctor Portal</h2>
               <p className="text-gray-600 mb-8">Please choose an option below</p>
 
+
               <div className="flex justify-center space-x-6">
                 <button
                   className="flex flex-col items-center bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition w-40"
