@@ -15,9 +15,9 @@ const Header: React.FC = () => {
           onClick={() => navigate("/")}
         >
           <img
-            className="flex items-center w-[130px]  rounded-xl"
-            src={image}
-            alt="logo"
+            className="flex items-center w-[130px]  rounded-xl w-[130px] rounded-xl object-contain hover:shadow-md transition-shadow duration-300"
+              src={image}
+              alt="logo"
           />
         </div>
         <div className="basis-2/4 flex gap-5 font-semibold cursor-pointer justify-center items-center ">
