@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="w-full flex justify-center bg-background-color items-center ">
+    <div className="w-full flex justify-center bg-background-color items-center h-20 ">
       <div className="flex flex-row container bg-background-color  ">
         <div
           className="basis-1/4 hover:cursor-pointer"
@@ -60,7 +60,10 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div
-          className="px-4 py-2 bg-primary-color text-white rounded-md hover:bg-secondary-color focus:outline-none"
+          className=" px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#007E85] to-[#00968d]
+                          text-white hover:from-[#00968d] hover:to-[#007E85]
+                          transition-all duration-300 shadow-sm hover:shadow-md
+                          transform hover:-translate-y-0.5"
           onClick={() => navigate("/PatientLogin")}
         >
           Login
