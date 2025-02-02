@@ -60,7 +60,7 @@ const Doctor:React.FC = () => {
     <div>
         <Dheader/>
         <div>
-        
+        <div className="min-h-screen bg-gray-100"></div>
         
 
 
