@@ -37,7 +37,10 @@ const Dheader: React.FC = () => {
             <span className="text-gray-700 hover:text-[#007E85]">Login</span>
           </div>
           <div
-            className=" hover:text-[#007E85] bg-white p-2 rounded-md"
+            className=" px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#007E85] to-[#00968d]
+                          text-white hover:from-[#00968d] hover:to-[#007E85]
+                          transition-all duration-300 shadow-sm hover:shadow-md
+                          transform hover:-translate-y-0.5"
             onClick={() => navigate("/Form")}
           >
             Register
