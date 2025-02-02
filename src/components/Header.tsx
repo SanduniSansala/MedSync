@@ -58,15 +58,16 @@ const Header: React.FC = () => {
           >
             Contact Us
           </div>
-        </div>
+        
         <div
-          className=" px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#007E85] to-[#00968d]
-                          text-white hover:from-[#00968d] hover:to-[#007E85]
-                          transition-all duration-300 shadow-sm hover:shadow-md
-                          transform hover:-translate-y-0.5"
+          className="px-4 py-2.5 rounded-lg bg-white text-[#007E85] 
+          border-2 border-[#007E85] hover:bg-[#007E85] hover:text-white
+          transition-all duration-300 shadow-sm hover:shadow-md
+          transform hover:-translate-y-0.5 font-bold text-lg tracking-wide"
           onClick={() => navigate("/PatientLogin")}
         >
           Login
+        </div>
         </div>
       </div>
     </div>
