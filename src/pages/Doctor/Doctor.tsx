@@ -60,7 +60,10 @@ const Doctor:React.FC = () => {
     <div>
         <Dheader/>
         <div>
-        <div className="min-h-screen bg-gray-100"></div>
+        <div className="min-h-screen bg-gray-100">
+         {/* Hero Section with Carousel */}
+      <div className="relative h-[600px] w-full overflow-hidden"></div> 
+        </div>
         
 
 
