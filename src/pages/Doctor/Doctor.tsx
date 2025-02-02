@@ -62,7 +62,14 @@ const Doctor:React.FC = () => {
         <div>
         <div className="min-h-screen bg-gray-100">
          {/* Hero Section with Carousel */}
-      <div className="relative h-[600px] w-full overflow-hidden"></div> 
+      <div className="relative h-[600px] w-full overflow-hidden">
+      <div 
+          className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          <div className="flex h-full"></div>
+          </div> 
+        </div> 
         </div>
         
 
