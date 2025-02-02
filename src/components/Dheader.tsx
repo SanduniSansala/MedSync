@@ -19,10 +19,10 @@ const Dheader: React.FC = () => {
           </div>
           <div className="basis-2/4 flex gap-5 font-semibold cursor-pointer justify-center items-center ">
           <div
-            className=" px-4 py-2.5 rounded-lg bg-white/90 hover:bg-gray-50 
-                          hover:text-[#007E85] transition-all duration-300 
-                          shadow-sm hover:shadow-md transform hover:-translate-y-0.5
-                          flex items-center space-x-1"
+            className=" px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#007E85] to-[#00968d]
+                          text-white hover:from-[#00968d] hover:to-[#007E85]
+                          transition-all duration-300 shadow-sm hover:shadow-md
+                          transform hover:-translate-y-0.5"
             onClick={() => navigate("/Doctor")}
           >
              <span className="text-gray-700 hover:text-[#007E85]">Home</span>
@@ -34,7 +34,7 @@ const Dheader: React.FC = () => {
                           transform hover:-translate-y-0.5"
             onClick={() => navigate("/DoctorLogin")}
           >
-            <span className="text-gray-700 hover:text-[#007E85]">Login</span>
+            Login
           </div>
           <div
             className=" px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#007E85] to-[#00968d]
