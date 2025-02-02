@@ -7,6 +7,7 @@ import { useState } from "react";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="w-full flex justify-center bg-background-color items-center h-20 ">
       <div className="flex flex-row container bg-background-color  ">
@@ -58,7 +59,7 @@ const Header: React.FC = () => {
           >
             Contact Us
           </div>
-        
+          </div>
         <div
           className="px-4 py-2.5 rounded-lg bg-white text-[#007E85] 
           border-2 border-[#007E85] hover:bg-[#007E85] hover:text-white
@@ -69,7 +70,7 @@ const Header: React.FC = () => {
           Login
         </div>
         </div>
-      </div>
+      
     </div>
   );
 };
