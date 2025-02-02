@@ -7,8 +7,8 @@ const Dheader: React.FC = () => {
   
   return (
     <div>
-      <div className="w-full flex items-center">
-        <div className="flex flex-row container bg-background-color px-5 py-2 ">
+      <div className=" flex items-center h-15">
+        <div className="w-full flex flex-row container bg-background-color px-5 py-2 ">
           <div className="basis-1/4"
           onClick={() => navigate("/Doctor")}>
             <img
