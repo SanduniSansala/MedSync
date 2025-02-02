@@ -67,7 +67,8 @@ const Doctor:React.FC = () => {
           className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          <div className="flex h-full"></div>
+          
+          
           </div> 
         </div> 
         </div>
