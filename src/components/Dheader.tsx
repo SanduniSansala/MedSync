@@ -19,7 +19,10 @@ const Dheader: React.FC = () => {
           </div>
           <div className="basis-2/4 flex gap-5 font-semibold cursor-pointer justify-center items-center ">
           <div
-            className=" hover:text-[#007E85] bg-white p-2 rounded-md"
+            className=" px-4 py-2.5 rounded-lg bg-white/90 hover:bg-gray-50 
+                          hover:text-[#007E85] transition-all duration-300 
+                          shadow-sm hover:shadow-md transform hover:-translate-y-0.5
+                          flex items-center space-x-1"
             onClick={() => navigate("/Doctor")}
           >
             Home
