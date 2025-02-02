@@ -25,7 +25,7 @@ const Dheader: React.FC = () => {
                           transform hover:-translate-y-0.5"
             onClick={() => navigate("/Doctor")}
           >
-             <span className="text-gray-700 hover:text-[#007E85]">Home</span>
+             Home
           </div>
           <div
             className=" px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#007E85] to-[#00968d]
