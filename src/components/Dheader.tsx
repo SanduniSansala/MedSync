@@ -12,7 +12,7 @@ const Dheader: React.FC = () => {
           <div className="basis-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer"
           onClick={() => navigate("/Doctor")}>
             <img
-              className="flex items-center w-[130px]  rounded-xl"
+              className="flex items-center w-[130px]  rounded-xl w-[130px] rounded-xl object-contain hover:shadow-md transition-shadow duration-300"
               src={image}
               alt="logo"
             />
