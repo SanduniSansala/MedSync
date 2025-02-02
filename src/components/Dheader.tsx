@@ -34,7 +34,7 @@ const Dheader: React.FC = () => {
                           flex items-center space-x-1"
             onClick={() => navigate("/DoctorLogin")}
           >
-            Login
+            <span className="text-gray-700 hover:text-[#007E85]">Login</span>
           </div>
           <div
             className=" hover:text-[#007E85] bg-white p-2 rounded-md"
