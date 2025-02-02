@@ -9,6 +9,14 @@ import { useNavigate } from 'react-router-dom';
 const Doctor:React.FC = () => {
   const navigate= useNavigate();
     const [isOpen, setIsOpen] = useState(false);
+
+    const images = [
+      '/src/assets/Images/8.jpg',
+      '/src/assets/Images/9.jpg',
+      '/src/assets/Images/10.jpg',
+  
+    ];
+   
   return (
     <div>
         <Dheader/>
