@@ -1,171 +1,145 @@
 import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import AdminHeader from '../../components/AdminHeader';
-import apiClient from '../../axios/axios'; // Make sure to import your apiClient
-
-interface AddDoctor {
-  name: string;
-  email: string;
-  phone: string;
-  specialization: string;
-  password: string;
-}
+import { createDoctor, Doctor } from '../../services/DoctorRoutes';
 
 const AddDoctor: React.FC = () => {
-  const [Add, setAdd] = useState<AddDoctor>({
+  const [doctor, setDoctor] = useState<Doctor>({
+    docterID: "",
     name: "",
     email: "",
-    phone: "",
-    specialization: "",
+    contactNumber: "",
+    specialty: "",
     password: "",
   });
 
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  const validate = () => {
-    const newErrors: { [key: string]: string } = {};
-
-    // Name Validation
-    if (!Add.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
-    // Phone Number Validation (10 digits)
-    if (!/^\d{10}$/.test(Add.phone)) {
-      newErrors.phone = "Phone number must be 10 digits";
-    }
-
-    // Email Validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Add.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    // Password Validation
-    if (!Add.password.trim()) {
-      newErrors.password = "Password is required";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value, type } = e.target as HTMLInputElement;
-    setAdd({
-      ...Add,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
-    });
-
-    // Clear errors on change
-    setErrors({ ...errors, [name]: "" });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setDoctor({ ...doctor, [name]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
-      try {
-        const response = await apiClient.post('/Docter/create', Add);
-        console.log('Addeded Doctor successfully:', response.data);
-        // Navigate to another page or show a success message
-      } catch (error) {
-        console.error('Error submitting form:', error);
-      }
-    } else {
-      console.log("Validation errors:", errors);
+    try {
+      await createDoctor(doctor);
+      // Add navigation or success message here if needed
+    } catch (error) {
+      console.error('Error creating doctor:', error);
     }
   };
 
   return (
     <>
-      <AdminHeader />
-      <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
-        <h2 className="text-3xl font-bold text-center mb-4">Add Doctor </h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-gray-700">Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                value={Add.name}
-                onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.name ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
-                required
-              />
-              {errors.name && <p className="text-primary-color text-sm">{errors.name}</p>}
-            </div>
-            <div>
-              <label className="block text-gray-700">Phone number</label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Enter your phone number"
-                value={Add.phone}
-                onChange={handleChange}
-                maxLength={10}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.phone ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
-              />
-              {errors.phone && <p className="text-primary-color text-sm">{errors.phone}</p>}
-            </div>
-            <div>
-              <label className="block text-gray-700">Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                value={Add.email}
-                onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.email ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
-              />
-              {errors.email && <p className="text-primary-color text-sm">{errors.email}</p>}
-            </div>
-            <div>
-              <label className="block text-gray-700">Specialization</label>
-              <input
-                type="text"
-                name="specialization"
-                placeholder="Enter your specialization"
-                value={Add.specialization}
-                onChange={handleChange}
-                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">Password</label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                value={Add.password}
-                onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
-              />
-              {errors.password && <p className="text-primary-color text-sm">{errors.password}</p>}
-            </div>
+    <AdminHeader />
+    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-50 py-8">
+      <div className="max-w-md mx-auto">
+        <h3 className="text-2xl font-bold text-center text-blue-800 mb-8 drop-shadow-md">
+          Add Doctor
+        </h3>
+        
+        <form onSubmit={handleSubmit} className="bg-white/20 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/30">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2">
+              Doctor ID
+            </label>
+            <input
+              type="text"
+              name="docterID"
+              className="w-full px-3 py-2 bg-white/50 border border-gray-300/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/80"
+              value={doctor.docterID}
+              onChange={handleChange}
+              required
+            />
           </div>
+  
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={doctor.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+  
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={doctor.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+  
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2">
+              Contact Number
+            </label>
+            <input
+              type="text"
+              id="contactNumber"
+              name="contactNumber"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={doctor.contactNumber}
+              onChange={handleChange}
+              required
+            />
+          </div>
+  
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-medium mb-2">
+              Specialty
+            </label>
+            <select
+              id="specialty"
+              name="specialty"
+              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={doctor.specialty}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select</option>
+              <option value="Specialization">Specialization</option>
+            </select>
+          </div>
+  
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-medium mb-2">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={doctor.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+  
           <button
-            type="submit"
-            className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
-          >
-            Register
-          </button>
-        </form>
-      </div>
-      <Footer />
-    </>
+          type="submit"
+          className="w-full bg-blue-600/90 text-white py-2 px-4 rounded-md hover:bg-blue-700/90 transition-colors font-medium shadow-sm"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</>
   );
 };
 
