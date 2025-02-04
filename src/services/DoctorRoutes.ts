@@ -4,7 +4,7 @@ import apiClient from '../axios/axios';
 const BASE_URL = 'http://localhost:8081/doctor';
 
 export interface Doctor {
-  docterID: string;
+  doctorID: string;
   name: string;
   email: string;
   contactNumber: string;

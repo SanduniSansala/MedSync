@@ -5,7 +5,7 @@ import { createDoctor, Doctor } from '../../services/DoctorRoutes';
 
 const AddDoctor: React.FC = () => {
   const [doctor, setDoctor] = useState<Doctor>({
-    docterID: "",
+    doctorID: "",
     name: "",
     email: "",
     contactNumber: "",
@@ -44,9 +44,9 @@ const AddDoctor: React.FC = () => {
             </label>
             <input
               type="text"
-              name="docterID"
+              name="doctorID"
               className="w-full px-3 py-2 bg-white/50 border border-gray-300/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/80"
-              value={doctor.docterID}
+              value={doctor.doctorID}
               onChange={handleChange}
               required
             />
