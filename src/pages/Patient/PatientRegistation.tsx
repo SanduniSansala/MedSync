@@ -10,10 +10,10 @@ const PatientRegistation: React.FC = () => {
   const [patientRegistation, setPatientRegistation] = useState<Patient>({
     id: "",
     name: "",
-    NIC: "",
+    nic: "",
     email: "",
-    Password: "",
-    ContactNo: "",
+    password: "",
+    contactNo: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -32,17 +32,17 @@ const PatientRegistation: React.FC = () => {
     }
 
     // NIC Validation
-    if (!patientRegistation.NIC.trim()) {
+    if (!patientRegistation.nic.trim()) {
       newErrors.NIC = "NIC is required";
     }
 
     // Password Validation
-    if (!patientRegistation.Password.trim()) {
+    if (!patientRegistation.password.trim()) {
       newErrors.Password = "Password is required";
     }
 
     // Contact Number Validation (10 digits)
-    if (!/^\d{10}$/.test(patientRegistation.ContactNo)) {
+    if (!/^\d{10}$/.test(patientRegistation.contactNo)) {
       newErrors.ContactNo = "Contact number must be 10 digits";
     }
 
@@ -105,13 +105,13 @@ const PatientRegistation: React.FC = () => {
               <label className="block text-gray-700">NIC</label>
               <input
                 type="text"
-                name="NIC"
+                name="nic"
                 placeholder="Enter your NIC"
-                value={patientRegistation.NIC}
+                value={patientRegistation.nic}
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
-              {errors.NIC && <p className="text-primary-color text-sm">{errors.NIC}</p>}
+              {errors.nic && <p className="text-primary-color text-sm">{errors.nic}</p>}
             </div>
             <div>
               <label className="block text-gray-700">Email</label>
@@ -130,24 +130,24 @@ const PatientRegistation: React.FC = () => {
             <div>
               <label className="block text-gray-700">Password</label>
               <input
-                type="Password"
-                name="Password"
+                type="password"
+                name="password"
                 placeholder="Enter your Password"
-                value={patientRegistation.Password}
+                value={patientRegistation.password}
                 onChange={handleChange}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
                   errors.Password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
                 }`}
               />
-              {errors.Password && <p className="text-primary-color text-sm">{errors.Password}</p>}
+              {errors.Password && <p className="text-primary-color text-sm">{errors.password}</p>}
             </div>
             <div>
               <label className="block text-gray-700">Contact Number</label>
               <input
                 type="tel"
-                name="ContactNo"
+                name="contactNo"
                 placeholder="Enter your contact number"
-                value={patientRegistation.ContactNo}
+                value={patientRegistation.contactNo}
                 onChange={handleChange}
                 maxLength={10}
                 className={`w-full border rounded px-3 py-2 focus:outline-none ${
