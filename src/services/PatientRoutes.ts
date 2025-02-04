@@ -7,14 +7,14 @@ export interface Patient{
     id?: string;
     name: string;
     email: string;
-    NIC: string;
-    Password: string;
-    ContactNo: string;
+    nic: string;
+    password: string;
+    contactNo: string;
   }
 
 
 export const createPatient = async (patient: Patient) => {
-    await axios.post(`${BASE_URL}/patient/create`, patient)
+    await axios.post('http://localhost:8081/patient/create', patient)
       .then((res) => {
         console.log(res);
       })
