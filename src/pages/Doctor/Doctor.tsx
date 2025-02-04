@@ -1,13 +1,90 @@
+
+<!-- import React from 'react'
+import Dheader from '../../components/Dheader'
+import Footer from '../../components/Footer'
+import {LogIn , UserPlus} from 'lucide-react';
+import { useState ,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; -->
 import React from "react";
 import Dheader from "../../components/Dheader";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { LogIn } from "lucide-react";
 
+
 const Doctor: React.FC = () => {
   const navigate = useNavigate();
 
+
+const Doctor:React.FC = () => {
+  const navigate= useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    
+
+    const images = [
+      '/src/assets/Images/8.jpg',
+      '/src/assets/Images/9.jpg',
+      '/src/assets/Images/10.jpg',
+  
+    ];
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+      
+        if (isAutoPlaying) {
+          interval = setInterval(() => {
+            setCurrentIndex(prevIndex => 
+              prevIndex === images.length - 1 ? 0 : prevIndex + 1
+            );
+          }, 3000);
+        }
+      
+        return () => {
+          if (interval) {
+            clearInterval(interval);
+          }
+        };
+      }, [isAutoPlaying]);
+    
+    
+      const nextSlide = () => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      };
+    
+      const prevSlide = () => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+      };
+    
+      const goToSlide = (index: number) => {
+        setCurrentIndex(index);
+      };
+    
+   
   return (
+    <div>
+        <Dheader/>
+        <div>
+        <div className="min-h-screen bg-gray-100">
+         {/* Hero Section with Carousel */}
+      <div className="relative h-[600px] w-full overflow-hidden">
+      <div 
+          className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          
+          
+          </div> 
+        </div> 
+        </div>
+        
+
+<!--   return (
     <div>
       <Dheader />
       <div>
@@ -18,7 +95,7 @@ const Doctor: React.FC = () => {
           >
             <div className="bg-white/60 rounded-xl shadow-2xl p-8 w-full max-w-md text-center">
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Doctor Portal</h2>
-              <p className="text-gray-600 mb-8">Please choose an option below</p>
+              <p className="text-gray-600 mb-8">Please choose an option below</p> -->
 
 
               <div className="flex justify-center space-x-6">
