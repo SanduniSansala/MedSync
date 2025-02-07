@@ -3,10 +3,9 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {ChevronLeft, ChevronRight, Building2, User, Award,Heart, Clock, UserCheck} from "lucide-react";
+import {ChevronLeft, ChevronRight, Building2, User, Award} from "lucide-react";
 
 const Home: React.FC = () => {
-
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying] = useState(true);
@@ -55,21 +54,22 @@ const Home: React.FC = () => {
     <div>
       <Header />
 
-      <div className="min-h-screen">
-      {/* Enhanced Hero Section with Carousel */}
+    <div className="min-h-screen bg-gray-100">
+      {/* Hero Section with Carousel */}
       <div className="relative h-[600px] w-full overflow-hidden">
         <div 
           className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
     <div className="flex h-full">
-              {images.map((src, index) => (
-                <div key={index} className="min-w-full h-full relative">
-                  <img 
-                    src={src} 
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+            {images.map((src, index) => (
+              <div
+                key={index}
+                className="min-w-full h-full relative"
+              >
+              <img src={src} alt={`Slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                   <div className="text-center text-white">
                     <h2 className="text-4xl font-bold mb-4">Welcome to MedSync</h2>
@@ -92,20 +92,20 @@ const Home: React.FC = () => {
               ))}
             </div>
           </div>
-           {/* Enhanced Navigation Arrows */}
-           <button
+          {/* Navigation Arrows */}
+          <button
             onClick={prevSlide}
-            className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-800" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
           >
-            <ChevronRight className="w-6 h-6 text-gray-800" />
+            <ChevronRight className="w-6 h-6" />
           </button>
-        
+
           {/* Dot Indicators */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
             {images.map((_, index) => (
