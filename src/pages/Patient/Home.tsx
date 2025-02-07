@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Building2, User, Award, Heart, Clock, UserCheck } from "lucide-react";
+import {ChevronLeft, ChevronRight, Building2, User, Award,Heart, Clock, UserCheck} from "lucide-react";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
     <div>
       <Header />
 
-      <div className="bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       {/* Hero Section with Carousel */}
       <div className="relative h-[600px] w-full overflow-hidden">
         <div 
