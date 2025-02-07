@@ -258,11 +258,7 @@ const Home: React.FC = () => {
           <Award className="w-6 h-6 text-purple-500 group-hover:text-white hover:cursor-pointer" />
         </div>
 
-        <p className="text-purple-800">
-          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health .
-          
-        </p>
-
+        
         <h2 className="text-xl font-bold text-gray-800 hover:cursor-pointer">Awards & Recognition</h2>
 
       </div>
