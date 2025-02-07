@@ -23,6 +23,7 @@ import Docprofile from "./pages/Doctor/Docprofile";
 import { PatientList } from "./pages/Admin/PatientList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -31,7 +32,8 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/DoctorChannel">
         <Route index element={<DoctorChannel />} />
-          <Route path="Channel" element={<Channel />} />
+        <Route path="Channel" element={<Channel />} />
+       
         </Route>
         <Route path="/Book" element={<Book />} />
         <Route path="/ContactUs" element={<Contact />} />
@@ -50,6 +52,8 @@ function App() {
         <Route path="/AddDoctor" element={<AddDoctor />} />
         <Route path="/DoctorList" element={<PatientList />} />
         <Route path="/Docprofile" element={<Docprofile />} />
+      
+
       </Routes>
     </BrowserRouter>
   );
