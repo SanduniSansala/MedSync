@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useState , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight,User, Building2, Award } from 'lucide-react';
+import { ChevronLeft, ChevronRight,User, Building2, Award,Heart,Clock,UserCheck } from 'lucide-react';
 
 
 const Home: React.FC = () => {
