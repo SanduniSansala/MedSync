@@ -278,8 +278,8 @@ const Home: React.FC = () => {
       </div> */}
 
       {/* Content Sections */}
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 max-w-6xl mx-auto">
+       
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 max-w-6xl mx-auto">
   {/* Meet Our Doctors Section */}
   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group border-b-4 border-blue-500">
     <div className="p-6">
