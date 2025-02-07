@@ -304,12 +304,12 @@ const Home: React.FC = () => {
           </div>
 
   {/* About MedSync Section */}
-  <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group border-b-4 border-green-500">
-    <div className="p-6">
-      <div className="flex items-center space-x-3 mb-4">
-        <div className="p-3 bg-green-100 rounded-lg group-hover:bg-green-500 transition-colors duration-300">
-          <Building2 className="w-6 h-6 text-green-500 group-hover:text-white hover:cursor-pointer" onClick={() => navigate("/About")}/>
-        </div>
+  <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="p-6 border-b-4 border-green-500">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="p-4 bg-green-100 rounded-lg group-hover:bg-green-500 transition-colors duration-300">
+                  <Building2 className="w-8 h-8 text-green-500 group-hover:text-white" />
+                </div>
         <h2 className="text-xl font-bold text-gray-800 hover:cursor-pointer" onClick={() => navigate("/About")}>About MedSync</h2>
       </div>
       <p className="text-gray-600">
