@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {ChevronLeft, ChevronRight, Building2, User, Award,Heart, Clock, UserCheck} from "lucide-react";
 
 const Home: React.FC = () => {
+
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying] = useState(true);
@@ -62,14 +63,13 @@ const Home: React.FC = () => {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
     <div className="flex h-full">
-            {images.map((src, index) => (
-              <div
-                key={index}
-                className="min-w-full h-full relative"
-              >
-              <img src={src} alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+              {images.map((src, index) => (
+                <div key={index} className="min-w-full h-full relative">
+                  <img 
+                    src={src} 
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                   <div className="text-center text-white">
                     <h2 className="text-4xl font-bold mb-4">Welcome to MedSync</h2>
@@ -92,12 +92,12 @@ const Home: React.FC = () => {
               ))}
             </div>
           </div>
-          {/* Navigation Arrows */}
-          <button
+           {/* Enhanced Navigation Arrows */}
+           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+            className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6 text-gray-800" />
           </button>
           <button
             onClick={nextSlide}
