@@ -259,8 +259,7 @@ const Home: React.FC = () => {
         </div>
 
         <p className="text-purple-800">
-          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health .
-          
+          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health.
         </p>
 
         <h2 className="text-xl font-bold text-gray-800 hover:cursor-pointer">Awards & Recognition</h2>
