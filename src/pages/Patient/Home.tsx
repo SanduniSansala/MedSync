@@ -52,8 +52,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="bg-gray-50">
-    <div>
-      <Header />
+     <Header />
 
       <div className="min-h-screen">
       {/* Hero Section with Carousel */}
@@ -101,6 +100,8 @@ const Home: React.FC = () => {
             <ChevronRight className="w-6 h-6 text-gray-800" />
           </button>
 
+
+
           {/* Dot Indicators */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
             {images.map((_, index) => (
@@ -115,7 +116,33 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-
+{/* Stats Section */}
+<div className="bg-white py-12 shadow-md">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <Heart className="w-8 h-8 text-red-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800">10,000+</h3>
+              <p className="text-gray-600">Satisfied Patients</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <UserCheck className="w-8 h-8 text-blue-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800">50+</h3>
+              <p className="text-gray-600">Expert Doctors</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-4">
+                <Clock className="w-8 h-8 text-green-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800">24/7</h3>
+              <p className="text-gray-600">Available Support</p>
+            </div>
+          </div>
+        </div>
+        
         {/* Content Sections */}
 {/* 
         <div className="container mx-auto px-4 -mt-20 relative z-30">
@@ -270,7 +297,7 @@ const Home: React.FC = () => {
 
       <Footer />
     </div>
-    </div>
+   
   );
 };
 
