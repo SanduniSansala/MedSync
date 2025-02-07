@@ -293,8 +293,15 @@ const Home: React.FC = () => {
                 The medical team at MedSync provides the highest quality healthcare for patients.
                 Schedule an appointment today.
               </p>
-    </div>
-  </div>
+              <button 
+                onClick={() => navigate("/DoctorChannel")}
+                className="mt-4 text-blue-500 hover:text-blue-600 font-semibold flex items-center group"
+              >
+                Learn More 
+                <ChevronRight className="w-5 h-5 ml-1 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
 
   {/* About MedSync Section */}
   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group border-b-4 border-green-500">
