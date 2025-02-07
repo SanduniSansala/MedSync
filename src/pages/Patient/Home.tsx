@@ -55,7 +55,7 @@ const Home: React.FC = () => {
       <Header />
 
       <div className="min-h-screen">
-      {/* Hero Section with Carousel */}
+      {/* Enhanced Hero Section with Carousel */}
       <div className="relative h-[600px] w-full overflow-hidden">
         <div 
           className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
