@@ -55,39 +55,33 @@ const Home: React.FC = () => {
     <div>
       <Header />
 
-    <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen">
       {/* Hero Section with Carousel */}
-      <div className="relative h-[600px] w-full overflow-hidden">
-        <div 
-          className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-    <div className="flex h-full">
-            {images.map((src, index) => (
-              <div
-                key={index}
-                className="min-w-full h-full relative"
-              >
-              <img src={src} alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <h2 className="text-4xl font-bold mb-4">Welcome to MedSync</h2>
-                    <p className="text-xl mb-6">Discover amazing content and features</p>
-                    <button className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-teal-900 shadow-lg transition-all duration-300 hover:bg-teal-50">
-          Get Started
-          <svg 
-            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
+      <div className="relative h-[70vh] w-full overflow-hidden">
+          <div 
+            className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </button>
-                   </div>
+            <div className="flex h-full">
+              {images.map((src, index) => (
+                <div key={index} className="min-w-full h-full relative">
+                  <img 
+                    src={src} 
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+
+<div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70 flex items-center justify-center">
+                    <div className="text-center text-white max-w-4xl px-4">
+                      <h1 className="text-5xl font-bold mb-6 animate-fadeIn">Welcome to MedSync</h1>
+                      <p className="text-2xl mb-8 text-gray-200">Discover exceptional healthcare with our expert medical team</p>
+                      <button 
+                        onClick={() => navigate("/DoctorChannel")}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      >
+                        Get Started
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
