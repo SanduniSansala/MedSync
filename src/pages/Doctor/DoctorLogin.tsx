@@ -15,7 +15,7 @@ const DoctorLogin: React.FC = () => {
       setErrorMessage("");
       console.log("Logged in with ID:", selectedId);
       console.log("Password:", password);
-      navigate("/Schedule");
+      navigate("/DocProfile");
     }
   };
 
