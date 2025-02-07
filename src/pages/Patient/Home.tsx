@@ -316,9 +316,16 @@ const Home: React.FC = () => {
                 Our focus on patient care, research, education and prevention helps create
                 a healthier today and happier tomorrow.
               </p>
-    </div>
-  </div>
-
+              <button 
+                onClick={() => navigate("/About")}
+                className="mt-4 text-green-500 hover:text-green-600 font-semibold flex items-center group"
+              >
+                Learn More 
+                <ChevronRight className="w-5 h-5 ml-1 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+          
   {/* Awards Section */}
   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group border-b-4 border-purple-500">
     <div className="p-6">
