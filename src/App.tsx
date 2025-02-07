@@ -18,6 +18,7 @@ import PatientLogin from "./pages/patient/PatientLogin";
 import AdminProfile from "./pages/Admin/AdminProfile";
 import DocterList from "./components/DoctorList";
 import AddDoctor from "./pages/Admin/AddDoctor";
+import Docprofile from "./pages/doctor/Docprofile";
 import { PatientList } from "./pages/Admin/PatientList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/AddDoctor" element={<AddDoctor />} />
         <Route path="/DoctorList" element={<PatientList />} />
+        <Route path="/Docprofile" element={<Docprofile />} />
         
       </Routes>
     </BrowserRouter>
