@@ -57,7 +57,7 @@ const Schedule: React.FC = () => {
            backgroundColor: ''
          }}>
         {/* Simple Card using Tailwind */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white/80 rounded-lg shadow-lg p-6">
           {/* Header */}
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-800">
