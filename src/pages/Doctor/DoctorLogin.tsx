@@ -52,7 +52,13 @@ const DoctorLogin: React.FC = () => {
                 placeholder="Enter your doctor ID"
               />
             </div>
-            <div> 
+
+             {/* Password Input */}
+         <div className="relative">
+          
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+             
+            </div>
               <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
                 Password
               </label>
