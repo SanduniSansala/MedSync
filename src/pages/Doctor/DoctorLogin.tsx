@@ -10,6 +10,7 @@ const DoctorLogin: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
+
   const handleLogin = () => {
     if (!selectedId || !password) {
       setErrorMessage("Please enter both ID and password.");
@@ -18,6 +19,47 @@ const DoctorLogin: React.FC = () => {
       console.log("Logged in with ID:", selectedId);
       console.log("Password:", password);
       navigate("/Schedule");
+    }
+  };
+
+  const [formData, setFormData] = useState({
+    doctorId: '',
+    password: ''
+  });
+
+  const [errors, setErrors] = useState({
+    doctorId: '',
+    password: ''
+  });
+
+
+  const validateForm = () => {
+    const newErrors = { ...errors };
+    let isValid = true;
+
+    
+    if (!formData.doctorId.trim()) {
+      newErrors.doctorId = 'Doctor ID is required';
+      isValid = false;
+    }
+
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+      isValid = false;
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Password must be at least 8 characters';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Form submitted', formData);
+      alert('Registration Successful!');
     }
   };
 
@@ -30,13 +72,12 @@ const DoctorLogin: React.FC = () => {
            backgroundBlendMode: 'overlay',
            backgroundColor: ''
          }}>
-        <div className="bg-white/80 shadow-2xl rounded-2xl p-8 max-w-md w-full transform transition-all hover:scale-105 hover:shadow-3xl">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">
-              Doctor Login
-            </h2>
-            <p className="text-gray-500 text-sm">Enter your credentials securely</p>
-          </div>
+        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-bold text-blue-800 mb-2">Doctor Registration</h2>
+          <p className="text-gray-600">Join Our Medical Team</p>
+        </div>
+        
           <div className="space-y-6">
             <div>
               <label htmlFor="userId" className="block text-gray-700 font-semibold mb-2">
