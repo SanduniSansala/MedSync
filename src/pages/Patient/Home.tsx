@@ -54,7 +54,7 @@ const Home: React.FC = () => {
     <div>
       <Header />
 
-    <div className="min-h-screen bg-gray-100">
+      <div className="bg-gray-50">
       {/* Hero Section with Carousel */}
       <div className="relative h-[600px] w-full overflow-hidden">
         <div 
