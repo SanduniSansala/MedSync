@@ -23,10 +23,15 @@ const DoctorLogin: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <Dheader />
-      <div className='flex justify-center items-center flex-grow px-4 py-12'>
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/8.jpg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
         <div className="bg-white/80 shadow-2xl rounded-2xl p-8 max-w-md w-full transform transition-all hover:scale-105 hover:shadow-3xl">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-extrabold text-gray-800 mb-2 tracking-wide">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">
               Doctor Login
             </h2>
             <p className="text-gray-500 text-sm">Enter your credentials securely</p>
