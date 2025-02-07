@@ -325,30 +325,32 @@ const Home: React.FC = () => {
               </button>
             </div>
           </div>
-          
+
   {/* Awards Section */}
-  <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group border-b-4 border-purple-500">
-    <div className="p-6">
-      <div className="flex items-center space-x-3 mb-4">
-        <div className="p-3 bg-purple-100 rounded-lg group-hover:bg-purple-500 transition-colors duration-300">
-          <Award className="w-6 h-6 text-purple-500 group-hover:text-white hover:cursor-pointer" />
+   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="p-6 border-b-4 border-purple-500">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="p-4 bg-purple-100 rounded-lg group-hover:bg-purple-500 transition-colors duration-300">
+                  <Award className="w-8 h-8 text-purple-500 group-hover:text-white" />
+                </div>
+
+        
+                <h2 className="text-xl font-bold text-gray-800">Awards & Recognition</h2>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                The clinical excellence at MedSync has been awarded several prestigious
+                designations in healthcare excellence.
+              </p>
+              <button 
+                className="mt-4 text-purple-500 hover:text-purple-600 font-semibold flex items-center group"
+              >
+                View Awards 
+                <ChevronRight className="w-5 h-5 ml-1 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
         </div>
-
-        <p className="text-purple-800">
-          The clinical excellence at MedSync has been awarded several prestigious designations in Patiens's health.
-        </p>
-
-        <h2 className="text-xl font-bold text-gray-800 hover:cursor-pointer">Awards & Recognition</h2>
-
       </div>
-       <p className="text-gray-600">
-        The clinical excellence at MedSync has been awarded several prestigious designations in Patients' health.
-      </p> 
-    </div>
-  </div>
-</div>
-       </div>
-
       <Footer />
     </div>
    
