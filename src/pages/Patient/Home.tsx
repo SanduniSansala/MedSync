@@ -103,9 +103,9 @@ const Home: React.FC = () => {
             onClick={nextSlide}
             className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-6 h-6 text-gray-800" />
           </button>
-
+        
           {/* Dot Indicators */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
             {images.map((_, index) => (
