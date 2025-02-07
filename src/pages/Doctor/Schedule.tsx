@@ -12,8 +12,8 @@ const Schedule: React.FC = () => {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const timeSlots = [
-    { id: 1, time: "09:00 AM", available: 10 },
-    { id: 2, time: "10:00 AM", available: 8 },
+    { id: 1, time: "09:00 AM", available: 20 },
+    { id: 2, time: "03:00 PM", available: 20 },
   ];
 
   const weekdays = [
