@@ -287,11 +287,12 @@ const Home: React.FC = () => {
                 <div className="p-4 bg-blue-100 rounded-lg group-hover:bg-blue-500 transition-colors duration-300">
                   <User className="w-8 h-8 text-blue-500 group-hover:text-white" />
                 </div>
-        <h2 className="text-xl font-bold text-gray-800 hover:cursor-pointer" onClick={() => navigate("/DoctorChannel")}>Meet Our Doctors</h2>
-      </div>
-      <p className="text-gray-600">
-        The medical team at MedSync provides the highest quality healthcare for patients.
-      </p>
+                <h2 className="text-xl font-bold text-gray-800">Meet Our Doctors</h2>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                The medical team at MedSync provides the highest quality healthcare for patients.
+                Schedule an appointment today.
+              </p>
     </div>
   </div>
 
