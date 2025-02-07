@@ -52,7 +52,7 @@ const DoctorLogin: React.FC = () => {
                 placeholder="Enter your doctor ID"
               />
             </div>
-            <div>
+            <div> 
               <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
                 Password
               </label>
