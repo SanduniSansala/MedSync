@@ -142,7 +142,45 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
+        {/* New Body Section with Image and Text */}
+        <div className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="relative">
+                <img 
+                  src="/src/assets/Images/11.jpg" 
+                  alt="Medical Team" 
+                  className="rounded-lg shadow-2xl w-full h-[400px] object-cover"
+                />
+            <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-lg shadow-xl hidden md:block">
+                  <p className="text-2xl font-bold">15+</p>
+                  <p className="text-sm">Years of Excellence</p>
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-6">Why Choose MedSync?</h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  At MedSync, we believe in providing exceptional healthcare services that put our patients first. 
+                  Our state-of-the-art facilities, combined with our team of experienced medical professionals, 
+                  ensure that you receive the highest standard of care.
+                </p>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  We offer comprehensive medical services, from routine check-ups to specialized treatments, 
+                  all designed to meet your unique healthcare needs. Our patient-centered approach means 
+                  you'll always receive personalized attention and care.
+                </p>
+                <button 
+                  onClick={() => navigate("/About")}
+                  className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors duration-300"
+                >
+                  Learn More About Us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Content Sections */}
 {/* 
         <div className="container mx-auto px-4 -mt-20 relative z-30">
