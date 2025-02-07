@@ -51,6 +51,7 @@ const Home: React.FC = () => {
   };
 
   return (
+    <div className="bg-gray-50">
     <div>
       <Header />
 
@@ -274,6 +275,7 @@ const Home: React.FC = () => {
        </div>
 
       <Footer />
+    </div>
     </div>
   );
 };
