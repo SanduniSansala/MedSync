@@ -80,13 +80,20 @@ const PatientRegistation: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <Header />
-      <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
-        <h2 className="text-3xl font-bold text-center mb-4">Registration</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-blue" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/WhatsApp Image 2025-02-01 at 01.46.44_2ac08b62.jpg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
+      
+        <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-2xl ">
+        <div className="bg-white/30 backdrop-blur-md rounded-2xl shadow-2xl p-12 border border-blue-200">
+        <div>
+        
+        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 tracking-wide">Registration</h2>
               <label className="block text-gray-700">Name</label>
               <input
                 type="text"
@@ -156,17 +163,18 @@ const PatientRegistation: React.FC = () => {
               />
               {errors.ContactNo && <p className="text-primary-color text-sm">{errors.ContactNo}</p>}
             </div>
+        
+            <button
+              type="submit"
+              className="w-full mt-8 bg-teal-600 text-white text-lg font-semibold py-3 rounded-lg hover:bg-teal-700 transform hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+            >
+              Register
+            </button>
           </div>
-          <button
-            type="submit"
-            className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
-          >
-            Submit
-          </button>
         </form>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
