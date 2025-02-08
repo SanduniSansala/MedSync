@@ -31,7 +31,13 @@ const AddDoctor: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
     <AdminHeader />
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-50 py-8">
+    <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-blue" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/WhatsApp Image 2025-02-01 at 01.46.44_2ac08b62.jpg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
+      
       <div className="max-w-md mx-auto">
         <h3 className="text-2xl font-bold text-center text-blue-800 mb-8 drop-shadow-md">
           Add Doctor
