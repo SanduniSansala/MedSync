@@ -164,12 +164,12 @@ const PatientRegistation: React.FC = () => {
               {errors.ContactNo && <p className="text-primary-color text-sm">{errors.ContactNo}</p>}
             </div>
         
-          <button
-            type="submit"
-            className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
-          >
-            Submit
-          </button>
+            <button
+              type="submit"
+              className="w-full mt-8 bg-teal-600 text-white text-lg font-semibold py-3 rounded-lg hover:bg-teal-700 transform hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+            >
+              Register
+            </button>
           </div>
         </form>
       </div>
