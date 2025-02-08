@@ -80,7 +80,7 @@ const PatientRegistation: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <Header />
       <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
         <h2 className="text-3xl font-bold text-center mb-4">Registration</h2>
@@ -166,7 +166,7 @@ const PatientRegistation: React.FC = () => {
         </form>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
