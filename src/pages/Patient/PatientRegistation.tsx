@@ -90,9 +90,10 @@ const PatientRegistation: React.FC = () => {
          }}>
       
         <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-2xl ">
-        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-20 border border-blue-100">
+        <div className="bg-white/30 backdrop-blur-md rounded-2xl shadow-2xl p-12 border border-blue-200">
         <div>
-        <h2 className="text-3xl font-bold text-center mb-4">Registration</h2>
+        
+        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 tracking-wide">Registration</h2>
               <label className="block text-gray-700">Name</label>
               <input
                 type="text"
@@ -162,7 +163,7 @@ const PatientRegistation: React.FC = () => {
               />
               {errors.ContactNo && <p className="text-primary-color text-sm">{errors.ContactNo}</p>}
             </div>
-         
+        
           <button
             type="submit"
             className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
