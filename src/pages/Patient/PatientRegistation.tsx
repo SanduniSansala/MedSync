@@ -82,7 +82,7 @@ const PatientRegistation: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <Header />
-      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-blue" 
          style={{
            backgroundImage: 'url("/src/assets/Images/WhatsApp Image 2025-02-01 at 01.46.44_2ac08b62.jpg")',
            backgroundBlendMode: 'overlay',
@@ -90,8 +90,8 @@ const PatientRegistation: React.FC = () => {
          }}>
       
         <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
-        <div className="text-center mb-6">
+        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-20 border border-blue-100">
+        <div>
         <h2 className="text-3xl font-bold text-center mb-4">Registration</h2>
               <label className="block text-gray-700">Name</label>
               <input
