@@ -20,57 +20,64 @@ const PatientLogin: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <Header />
-
-      <div className="w-full flex justify-center">
-  <div className="w-[600px] max-w-full p-8 rounded-xl shadow-xl bg-white my-10 transition-all duration-300 hover:shadow-2xl">
-    <div className="grid grid-cols-2 gap-6">
-      <div className="font-medium text-gray-700 self-center">Email</div>
-      <div>
-        <input
-          className="w-full border-2 border-gray-200 rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-colors duration-200"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-        />
-      </div>
-      
-      <div className="font-medium text-gray-700 self-center">Password</div>
-      <div>
-        <input
-          className="w-full border-2 border-gray-200 rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-colors duration-200"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
-        />
-      </div>
-
-      {error && (
-        <div className="col-span-2 text-red-600 bg-red-50 p-3 rounded-lg border border-red-200 flex items-center space-x-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-          </svg>
-          <span>{error}</span>
+      <div
+        className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green"
+        style={{
+          backgroundImage: 'url("/src/assets/Images/8.jpg")',
+          backgroundBlendMode: 'overlay',
+          backgroundColor: ''
+        }}
+      >
+        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-blue-800 mb-2">Patient Login</h2>
+            <p className="text-gray-600">Please enter your credentials</p>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
+                placeholder="Enter your password"
+              />
+            </div>
+            {error && (
+              <div className="text-red-500 text-sm bg-red-50 p-3 rounded-lg animate-pulse">
+                {error}
+              </div>
+            )}
+            <button
+              onClick={handleSubmit}
+              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.02] shadow-md hover:shadow-lg"
+            >
+              Login
+            </button>
+          </div>
         </div>
-      )}
-
-      <div className="col-span-2 mt-4">
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 transform hover:scale-[1.02]"
-        >
-          Login
-        </button>
       </div>
-    </div>
-  </div>
-</div>
-
       <Footer />
-    </>
+    </div>
   );
 };
 
