@@ -49,20 +49,28 @@ const DoctorChannel: React.FC = () => {
       navigate("/Book");
     }
   };
-  return (
-    <div>
-      <Header />
 
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
+      <Header />
       <div
-        className="flex justify-center items-center h-screen bg-gray-100 bg-cover "
-        style={{ backgroundImage: `url(${bgimg})` }}
+        className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green"
+        style={{
+          backgroundImage: `url(${bgimg})`,
+          backgroundBlendMode: "overlay",
+          backgroundColor: "",
+        }}
       >
-        <div className="bg-white shadow-lg rounded-lg p-6 w-96">
-          <h2 className="text-2xl font-semibold text-center text-primary-color mb-4">
-            Channel Your Doctor
-          </h2>
+        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-blue-800 mb-2">
+              Channel Your Doctor
+            </h2>
+            <p className="text-gray-600">Find the best doctors for you</p>
+          </div>
+
           <form
-            className="space-y-4 focus:outline-none  focus:ring-secondary-color focus:border-secondary-color"
+            className="space-y-6 focus:outline-none focus:ring-secondary-color focus:border-secondary-color"
             onSubmit={(e) => handleSubmit(e)}
           >
             <div>
@@ -70,14 +78,12 @@ const DoctorChannel: React.FC = () => {
                 <span className="flex items-center">Specialization</span>
               </label>
               <select
-                className="w-full border border-gray-300 rounded-md py-2 px-3 "
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
                 name="name"
               >
                 <option>Select</option>
                 <option>Specialization</option>
               </select>
-
-              <br />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -85,24 +91,21 @@ const DoctorChannel: React.FC = () => {
               </label>
               <input
                 type="text"
-                className="w-full border border-gray-300 rounded-md py-2 px-3"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
                 name="special"
                 placeholder="Enter doctor's name"
               />
-              <br />
-              <br />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.02] shadow-md hover:shadow-lg"
             >
-              <span className="material-icons mr-2 "></span> Search
+              Search
             </button>
           </form>
         </div>
       </div>
-
       <Footer />
     </div>
   );
