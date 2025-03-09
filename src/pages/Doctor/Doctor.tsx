@@ -19,7 +19,7 @@ const Doctor: React.FC = () => {
   const [isAutoPlaying] = useState(true);
 
   const images = [
-    '../../assets/Images/6.jpg',
+    '../../assets/Images/7.jpg',
     '../../assets/Images/medical-tech.jpg',
     '../../assets/Images/hospital-interior.jpg'
   ];
