@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Dheader from '../../components/Dheader';
 import Footer from '../../components/Footer';
 
+//foundation of the DoctorLogin React component
 const DoctorLogin: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
