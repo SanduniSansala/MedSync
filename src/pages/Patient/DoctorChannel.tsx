@@ -79,10 +79,14 @@ const DoctorChannel: React.FC = () => {
               </label>
               <select
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
-                name="name"
+                name="name" 
               >
                 <option>Select</option>
-                <option>Specialization</option>
+                <option>Cardiology</option>
+                <option>Dermatology</option>
+                <option>Neurology</option>
+                <option>Oncologist</option>
+
               </select>
             </div>
             <div>
