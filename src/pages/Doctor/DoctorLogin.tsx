@@ -9,6 +9,10 @@ const DoctorLogin: React.FC = () => {
     doctorId: '',
     password: ''
   });
+  const [errors, setErrors] = useState({
+    doctorId: '',
+    password: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Update form data when input changes
@@ -18,6 +22,25 @@ const DoctorLogin: React.FC = () => {
       ...formData,
       [name]: value
     });
+    
+    // Clear specific field error when user starts typing again
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+
+  // Validate form - just check if fields are filled
+  const validateForm = (): boolean => {
+    const newErrors = {
+      doctorId: formData.doctorId.trim() ? '' : 'Doctor ID is required',
+      password: formData.password ? '' : 'Password is required'
+    };
+    
+    setErrors(newErrors);
+    return !newErrors.doctorId && !newErrors.password;
   };
 
   // Handle login
@@ -25,15 +48,20 @@ const DoctorLogin: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Proceed with login without validation
-    console.log("Logging in with ID:", formData.doctorId);
-    console.log("Password:", formData.password);
-    
-    // Simulate API call (replace with actual authentication)
-    setTimeout(() => {
+    if (validateForm()) {
+      // Form is valid, proceed with login
+      console.log("Logging in with ID:", formData.doctorId);
+      console.log("Password:", formData.password);
+      
+      // Simulate API call (replace with actual authentication)
+      setTimeout(() => {
+        setIsSubmitting(false);
+        navigate("/Schedule");
+      }, 1000);
+    } else {
+      // Form is invalid
       setIsSubmitting(false);
-      navigate("/Schedule");
-    }, 1000);
+    }
   };
 
   return (
@@ -63,9 +91,12 @@ const DoctorLogin: React.FC = () => {
                 id="doctorId"
                 value={formData.doctorId}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
+                className={`w-full px-4 py-3 border ${errors.doctorId ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out`}
                 placeholder="Enter your doctor ID"
               />
+              {errors.doctorId && (
+                <p className="mt-1 text-red-500 text-sm">{errors.doctorId}</p>
+              )}
             </div>
 
             {/* Password Input */}
@@ -79,9 +110,12 @@ const DoctorLogin: React.FC = () => {
                 id="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
+                className={`w-full px-4 py-3 border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out`}
                 placeholder="Enter your password"
               />
+              {errors.password && (
+                <p className="mt-1 text-red-500 text-sm">{errors.password}</p>
+              )}
             </div>
             
             {/* Login Button */}
