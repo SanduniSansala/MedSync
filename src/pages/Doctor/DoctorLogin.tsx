@@ -101,7 +101,7 @@ const DoctorLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br  via-blue-200 to-blue-300 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br  flex flex-col">
       <Dheader />
       <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
          style={{
