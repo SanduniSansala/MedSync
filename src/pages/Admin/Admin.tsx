@@ -3,6 +3,8 @@ import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import bgimg from '../../assets/Images/1.png';
 import image from '../../assets/Images/Logo-Photoroom (1).png';
+import { loging } from '../../services/AdminRoutes'; // Import the login function
+import Swal from 'sweetalert2'; // Import sweetalert2
 
 const Admin: React.FC = () => {
   const navigate = useNavigate();
@@ -11,21 +13,33 @@ const Admin: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleLogin = () => {
-    if (!selectedId || !password) {
-      setErrorMessage('Please enter both ID and password.');
-    } else {
-      setErrorMessage('');
-      console.log('Logged in with ID:', selectedId);
-      console.log('Password:', password);
-      navigate('/AdminProfile');
-    }
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+        const responseData: string = await loging(selectedId, password);
+        console.log("Response Data:", responseData); // 🔍 Debugging
+
+        if (responseData === "Login Sucsessfull") { // ✅ No more error
+            navigate("/AdminProfile");
+        } else {
+            alert(responseData || "Unexpected error. No response data.");
+        }
+    } catch (error: any) {
+        console.error("Error logging in:", error);
+
+        if (error.response) {
+            alert(error.response.data || "Error from server but no message.");
+        } else {
+            alert("An unexpected error occurred. Please try again.");
+        }
+    }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
-      {/* <div className="w-full flex justify-center bg-background-color items-center">
-        <div className="flex flex-row container bg-background-color">
+      <div className="w-full flex justify-center bg-gradient-to-r from-blue-500 to-purple-500 items-center shadow-lg">
+        <div className="flex flex-row container bg-transparent py-4 px-6">
           <div
             className="basis-1/4 hover:cursor-pointer"
             onClick={() => navigate("/Admin")}
@@ -37,23 +51,7 @@ const Admin: React.FC = () => {
             />
           </div>
         </div>
-      </div> */}
-       <div className="w-full flex justify-center bg-gradient-to-r from-blue-500 to-purple-500 items-center shadow-lg">
-      <div className="flex flex-row container bg-transparent py-4 px-6">
-        <div
-          className="basis-1/4 hover:cursor-pointer"
-          onClick={() => navigate("/Admin")}
-        >
-          <img
-            className="flex items-center w-[130px] rounded-xl"
-            src={image}
-            alt="logo"
-          />
-        </div>
-        
-        
       </div>
-    </div>
       
       <div
         className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green"
@@ -99,7 +97,7 @@ const Admin: React.FC = () => {
             )}
             <button
               type="submit"
-              onClick={handleLogin}
+              onClick={handleSubmit}
               className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.02] shadow-md hover:shadow-lg"
             >
               Login
