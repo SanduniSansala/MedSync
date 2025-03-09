@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/Sheduales";
+const BASE_URL = "http://localhost:8081/shedule";
 export interface Sheduale{
   doctorID: string;
   day: string; 
@@ -19,7 +19,7 @@ export const updateSheduale = async (id: string, sheduale: Sheduale) => {
     });
 };
 
-export const createSheduale = async (sheduale: Sheduale) => {
+export const createSchedule = async (sheduale: Sheduale) => {
   await axios.post(`${BASE_URL}/create`, sheduale)
     .then((res) => {
       console.log(res);
