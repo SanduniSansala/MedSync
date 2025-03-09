@@ -22,6 +22,10 @@ const AddDoctor: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (doctor.specialty === "Select Specialty") {
+      setErrorMessage("Please select a valid specialty.");
+      return;
+    }
     try {
       await createDoctor(doctor);
       // Add navigation or success message here if needed
@@ -112,8 +116,11 @@ const AddDoctor: React.FC = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="">Select</option>
-                <option value="Specialization">Specialization</option>
+                <option >Select Specialty</option>
+                <option >Cardiology</option>
+                <option>Dermatology</option>
+                <option>Neurology</option>
+                <option>Oncologist</option>
               </select>
             </div>
 
