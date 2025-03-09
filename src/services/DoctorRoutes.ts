@@ -1,6 +1,10 @@
 import axios from 'axios';
 import apiClient from '../axios/axios';
 
+interface LoginResponse {
+  message: string;
+  // Add other fields as necessary
+}
 const BASE_URL = 'http://localhost:8081/doctor';
 
 export interface Doctor {
@@ -61,5 +65,16 @@ export const deleteDoctor = async (id: string) => {
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+export const loginDoctor = async (doctorID: string, password: string): Promise<LoginResponse> => {
+  return await axios.post<LoginResponse>(`${BASE_URL}/Login/${doctorID}/${password}`)
+    .then((res) => {
+      console.log(res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
     });
 };
