@@ -31,12 +31,12 @@ const Dheader: React.FC = () => {
           >
             Login
           </div>
-          <div
+          {/* <div
             className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300 ease-in-out focus:outline-none"
             onClick={() => navigate("/Form")}
           >
             Register
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
