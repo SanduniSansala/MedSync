@@ -26,7 +26,14 @@ const Schedule2: React.FC = () => {
     }
   }
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
+      <Dheader />
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/8.jpg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
       <div className="bg-white rounded-lg shadow-lg p-6">
       <Dheader />
         <div className="mb-6">
@@ -110,7 +117,7 @@ const Schedule2: React.FC = () => {
       </div>
       <Footer />
     </div>
-
+</div>
    
   )
 }
