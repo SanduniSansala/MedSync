@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 
-const Schedule2 = () => {
+const Schedule2: React.FC = () => {
+  
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const [patientCount, setPatientCount] = useState<number>(1);
