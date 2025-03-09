@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import bgimg from '../../assets/Images/1.png';
 import image from '../../assets/Images/Logo-Photoroom (1).png';
 import { loging } from '../../services/AdminRoutes'; // Import the login function
-import Swal from 'sweetalert2'; // Import sweetalert2
 
 const Admin: React.FC = () => {
   const navigate = useNavigate();
