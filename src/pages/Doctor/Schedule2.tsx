@@ -119,7 +119,7 @@ const Schedule2: React.FC = () => {
 
     </div>
 
-   
+   </div>
   )
 }
 export default Schedule2;
