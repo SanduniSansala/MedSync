@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
+import Dheader from "../../components/Dheader";
+import Footer from "../../components/Footer";
 
 const Schedule2: React.FC = () => {
-  
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const [patientCount, setPatientCount] = useState<number>(1);
@@ -23,12 +24,11 @@ const Schedule2: React.FC = () => {
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
     }
-
   }
   return (
-    <div className="max-w-4xl mx-auto p-4">
- <div className="bg-white rounded-lg shadow-lg p-6">
-        {/* Header */}
+    <div>
+      <div className="bg-white rounded-lg shadow-lg p-6">
+      <Dheader />
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-gray-800">
             Doctor Appointment Scheduling
@@ -108,9 +108,10 @@ const Schedule2: React.FC = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
-  );
-};
 
-  
+   
+  )
+}
 export default Schedule2;
