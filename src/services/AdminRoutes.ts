@@ -1,10 +1,5 @@
 import axios from "axios";
 
-interface LoginResponse {
-  message: string;
-  // Add other fields as necessary
-}
-
 const BASE_URL = "http://localhost:8081/Admin";
 
 export interface Admin {
