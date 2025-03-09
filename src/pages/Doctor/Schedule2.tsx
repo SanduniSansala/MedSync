@@ -12,7 +12,7 @@ const Schedule2: React.FC = () => {
 
   const timeSlots = [
     { id: 1, time: "09:00 AM", available: 10 },
-    { id: 2, time: "10:00 AM", available: 8 },
+    { id: 2, time: "03:00 PM", available: 8 },
    ];
 
    const handleSubmit = () => {
@@ -87,7 +87,7 @@ const Schedule2: React.FC = () => {
             value={patientCount}
             onChange={(e) => setPatientCount(Number(e.target.value))}
           >
-            {[1, 2, 3, 4, 5].map((num) => (
+            {[6, 7, 8, 9, 10].map((num) => (
               <option key={num} value={num}>
                 {num} {num === 1 ? 'Patient' : 'Patients'}
               </option>
@@ -119,7 +119,7 @@ const Schedule2: React.FC = () => {
 
     </div>
 
-   
+    </div>
   )
 }
 export default Schedule2;
