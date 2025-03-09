@@ -1,5 +1,5 @@
 import React from 'react'
-import Dheader from '../../components/Dheader'
+import Dheader2 from '../../components/Dheader2'
 import Footer from '../../components/Footer'
 import {Calendar, Phone, Clock} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
   return (
     <div>
-      <Dheader/>
+      <Dheader2/>
       <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
              <div className="text-center">
              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">

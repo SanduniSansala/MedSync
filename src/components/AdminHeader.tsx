@@ -57,7 +57,8 @@ const AdminHeader: React.FC = () => {
                 All Registered Doctors
               </Link>
             </div>
-          )}
+          )}</div>
+          <div className="relative">
           {isOpen1 && (
             <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
               <Link
