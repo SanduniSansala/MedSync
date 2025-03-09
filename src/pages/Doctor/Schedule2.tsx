@@ -116,10 +116,9 @@ const Schedule2: React.FC = () => {
       </div>
 
       <Footer />
-
     </div>
+   </div>
 
-    </div>
   )
 }
 export default Schedule2;
