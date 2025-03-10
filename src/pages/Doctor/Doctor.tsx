@@ -10,7 +10,7 @@ import {
   Shield, 
   Users, 
   Clock, 
-  Database 
+  Database ,ChevronLeft, ChevronRight,
 } from "lucide-react";
 
 const Doctor: React.FC = () => {
@@ -19,9 +19,9 @@ const Doctor: React.FC = () => {
   const [isAutoPlaying] = useState(true);
 
   const images = [
-    '../../assets/Images/6.jpg',
-    '../../assets/Images/medical-tech.jpg',
-    '../../assets/Images/hospital-interior.jpg'
+    "/src/assets/Images/IMG-20250207-WA0039.jpg",
+    "/src/assets/Images/IMG-20250207-WA0040.jpg",
+    "/src/assets/Images/IMG-20250207-WA0028.jpg",
   ];
 
   useEffect(() => {
@@ -43,16 +43,21 @@ const Doctor: React.FC = () => {
   }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
 
   const doctorFeatures = [
     {
@@ -73,63 +78,69 @@ const Doctor: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-gray-100 min-h-screen flex flex-col">
       <Dheader />
       
       {/* Hero Section */}
       <div className="relative h-[70vh] w-full overflow-hidden">
-        <div 
-          className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {images.map((src, index) => (
-            <div key={index} className="min-w-full h-full relative">
-              <img 
-                src={src} 
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80 flex items-center justify-center">
-                <div className="text-center text-white max-w-4xl px-4">
-                  <h1 className="text-5xl font-bold mb-6 animate-fadeIn">
-                    Welcome to MedSync Doctors Portal
-                  </h1>
-                  <p className="text-2xl mb-8 text-gray-200">
-                    Empowering Healthcare Professionals with Innovative Technology
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+          <div 
+            className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            <div className="flex h-full">
+              {images.map((src, index) => (
+                <div key={index} className="min-w-full h-full relative">
+                  <img 
+                    src={src} 
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
 
-      {/* Doctor Features Section */}
-      <div className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Doctor Portal Features
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {doctorFeatures.map((feature, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="flex items-center justify-center mb-6">
-                  <feature.icon className="w-12 h-12 text-blue-600 group-hover:text-blue-700 transition-colors" />
+<div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/70 flex items-center justify-center">
+                    <div className="text-center text-white max-w-4xl px-4">
+                      <h1 className="text-5xl font-bold mb-6 animate-fadeIn">Welcome to MedSync</h1>
+                      <p className="text-2xl mb-8 text-gray-200">Discover exceptional healthcare with our expert medical team</p>
+                      <button 
+                        onClick={() => navigate("/DoctorChannel")}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      >
+                        Get Started
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-center mb-4 text-gray-800">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-center">
-                  {feature.description}
-                </p>
-              </div>
+              ))}
+            </div>
+          </div>
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-800" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-800" />
+          </button>
+
+
+
+          {/* Dot Indicators */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  currentIndex === index ? "bg-white" : "bg-white/50"
+                }`}
+              />
             ))}
           </div>
         </div>
-      </div>
 
       {/* About MedSync for Doctors */}
       <div className="py-16 bg-gray-50">
