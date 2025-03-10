@@ -167,8 +167,9 @@ const Schedule2: React.FC = () => {
             </div>
           )}
         </div>
-        <Footer />
+       
       </div>
+      <Footer />
     </div>
   );
 };
