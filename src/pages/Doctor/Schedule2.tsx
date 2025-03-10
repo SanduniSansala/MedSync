@@ -55,8 +55,14 @@ const Schedule2: React.FC = () => {
   return (
     <div>
       <Dheader />
-      <div className="max-w-4xl mx-auto p-4">
-        <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/8.jpg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
+        {/* Simple Card using Tailwind */}
+        <div className="bg-white/80 rounded-lg shadow-lg p-6">
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-800">
               Doctor Appointment Scheduling
@@ -157,7 +163,7 @@ const Schedule2: React.FC = () => {
             disabled={!selectedSlot}
             onClick={handleSubmit}
           >
-            Book Appointment
+            Schedule Appointment
           </button>
 
           {/* Success Message */}
