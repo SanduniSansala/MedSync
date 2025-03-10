@@ -18,6 +18,7 @@ const Doctor: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying] = useState(true);
 
+  // Array of image paths for the carousel
   const images = [
     "/src/assets/Images/IMG-20250207-WA0039.jpg",
     "/src/assets/Images/IMG-20250207-WA0040.jpg",
