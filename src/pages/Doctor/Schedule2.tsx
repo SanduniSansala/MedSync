@@ -163,7 +163,7 @@ const Schedule2: React.FC = () => {
             disabled={!selectedSlot}
             onClick={handleSubmit}
           >
-            Book Appointment
+            Schedule Appointment
           </button>
 
           {/* Success Message */}
