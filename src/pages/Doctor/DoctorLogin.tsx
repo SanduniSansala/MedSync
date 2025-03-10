@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Dheader from '../../components/Dheader';
 import Footer from '../../components/Footer';
-import {KeyRound ,Stethoscope} from 'lucide-react';
+//import {KeyRound ,Stethoscope} from 'lucide-react';
+import { loging } from '../../services/DoctorRoutes';
+
 
 const DoctorLogin: React.FC = () => {
   const navigate = useNavigate();
@@ -10,58 +12,27 @@ const DoctorLogin: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-
-  const handleLogin = () => {
-    if (!selectedId || !password) {
-      setErrorMessage("Please enter both ID and password.");
-    } else {
-      setErrorMessage("");
-      console.log("Logged in with ID:", selectedId);
-      console.log("Password:", password);
-      navigate("/DocProfile");
-    }
-  };
-
-  const [formData, setFormData] = useState({
-    doctorId: '',
-    password: ''
-  });
-
-  const [errors, setErrors] = useState({
-    doctorId: '',
-    password: ''
-  });
-
-
-  const validateForm = () => {
-    const newErrors = { ...errors };
-    let isValid = true;
-
-    
-    if (!formData.doctorId.trim()) {
-      newErrors.doctorId = 'Doctor ID is required';
-      isValid = false;
-    }
-
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-      isValid = false;
-    } else if (formData.password.length < 8) {
-      newErrors.password = 'Password must be at least 8 characters';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log('Form submitted', formData);
-      alert('Registration Successful!');
+    try {
+        const responseData: string = await loging(selectedId, password);
+        console.log("Response Data:", responseData); // 🔍 Debugging
+
+        if (responseData === "Login Sucsessfull") { // ✅ No more error
+            navigate("/Schedule2");
+        } else {
+            alert(responseData || "Unexpected error. No response data.");
+        }
+    } catch (error: any) {
+        console.error("Error logging in:", error);
+
+        if (error.response) {
+            alert(error.response.data || "Error from server but no message.");
+        } else {
+            alert("An unexpected error occurred. Please try again.");
+        }
     }
-  };
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
@@ -118,7 +89,7 @@ const DoctorLogin: React.FC = () => {
               </div>
             )}
             <button
-              onClick={handleLogin}
+              onClick={handleSubmit}
               className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.02] shadow-md hover:shadow-lg"
             >
               Sign In
