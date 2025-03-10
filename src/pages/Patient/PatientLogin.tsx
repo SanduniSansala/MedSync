@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { loging } from '../../services/PatientRoutes';
 
 const PatientLogin: React.FC = () => {
   const navigate = useNavigate();
@@ -9,15 +10,30 @@ const PatientLogin: React.FC = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
-    if (!email || !password) {
-      setError("Email and password are both required.");
-      return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+        const responseData: string = await loging(email, password);
+        console.log("Response Data:", responseData); // 🔍 Debugging
+
+        if (responseData === "Login Sucsessfull") { 
+            navigate("/Profile");
+        } else if (responseData === "Patient not found") {
+            navigate("/PatientRegistation");  // ✅ Navigate to registration page
+        } else {
+            alert(responseData || "Unexpected error. No response data.");
+        }
+    } catch (error: any) {
+        console.error("Error logging in:", error);
+
+        if (error.response) {
+            alert(error.response.data || "Error from server but no message.");
+        } else {
+            alert("An unexpected error occurred. Please try again.");
+        }
     }
-    setError("");
-    // Add your login logic here
-    navigate("/Profile");
-  };
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">

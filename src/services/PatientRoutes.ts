@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiClient from "../axios/axios";
 
-const BASE_URL = "http://localhost:8081/Patient";
+const BASE_URL = "http://localhost:8081/patient";
 
 export interface Patient{
     id?: string;
@@ -62,3 +62,14 @@ export const getAllPatients = async () => {
         console.log(err);
       });
   };
+
+  export const loging = async (email: string, password: string) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/loging/${email}/${password}`);
+        console.log("API response:", response); // Debugging
+        return response.data; // ✅ Only return response.data, not the whole response object
+    } catch (error) {
+        console.error("API Error:", error);
+        throw error;
+    }
+};

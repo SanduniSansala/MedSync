@@ -2,51 +2,41 @@ import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import bgimg from "../../assets/images/1.png";
+import { getByspecialty, getAll } from "../../services/DoctorRoutes";
 
 const DoctorChannel: React.FC = () => {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    //stop refresh page
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e);
     const formData = new FormData(e.target as HTMLFormElement);
 
-    // api
-    const data = {
-      name: formData.get("name"),
-      special: formData.get("special"),
-    };
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/doctor`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => console.error("Error fetching data:", err));
-    //api
+    // Get the selected specialty and optional doctor name
+    const specialty = formData.get("name")?.toString() || "Select";
+    const doctorName = formData.get("special")?.toString() || "";
 
-    const name = formData.get("name");
-    console.log(name);
-    const special = formData.get("special");
-    console.log(special);
-    if (name == "Select" && special == "Select") {
-      Swal.fire({
-        title: "Oops!",
-        text: "Please select any option",
-        confirmButtonText: "OK",
-        confirmButtonColor: "#6eab36", // Orange color
-      });
-    } else if (name != "Select") {
-      navigate("/DoctorChannel/Channel");
-    } else {
-      navigate("/Book");
+    try {
+      let doctors;
+      if (specialty === "Select") {
+        // Fetch all doctors if "Select" is chosen
+        doctors = await getAll();
+      } else {
+        // Otherwise, fetch doctors by the selected specialty
+        doctors = await getByspecialty(specialty);
+      }
+      console.log("Doctors fetched:", doctors);
+
+      // Check if any doctors are returned
+      if (doctors && doctors.length > 0) {
+        // Navigate to the Channel page passing the data via state
+        navigate("/DoctorChannel/Channel", { state: { doctors, specialty, doctorName } });
+      } else {
+        alert(`No doctors available for ${specialty}. Please try another specialization.`);
+      }
+    } catch (error) {
+      console.error("Error fetching doctors:", error);
+      alert("There was an error fetching doctors. Please try again later.");
     }
   };
 
@@ -71,7 +61,7 @@ const DoctorChannel: React.FC = () => {
 
           <form
             className="space-y-6 focus:outline-none focus:ring-secondary-color focus:border-secondary-color"
-            onSubmit={(e) => handleSubmit(e)}
+            onSubmit={handleSubmit}
           >
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -79,14 +69,13 @@ const DoctorChannel: React.FC = () => {
               </label>
               <select
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
-                name="name" 
+                name="name"
               >
                 <option>Select</option>
                 <option>Cardiology</option>
                 <option>Dermatology</option>
                 <option>Neurology</option>
                 <option>Oncologist</option>
-
               </select>
             </div>
             <div>
@@ -97,7 +86,7 @@ const DoctorChannel: React.FC = () => {
                 type="text"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
                 name="special"
-                placeholder="Enter doctor's name"
+                placeholder="Enter doctor's name (optional)"
               />
             </div>
 

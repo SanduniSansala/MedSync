@@ -8,7 +8,6 @@ import { Patient } from '../../types/patientTypes';
 const PatientRegistation: React.FC = () => {
   const navigate = useNavigate();
   const [patientRegistation, setPatientRegistation] = useState<Patient>({
-    id: "",
     name: "",
     nic: "",
     email: "",
