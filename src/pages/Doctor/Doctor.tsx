@@ -21,7 +21,7 @@ const Doctor: React.FC = () => {
   const images = [
     "/src/assets/Images/IMG-20250207-WA0039.jpg",
     "/src/assets/Images/IMG-20250207-WA0040.jpg",
-    "/src/assets/Images/IMG-20250207-WA0040.jpg",
+    "/src/assets/Images/IMG-20250207-WA0028.jpg",
   ];
 
   useEffect(() => {
@@ -96,7 +96,7 @@ const Doctor: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
 
-<div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70 flex items-center justify-center">
+<div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/70 flex items-center justify-center">
                     <div className="text-center text-white max-w-4xl px-4">
                       <h1 className="text-5xl font-bold mb-6 animate-fadeIn">Welcome to MedSync</h1>
                       <p className="text-2xl mb-8 text-gray-200">Discover exceptional healthcare with our expert medical team</p>
