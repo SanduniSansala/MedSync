@@ -117,7 +117,7 @@ const Home: React.FC = () => {
         </div>
 
 {/* Stats Section */}
-<div className="bg-white py-12 shadow-md">
+<div className="bg-gray-300 py-12 shadow-md">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
             <div className="text-center">
               <div className="flex items-center justify-center mb-4">
