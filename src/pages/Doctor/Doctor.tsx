@@ -21,7 +21,7 @@ const Doctor: React.FC = () => {
   const images = [
     "/src/assets/Images/IMG-20250207-WA0039.jpg",
     "/src/assets/Images/IMG-20250207-WA0040.jpg",
-    "/src/assets/Images/10.jpg",
+    "/src/assets/Images/IMG-20250207-WA0040.jpg",
   ];
 
   useEffect(() => {
