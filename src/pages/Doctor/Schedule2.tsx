@@ -4,34 +4,45 @@ import Footer from "../../components/Footer";
 import { createSchedule } from "../../services/ShedualeRoutes";
 
 const Schedule2: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
-  const [patientCount, setPatientCount] = useState<number>(1);
+    // State variables to manage component data
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date()); // Stores the selected appointment date
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null);// Stores the selected time slot ID
+  const [patientCount, setPatientCount] = useState<number>(1);// Stores the number of patients that can be seen
   const [doctorID, setDoctorID] = useState<string>("");
   const [doctorName, setDoctorName] = useState<string>("");
   const [showSuccess, setShowSuccess] = useState(false);
 
+  // Predefined time slots with availability
   const timeSlots = [
     { id: 1, time: "09:00 AM", available: 10 },
     { id: 2, time: "03:00 PM", available: 8 },
   ];
 
+ 
+   //Validates input data and sends schedule information to the backend
+  
+
   const handleSubmit = async () => {
+      // Validate doctor information
     if (!doctorID.trim() || !doctorName.trim()) {
       alert("Please enter Doctor ID and Doctor Name.");
       return;
     }
 
+     // Validate date and time slot selection
     if (!selectedSlot || !selectedDate) {
       alert("Please select a date and time slot.");
       return;
     }
+
+      // Find the selected time slot object
     const selectedTime = timeSlots.find((slot) => slot.id === selectedSlot);
     if (!selectedTime) {
       alert("Invalid time slot selected.");
       return;
     }
 
+    // Prepare schedule data for API submission
     const scheduleData = {
       doctorID,
       doctorName,
@@ -41,12 +52,17 @@ const Schedule2: React.FC = () => {
     };
 
     try {
+      // Call API to create the schedule
       const response = await createSchedule(scheduleData);
       console.log("Schedule saved:", response);
       alert("Appointment booked successfully!");
+
+       // Show success message temporarily
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
     } catch (error) {
+
+      // Handle API errors
       console.error("Error booking appointment:", error);
       alert("Failed to book appointment. Please try again.");
     }
@@ -55,13 +71,16 @@ const Schedule2: React.FC = () => {
   return (
     <div>
       <Dheader />
+
+      {/* Main Content Area with Background Image */}
       <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
          style={{
            backgroundImage: 'url("/src/assets/Images/8.jpg")',
            backgroundBlendMode: 'overlay',
            backgroundColor: ''
          }}>
-        {/* Simple Card using Tailwind */}
+
+       {/* Schedule Creation Card */}
         <div className="bg-white/80 rounded-lg shadow-lg p-6">
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-800">
@@ -104,6 +123,7 @@ const Schedule2: React.FC = () => {
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-2">Select Time Slot</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+               {/* Map through available time slots */}
               {timeSlots.map((slot) => (
                 <button
                   key={slot.id}
@@ -144,6 +164,7 @@ const Schedule2: React.FC = () => {
               value={patientCount}
               onChange={(e) => setPatientCount(Number(e.target.value))}
             >
+                {/* Options for number of patients */}
               {[1, 2, 3, 4, 5].map((num) => (
                 <option key={num} value={num}>
                   {num} {num === 1 ? "Patient" : "Patients"}
@@ -165,6 +186,7 @@ const Schedule2: React.FC = () => {
           >
             Schedule Appointment
           </button>
+          
 
           {/* Success Message */}
           {showSuccess && (

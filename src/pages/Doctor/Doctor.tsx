@@ -18,6 +18,7 @@ const Doctor: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying] = useState(true);
 
+  // Array of image paths for the carousel
   const images = [
     "/src/assets/Images/IMG-20250207-WA0039.jpg",
     "/src/assets/Images/IMG-20250207-WA0040.jpg",
@@ -100,12 +101,7 @@ const Doctor: React.FC = () => {
                     <div className="text-center text-white max-w-4xl px-4">
                       <h1 className="text-5xl font-bold mb-6 animate-fadeIn">Welcome to MedSync</h1>
                       <p className="text-2xl mb-8 text-gray-200">Discover exceptional healthcare with our expert medical team</p>
-                      <button 
-                        onClick={() => navigate("/DoctorChannel")}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                      >
-                        Get Started
-                      </button>
+                      
                     </div>
                   </div>
                 </div>
@@ -176,7 +172,7 @@ const Doctor: React.FC = () => {
           </div>
           <div>
             <img 
-              src="../../assets/Images/medical-technology.jpg" 
+              src="/src/assets/Images/IMG-20250207-WA0038.jpg" 
               alt="Medical Technology"
               className="rounded-xl shadow-2xl w-full h-[400px] object-cover"
             />
