@@ -43,11 +43,17 @@ import { useNavigate } from 'react-router-dom';
         <label className="block text-gray-700">Specialization</label>
         <p className="border rounded px-3 py-2"></p>
             </div> 
+
           <div>
-          
           <label className="block text-gray-700">Phone number</label>
           <p className="border rounded px-3 py-2"></p>
             </div>
+
+            <div>
+          <label className="block text-gray-700">Email</label>
+          <p className="border rounded px-3 py-2"></p>
+            </div>
+
            </div>
       </div>
     </div>
