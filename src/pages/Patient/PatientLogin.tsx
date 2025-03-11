@@ -18,7 +18,7 @@ const PatientLogin: React.FC = () => {
 
         if (responseData === "Login Sucsessfull") { 
             alert("Booking successful");
-            navigate("/");
+            navigate("/Profile");
         } else if (responseData === "Patient not found") {
             navigate("/PatientRegistation");  // ✅ Navigate to registration page
         } else {
