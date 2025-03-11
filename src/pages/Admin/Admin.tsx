@@ -1,39 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import Footer from '../../components/Footer';
-import { useNavigate } from 'react-router-dom';
-import bgimg from '../../assets/Images/1.png';
 import image from '../../assets/Images/Logo-Photoroom (1).png';
-import { loging } from '../../services/AdminRoutes'; // Import the login function
+import { useNavigate } from "react-router-dom";
+import { 
+  LogIn, 
+  Stethoscope, 
+  PlusCircle, 
+  BookOpen, 
+  Shield, 
+  Users, 
+  Clock, 
+  Database ,ChevronLeft, ChevronRight,
+} from "lucide-react";
+
+
 
 const Admin: React.FC = () => {
   const navigate = useNavigate();
-
-  const [selectedId, setSelectedId] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<string>('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-        const responseData: string = await loging(selectedId, password);
-        console.log("Response Data:", responseData); // 🔍 Debugging
-
-        if (responseData === "Login Sucsessfull") { // ✅ No more error
-            navigate("/AdminProfile");
-        } else {
-            alert(responseData || "Unexpected error. No response data.");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoPlaying] = useState(true);
+  
+    // Array of image paths for the carousel
+    const images = [
+      "/src/assets/Images/IMG-20250207-WA0039.jpg",
+      "/src/assets/Images/IMG-20250207-WA0040.jpg",
+      "/src/assets/Images/IMG-20250207-WA0028.jpg",
+    ];
+  
+    useEffect(() => {
+      let interval: ReturnType<typeof setInterval>;
+    
+      if (isAutoPlaying) {
+        interval = setInterval(() => {
+          setCurrentIndex(prevIndex => 
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+          );
+        }, 3000);
+      }
+    
+      return () => {
+        if (interval) {
+          clearInterval(interval);
         }
-    } catch (error: any) {
-        console.error("Error logging in:", error);
+      };
+    }, [isAutoPlaying]);
+  
+    const nextSlide = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+  
+    const prevSlide = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+    };
+  
+    const goToSlide = (index: number) => {
+      setCurrentIndex(index);
+    };
+  
+  
+    const Admineatures = [
+      {
+        icon: Stethoscope,
+        title: "Advanced Medical Tools",
+        description: "Access cutting-edge medical technology and diagnostic tools."
+      },
+      {
+        icon: Database,
+        title: "Comprehensive Patient Records",
+        description: "Seamless electronic health record management system."
+      },
+      {
+        icon: Users,
+        title: "Patient Management",
+        description: "Efficient scheduling and patient tracking capabilities."
+      }
+    ];
+  
 
-        if (error.response) {
-            alert(error.response.data || "Error from server but no message.");
-        } else {
-            alert("An unexpected error occurred. Please try again.");
-        }
-    }
-};
-
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
@@ -49,61 +97,159 @@ const Admin: React.FC = () => {
               alt="logo"
             />
           </div>
+          </div>
+        <div className="basis-2/4 flex gap-5 font-semibold cursor-pointer justify-center items-center text-white">
+          <div
+            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300 ease-in-out focus:outline-none"
+            onClick={() => navigate("/Admin")}
+          >
+            Home
+          </div>
+          <div
+            className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 ease-in-out focus:outline-none"
+            onClick={() => navigate("/AdminLogin")}
+          >
+            Login
+          </div>
         </div>
       </div>
+      <div className="relative h-[70vh] w-full overflow-hidden">
+                <div 
+                  className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                  <div className="flex h-full">
+                    {images.map((src, index) => (
+                      <div key={index} className="min-w-full h-full relative">
+                        <img 
+                          src={src} 
+                          alt={`Slide ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
       
-      <div
-        className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green"
-        style={{ backgroundImage: `url(${bgimg})`, backgroundBlendMode: 'overlay', backgroundColor: '' }}
-      >
-        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-blue-800 mb-2">Admin Login Page</h2>
-            <p className="text-gray-600">Please enter your credentials</p>
-          </div>
-          <div className="space-y-6">
-            <div>
-              <label htmlFor="userId" className="block text-gray-700 font-semibold mb-2">
-                Enter ID:
-              </label>
-              <input
-                type="text"
-                name="doctorId"
-                id="userId"
-                value={selectedId}
-                onChange={(e) => setSelectedId(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
-                placeholder="Enter your admin ID"
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
-                Password:
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
-                placeholder="Enter your password"
-              />
-            </div>
-            {errorMessage && (
-              <div className="text-red-500 text-sm bg-red-50 p-3 rounded-lg animate-pulse">
-                {errorMessage}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/70 flex items-center justify-center">
+                          <div className="text-center text-white max-w-4xl px-4">
+                            <h1 className="text-5xl font-bold mb-6 animate-fadeIn">Welcome to MedSync</h1>
+                            <p className="text-2xl mb-8 text-gray-200">Discover exceptional healthcare with our expert medical team</p>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Navigation Arrows */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gray-800" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300"
+                >
+                  <ChevronRight className="w-6 h-6 text-gray-800" />
+                </button>
+      
+      
+      
+                {/* Dot Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-colors ${
+                        currentIndex === index ? "bg-white" : "bg-white/50"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
-            )}
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.02] shadow-md hover:shadow-lg"
-            >
-              Login
-            </button>
-          </div>
-        </div>
-      </div>
+      
+            {/* About MedSync for Admin */}
+            <div className="py-16 bg-gray-50">
+              <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                    Why Choose MedSync?
+                  </h2>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    MedSync is committed to transforming healthcare delivery through 
+                    innovative technology and comprehensive support for medical professionals.
+                  </p>
+                  <ul className="space-y-3 mb-6 text-gray-600">
+                    <li className="flex items-center">
+                      <Shield className="w-5 h-5 mr-3 text-green-500" />
+                      Secure and HIPAA Compliant Platform
+                    </li>
+                    <li className="flex items-center">
+                      <Clock className="w-5 h-5 mr-3 text-blue-500" />
+                      24/7 Technical Support
+                    </li>
+                    <li className="flex items-center">
+                      <BookOpen className="w-5 h-5 mr-3 text-purple-500" />
+                      Continuous Medical Education Resources
+                    </li>
+                  </ul>
+                  <button 
+                    onClick={() => navigate("/Admin")}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+                  >
+                    Set Up Your Profile
+                  </button>
+                </div>
+                <div>
+                  <img 
+                    src="/src/assets/Images/IMG-20250207-WA0038.jpg" 
+                    alt="Medical Technology"
+                    className="rounded-xl shadow-2xl w-full h-[400px] object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+      
+            {/* Quick Actions */}
+            <div className="bg-white py-16">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+                  Quick Admin Actions
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-blue-50 p-6 rounded-xl text-center hover:bg-blue-100 transition-colors">
+                    <PlusCircle className="w-12 h-12 mx-auto mb-4 text-blue-600" />
+                    <h3 className="text-xl font-semibold mb-3">Add Patient</h3>
+                    <button 
+                      onClick={() => navigate("/AddPatient")}
+                      className="text-blue-600 hover:text-blue-700 font-medium"
+                    >
+                      Create New Record
+                    </button>
+                  </div>
+                  <div className="bg-green-50 p-6 rounded-xl text-center hover:bg-green-100 transition-colors">
+                    <Stethoscope className="w-12 h-12 mx-auto mb-4 text-green-600" />
+                    <h3 className="text-xl font-semibold mb-3">Patient Consultation</h3>
+                    <button 
+                      onClick={() => navigate("/Consultations")}
+                      className="text-green-600 hover:text-green-700 font-medium"
+                    >
+                      Start Consultation
+                    </button>
+                  </div>
+                  <div className="bg-purple-50 p-6 rounded-xl text-center hover:bg-purple-100 transition-colors">
+                    <LogIn className="w-12 h-12 mx-auto mb-4 text-purple-600" />
+                    <h3 className="text-xl font-semibold mb-3">Manage Profile</h3>
+                    <button 
+                      onClick={() => navigate("/Admin")}
+                      className="text-purple-600 hover:text-purple-700 font-medium"
+                    >
+                      Update Information
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
       <Footer />
     </div>
   );

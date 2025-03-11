@@ -1,11 +1,14 @@
-import React from 'react'
-import Dheader from '../../components/Dheader'
-import Footer from "../../components/Footer";
-import { ArrowRight, Info } from 'lucide-react';
 
-export const HadleSchedule:React.FC = () => {
+import React from 'react';
+import Dheader from '../../components/Dheader';
+import Footer from "../../components/Footer";
+import { ArrowRight, Info } from "lucide-react";
+
+
+const HadleSchedule: React.FC = () => {
   return (
     <div>
+
         <Dheader/>
         <div 
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
@@ -24,7 +27,9 @@ export const HadleSchedule:React.FC = () => {
     </div>
 
         <Footer/>
+
     </div>
-  )
-}
+  );
+};
+
 export default HadleSchedule;
