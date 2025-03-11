@@ -56,6 +56,12 @@ const AdminHeader: React.FC = () => {
               >
                 All Registered Doctors
               </Link>
+              <Link
+                to="/UpdateDoctor"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                Update Doctors
+              </Link>
             </div>
           )}</div>
           <div className="relative">
