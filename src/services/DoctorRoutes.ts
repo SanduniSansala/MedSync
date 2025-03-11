@@ -26,17 +26,17 @@ export const createDoctor = async (doctor: Doctor) => {
   }
 };
 
-export const getDoctorById = async (id: string) => {
+// export const getDoctorById = async (id: string) => {
 
-  apiClient.get(`/Doctor/getById/${id}`).then((res) => {
-    console.log(res.data);
-  }).catch((err) => {
-    console.log(err);
-  })
+//   apiClient.get(`/Doctor/getById/${id}`).then((res) => {
+//     console.log(res.data);
+//   }).catch((err) => {
+//     console.log(err);
+//   })
 
-  // const response = await axios.get<Doctor>(`${BASE_URL}/getById/${id}`);
-  // return response.data;
-};
+//   // const response = await axios.get<Doctor>(`${BASE_URL}/getById/${id}`);
+//   // return response.data;
+// };
 
 export const getAllDoctors = async () => {
   await axios.get<Doctor[]>(`${BASE_URL}/getAll`)
@@ -48,15 +48,15 @@ export const getAllDoctors = async () => {
     });
 };
 
-export const updateDoctor = async (id: string, doctor: Doctor) => {
-  await axios.put<Doctor>(`${BASE_URL}/update/${id}`, doctor)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// export const updateDoctor = async (id: string, doctor: Doctor) => {
+//   await axios.put<Doctor>(`${BASE_URL}/update/${id}`, doctor)
+//     .then((res) => {
+//       console.log(res);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
 
 export const deleteDoctor = async (id: string) => {
   await axios.delete<string>(`${BASE_URL}/delete/${id}`)
@@ -67,17 +67,17 @@ export const deleteDoctor = async (id: string) => {
       console.log(err);
     });
 };
-export const loginDoctor = async (doctorID: string, password: string): Promise<LoginResponse> => {
-  return await axios.post<LoginResponse>(`${BASE_URL}/Login/${doctorID}/${password}`)
-    .then((res) => {
-      console.log(res);
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-      throw err;
-    });
-};
+// export const loginDoctor = async (doctorID: string, password: string): Promise<LoginResponse> => {
+//   return await axios.post<LoginResponse>(`${BASE_URL}/Login/${doctorID}/${password}`)
+//     .then((res) => {
+//       console.log(res);
+//       return res.data;
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       throw err;
+//     });
+// };
 
 export const loging = async (doctorID: string, password: string) => {
   try {
@@ -109,5 +109,23 @@ export const getAll = async (): Promise<Doctor[]> => {
   } catch (error) {
     console.error("Error fetching all doctors:", error);
     throw error;
+  }
+};
+export const updateDoctorById = async (doctorId: string, doctorData: any) => {
+  try {
+    await axios.put(`${BASE_URL}/update/${doctorId}`, doctorData);
+  } catch (error) {
+    console.error("Error updating doctor:", error);
+    throw error;
+  }
+  
+};
+export const getDoctorById = async (doctorId: string) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/getById/${doctorId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching doctor:", error);
+    return null;
   }
 };
