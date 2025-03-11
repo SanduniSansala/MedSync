@@ -17,7 +17,7 @@ import NotFoundPage from "./pages/patient/NotFoundPage";
 import Profile from "./pages/patient/Profile";
 import PatientLogin from "./pages/patient/PatientLogin";
 import AdminProfile from "./pages/Admin/AdminProfile";
-import DoctorList from "./components/DoctorList";
+import DoctorList from "./pages/Admin/DoctorList";
 import AddDoctor from "./pages/Admin/AddDoctor";
 import Docprofile from "./pages/doctor/Docprofile";
 import  HadleSchedule  from "./pages/doctor/HadleSchedule";
@@ -51,7 +51,6 @@ function App() {
         <Route path="/DoctorList" element={<DoctorList />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/AddDoctor" element={<AddDoctor />} />
-        <Route path="/DoctorList" element={<PatientList />} />
         <Route path="/Docprofile" element={<Docprofile />} />
         <Route path="/AdminLogin" element={<AdminLogin />} />
         <Route path="HadleSchedule" element={<HadleSchedule />} />
