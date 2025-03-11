@@ -19,7 +19,7 @@ const DoctorLogin: React.FC = () => {
         console.log("Response Data:", responseData); // 🔍 Debugging
 
         if (responseData === "Login Sucsessfull") { // ✅ No more error
-            navigate("/Schedule2");
+            navigate("/HandleSchedule");
         } else {
             alert(responseData || "Unexpected error. No response data.");
         }
@@ -95,11 +95,7 @@ const DoctorLogin: React.FC = () => {
               Sign In
             </button>
           </div>
-          <div className="text-center mt-6">
-            <a href="#" className="text-blue-600 hover:text-blue-800 text-sm">
-              Forgot Password?
-            </a>
-          </div>
+         
         </div>
       </div>
       <Footer />
