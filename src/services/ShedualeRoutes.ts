@@ -58,3 +58,14 @@ export const getShedualeByCustom = async (doctorID: string, day: string, time: s
       console.log(err);
     });
 };
+
+export const getScheduleByDoctorName = async (doctorName: string) => {
+  try {
+      const response = await axios.get(`${BASE_URL}/getByDoctorName/${doctorName}`);
+      console.log(response.data);
+      return response.data; // Returns the list of schedules
+  } catch (error) {
+      console.error("Error fetching schedule:", error);
+      throw error;
+  }
+};
