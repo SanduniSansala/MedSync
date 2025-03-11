@@ -39,34 +39,33 @@ import { useNavigate } from 'react-router-dom';
             </div>
           </div>
 
-
+          </div>
+          
         <div className="text-center mt-16 mb-6">
-             <label className="block text-gray-700">Name</label>
+             <label className="text-blue-600 font-medium">Name</label>
               <p className="border rounded px-3 py-2"></p>
               </div>
-        </div>
-
-     <div className="space-y-6">
-        <div className="space-y-2">
-          <div>
-        <label className="block text-gray-700">Specialization</label>
+       
+              
+        
+          <div className="text-center mb-6">
+        <label className="text-blue-600 font-medium">Specialization</label>
         <p className="border rounded px-3 py-2"></p>
             </div> 
 
-          <div>
-          <label className="block text-gray-700">Phone number</label>
+            <div className="text-center mb-6">
+            <label className="text-blue-600 font-medium">Phone number</label>
+          <p className="border rounded px-3 py-2"></p>
+            </div>  
+
+            <div className="text-center mb-6">
+            <label className="text-blue-600 font-medium">Email</label>
           <p className="border rounded px-3 py-2"></p>
             </div>
 
-            <div>
-          <label className="block text-gray-700">Email</label>
-          <p className="border rounded px-3 py-2"></p>
-            </div>
-
-           </div>
-      </div>
+           
     </div>
-    <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+    <div className="mt-4 p-4 bg-gray-100 rounded-lg">
           
         </div> 
         </div>
