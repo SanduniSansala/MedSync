@@ -110,5 +110,4 @@ export const getAll = async (): Promise<Doctor[]> => {
     console.error("Error fetching all doctors:", error);
     throw error;
   }
-  return [];
 };
