@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import AdminHeader from '../../components/AdminHeader';
 import { createDoctor, Doctor } from '../../services/DoctorRoutes';
+import { useNavigate } from "react-router-dom";
 
 const AddDoctor: React.FC = () => {
+  const navigate = useNavigate();
   const [doctor, setDoctor] = useState<Doctor>({
     doctorID: "",
     name: "",
@@ -22,16 +24,41 @@ const AddDoctor: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (doctor.specialty === "Select Specialty") {
-      setErrorMessage("Please select a valid specialty.");
-      return;
-    }
+  
+    // Email validation
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(doctor.email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  // Contact number validation (Assuming 10-digit number)
+  const contactRegex = /^[0-9]{10}$/;
+  if (!contactRegex.test(doctor.contactNumber)) {
+    alert("Please enter a valid 10-digit contact number.");
+    return;
+  }
+
+  // Specialty validation (fix)
+  if (!doctor.specialty || doctor.specialty === "") {
+    alert("Please select a valid specialty.");
+    return;
+  }
     try {
-      await createDoctor(doctor);
-      // Add navigation or success message here if needed
+      const response = await createDoctor(doctor);
+      console.log("API Response:", response);
+  
+      if (response === "Alredy docter in this ID") {
+        alert("A doctor with this ID already exists. Please use a different ID.");
+      } else if (response === "docter Registration sucsessfull") {
+        alert("Doctor added successfully!");
+        navigate("/AdminProfile"); // Redirect after success
+      } else {
+        alert("Unexpected response. Please try again.");
+      }
     } catch (error) {
-      console.error('Error creating doctor:', error);
-      setErrorMessage('Error creating doctor. Please try again.');
+      console.error("Error creating doctor:", error);
+      alert("Error creating doctor. Please try again.");
     }
   };
 
