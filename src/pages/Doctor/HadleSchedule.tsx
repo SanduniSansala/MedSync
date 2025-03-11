@@ -7,6 +7,7 @@ export const HadleSchedule:React.FC = () => {
     <div>
         <Dheader/>
 
+        <Footer/>
     </div>
   )
 }
