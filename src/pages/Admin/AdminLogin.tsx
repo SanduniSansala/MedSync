@@ -1,9 +1,8 @@
-import React from 'react'
-import  { useState } from 'react';
+
+import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
-import bgimg from '../../assets/Images/1.png';
-import image from '../../assets/Images/Logo-Photoroom (1).png';
+// import bgimg from '../../assets/Images/1.png';
 import { loging } from '../../services/AdminRoutes';
 
 export const AdminLogin:React.FC = () => {
@@ -39,7 +38,7 @@ export const AdminLogin:React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <div className="w-full flex justify-center bg-gradient-to-r from-blue-500 to-purple-500 items-center shadow-lg">
         <div className="flex flex-row container bg-transparent py-4 px-6">
-          <div
+          {/* <div
             className="basis-1/4 hover:cursor-pointer"
             onClick={() => navigate("/Admin")}
           >
@@ -48,13 +47,13 @@ export const AdminLogin:React.FC = () => {
               src={image}
               alt="logo"
             />
-          </div>
+          </div> */}
         </div>
       </div>
       
       <div
         className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green"
-        style={{ backgroundImage: `url(${bgimg})`, backgroundBlendMode: 'overlay', backgroundColor: '' }}
+        // style={{ backgroundImage: `url(${bgimg})`, backgroundBlendMode: 'overlay', backgroundColor: '' }}
       >
         <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
           <div className="text-center mb-6">
