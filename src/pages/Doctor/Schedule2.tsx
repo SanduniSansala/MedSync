@@ -15,7 +15,7 @@ const Schedule2: React.FC = () => {
   // Predefined time slots with availability
   const timeSlots = [
     { id: 1, time: "09:00 AM", available: 10 },
-    { id: 2, time: "03:00 PM", available: 8 },
+    { id: 2, time: "03:00 PM", available: 10 },
   ];
 
  
