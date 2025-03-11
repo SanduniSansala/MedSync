@@ -48,7 +48,7 @@ const ChannelCard: React.FC = () => {
             </div>
             <button
               className="ml-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color"
-              onClick={() => navigate("/Book")}
+              onClick={() => navigate("/Book" , {state: {dnames : doctor.name }})}
             >
               <span className="material-icons text-white mr-2"></span>
               Channel
