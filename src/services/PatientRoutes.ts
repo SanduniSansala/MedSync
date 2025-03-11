@@ -74,3 +74,29 @@ export const getAll = async () => {
     return []; // ✅ Return empty array on error
   }
 };
+export const getPatientByEmail = async (email: string) => {
+  try {
+    const response = await axios.get<Patient>(`${BASE_URL}/getByEmail/${email}`);
+    console.log("Fetched patient data:", response.data);
+    return response.data; // ✅ Return patient details
+  } catch (error) {
+    console.error("Error fetching patient by email:", error);
+    throw error;
+  }
+};
+
+export const login = async (email: string, password: string) => {
+  try {
+      const response = await axios.post(`${BASE_URL}/loging/${email}/${password}`);
+      
+      if (response.data) {
+          localStorage.setItem("userEmail", email); // ✅ Store user email in localStorage
+          console.log("User logged in:", response.data);
+      }
+      
+      return response.data; 
+  } catch (error) {
+      console.error("Login Error:", error);
+      throw error;
+  }
+};
