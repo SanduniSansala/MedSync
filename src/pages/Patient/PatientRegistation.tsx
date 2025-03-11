@@ -69,7 +69,8 @@ const PatientRegistation: React.FC = () => {
     if (validate()) {
       try {
         await createPatient(patientRegistation);
-        navigate('/Profile');
+        alert("Registration successful");
+        navigate('/');
       } catch (error) {
         console.error('Error submitting form:', error);
       }
@@ -158,6 +159,7 @@ const PatientRegistation: React.FC = () => {
           </div>
           <button
             type="submit"
+            
             className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
           >
             Submit
