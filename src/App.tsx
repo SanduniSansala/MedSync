@@ -20,6 +20,8 @@ import AdminProfile from "./pages/Admin/AdminProfile";
 import DocterList from "./components/DoctorList";
 import AddDoctor from "./pages/Admin/AddDoctor";
 import Docprofile from "./pages/doctor/Docprofile";
+import  HadleSchedule  from "./pages/doctor/HadleSchedule";
+import { AdminLogin } from "./pages/Admin/AdminLogin";
 import { PatientList } from "./pages/Admin/PatientList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -51,6 +53,8 @@ function App() {
         <Route path="/AddDoctor" element={<AddDoctor />} />
         <Route path="/DoctorList" element={<PatientList />} />
         <Route path="/Docprofile" element={<Docprofile />} />
+        <Route path="/AdminLogin" element={<AdminLogin />} />
+        <Route path="/HadleSchedule" element={<HadleSchedule />} />
         
       </Routes>
     </BrowserRouter>
