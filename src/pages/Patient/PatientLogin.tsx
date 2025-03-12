@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loging } from '../../services/PatientRoutes';
+import { bookshedule } from "../../services/ShedualeRoutes"
 
 const PatientLogin: React.FC = () => {
+
+  const location = useLocation();
+  const {id, day, time} = location.state || {};
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,8 +22,10 @@ const PatientLogin: React.FC = () => {
         console.log("Response Data:", responseData); // 🔍 Debugging
 
         if (responseData === "Login Sucsessfull") { 
-            alert("Booking successful");
-            navigate("/Profile");
+            const response = await bookshedule(id , day , time)
+            alert(response);
+
+            navigate("/");
         } else if (responseData === "Patient not found") {
             navigate("/PatientRegistation");  // ✅ Navigate to registration page
         } else {

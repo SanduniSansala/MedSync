@@ -75,7 +75,7 @@ const BookCard2: React.FC = () => {
                                 {/* Button aligned to the right */}
                                 <button
                                     className="ml-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color"
-                                    onClick={() => navigate("/PatientLogin")}
+                                    onClick={() => navigate("/PatientLogin" , {state: {id : schedule.doctorID , day : schedule.day , time : schedule.time }})}
                                 >
                                     Book Appointment
                                 </button>

@@ -69,3 +69,13 @@ export const getScheduleByDoctorName = async (doctorName: string) => {
       throw error;
   }
 };
+export const bookshedule = async (doctorID: string , day : string , time : string) => {
+  try {
+      const response = await axios.put(`${BASE_URL}/updateShedule/${doctorID}/${day}/${time}`);
+      console.log(response.data);
+      return response.data; // Returns the list of schedules
+  } catch (error) {
+      console.error("Error fetching schedule:", error);
+      throw error;
+  }
+};
