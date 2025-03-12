@@ -60,7 +60,7 @@ import { useNavigate } from 'react-router-dom';
 
             <div className="text-center mb-6">
             <label className="text-blue-600 font-medium">Email</label>
-          <p className="border rounded px-3 py-2"></p>
+           <p className="border rounded px-3 py-2"></p>
             </div>
 
            

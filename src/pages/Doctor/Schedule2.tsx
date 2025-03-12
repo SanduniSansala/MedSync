@@ -14,8 +14,8 @@ const Schedule2: React.FC = () => {
 
   // Predefined time slots with availability
   const timeSlots = [
-    { id: 1, time: "09:00 AM", available: 10 },
-    { id: 2, time: "03:00 PM", available: 10 },
+    { id: 1, time: "06:00 AM - 08:00 AM", available: 10 },
+    { id: 2, time: "08:00 PM - 10:00 PM", available: 10 },
   ];
 
  
@@ -149,7 +149,6 @@ const Schedule2: React.FC = () => {
                         : "text-gray-500"
                     }`}
                   >
-                    {slot.available} slots available
                   </div>
                 </button>
               ))}
@@ -165,7 +164,7 @@ const Schedule2: React.FC = () => {
               onChange={(e) => setPatientCount(Number(e.target.value))}
             >
                 {/* Options for number of patients */}
-              {[1, 2, 3, 4, 5].map((num) => (
+              {[1, 2, 3, 4, 5,6,7,8,9,10].map((num) => (
                 <option key={num} value={num}>
                   {num} {num === 1 ? "Patient" : "Patients"}
                 </option>
