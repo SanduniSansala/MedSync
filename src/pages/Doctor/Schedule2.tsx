@@ -55,7 +55,7 @@ const Schedule2: React.FC = () => {
       // Call API to create the schedule
       const response = await createSchedule(scheduleData);
       console.log("Schedule saved:", response);
-      alert("Appointment booked successfully!");
+      alert("Schedul created!");
 
        // Show success message temporarily
       setShowSuccess(true);
