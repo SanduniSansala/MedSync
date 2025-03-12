@@ -25,7 +25,7 @@ import { useNavigate } from 'react-router-dom';
     <div className="container mx-auto py-8 px-4">
       <div className="w-full max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         {/* Profile header with gradient */}
-        <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-16 w-full" />
+        //<div className="bg-gradient-to-r from-blue-500 to-purple-500 h-16 w-full" />
         
         <div className="p-6 relative">
           {/* Profile image */}

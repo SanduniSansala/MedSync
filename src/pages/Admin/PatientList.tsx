@@ -4,7 +4,7 @@ import { getAll } from "../../services/PatientRoutes";
 interface Patient {
   id: string;
   name: string;
-  nic: string;
+  age: string;
   email: string;
   contactNo: string;
 }
@@ -43,7 +43,7 @@ export const PatientList: React.FC = () => {
             <tr className="bg-gray-200">
             
               <th className="border p-2">Name</th>
-              <th className="border p-2">NIC</th>
+              <th className="border p-2">Age</th>
               <th className="border p-2">Email</th>
               <th className="border p-2">Contact No</th>
             </tr>
@@ -54,7 +54,7 @@ export const PatientList: React.FC = () => {
                 <tr key={patient.id} className="text-center">
                 
                   <td className="border p-2">{patient.name}</td>
-                  <td className="border p-2">{patient.nic}</td>
+                  <td className="border p-2">{patient.age}</td>
                   <td className="border p-2">{patient.email}</td>
                   <td className="border p-2">{patient.contactNo}</td>
                 </tr>

@@ -117,7 +117,7 @@ const Home: React.FC = () => {
         </div>
 
 {/* Stats Section */}
-<div className="bg-gray-300 py-12 shadow-md">
+<div className="bg-white py-12 shadow-md">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
             <div className="text-center">
               <div className="flex items-center justify-center mb-4">
@@ -183,18 +183,17 @@ const Home: React.FC = () => {
        
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 max-w-6xl mx-auto">
   {/* Meet Our Doctors Section */}
-  
-       <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
-       <div className="p-6 border-b-4 border-blue-500">
+  <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="p-6 border-b-4 border-blue-500">
               <div className="flex items-center space-x-4 mb-4">
-              <div className="p-4 bg-blue-100 rounded-lg group-hover:bg-blue-500 transition-colors duration-300">
-              <User className="w-8 h-8 text-blue-500 group-hover:text-white" />
+                <div className="p-4 bg-blue-100 rounded-lg group-hover:bg-blue-500 transition-colors duration-300">
+                  <User className="w-8 h-8 text-blue-500 group-hover:text-white" />
                 </div>
-                <h2 className="text-xl font-bold text-gray-800">About Team</h2>
+                <h2 className="text-xl font-bold text-gray-800">Meet Our Doctors</h2>
               </div>
               <p className="text-gray-600 leading-relaxed">
-              The medical team at MedSync provides the highest quality healthcare for patients.
-              Schedule an appointment now.
+                The medical team at MedSync provides the highest quality healthcare for patients.
+                Schedule an appointment today.
               </p>
               <button 
                 onClick={() => navigate("/DoctorChannel")}
@@ -204,7 +203,7 @@ const Home: React.FC = () => {
                 <ChevronRight className="w-5 h-5 ml-1 transform group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
-          </div>   
+          </div>
 
   {/* About MedSync Section */}
   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">

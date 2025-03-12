@@ -9,7 +9,7 @@ const PatientRegistation: React.FC = () => {
   const navigate = useNavigate();
   const [patientRegistation, setPatientRegistation] = useState<Patient>({
     name: "",
-    nic: "",
+    age:  "",
     email: "",
     password: "",
     contactNo: "",
@@ -30,11 +30,14 @@ const PatientRegistation: React.FC = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
-    // NIC Validation
-    if (!patientRegistation.nic.trim()) {
-      newErrors.NIC = "NIC is required";
+    // Age Validation
+    if (!patientRegistation.age.trim()) {
+      newErrors.Age = "Age is required";
+    } else if (!/^[1-9]\d*$/.test(patientRegistation.age)) {
+      newErrors.Age = "Age must be a positive integer";
+    } else if (Number(patientRegistation.age) > 120) {
+      newErrors.Age = "Age must be less than or equal to 120";
     }
-
     // Password Validation
     if (!patientRegistation.password.trim()) {
       newErrors.Password = "Password is required";
@@ -44,6 +47,7 @@ const PatientRegistation: React.FC = () => {
     if (!/^\d{10}$/.test(patientRegistation.contactNo)) {
       newErrors.ContactNo = "Contact number must be 10 digits";
     }
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -102,16 +106,16 @@ const PatientRegistation: React.FC = () => {
               {errors.name && <p className="text-primary-color text-sm">{errors.name}</p>}
             </div>
             <div>
-              <label className="block text-gray-700">NIC</label>
+              <label className="block text-gray-700">Age</label>
               <input
-                type="text"
-                name="nic"
-                placeholder="Enter your NIC"
-                value={patientRegistation.nic}
+                type="number"
+                name="age"
+                placeholder="Enter your Age"
+                value={patientRegistation.age}
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               />
-              {errors.nic && <p className="text-primary-color text-sm">{errors.nic}</p>}
+              {errors.age && <p className="text-primary-color text-sm">{errors.age}</p>}
             </div>
             <div>
               <label className="block text-gray-700">Email</label>
