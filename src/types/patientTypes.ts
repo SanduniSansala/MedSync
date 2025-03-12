@@ -2,7 +2,7 @@ export interface Patient{
     id?: string;
     name: string;
     email: string;
-    age: string;
+    age: number;
     password: string;
     contactNo: string;
   }

@@ -9,7 +9,7 @@ const PatientRegistation: React.FC = () => {
   const navigate = useNavigate();
   const [patientRegistation, setPatientRegistation] = useState<Patient>({
     name: "",
-    age:  "",
+    age:  0,
     email: "",
     password: "",
     contactNo: "",
@@ -30,14 +30,11 @@ const PatientRegistation: React.FC = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
-    // Age Validation
-    if (!patientRegistation.age.trim()) {
-      newErrors.Age = "Age is required";
-    } else if (!/^[1-9]\d*$/.test(patientRegistation.age)) {
-      newErrors.Age = "Age must be a positive integer";
-    } else if (Number(patientRegistation.age) > 120) {
-      newErrors.Age = "Age must be less than or equal to 120";
-    }
+      // Age Validation
+      if (patientRegistation.age <= 18 || patientRegistation.age > 80) {
+        newErrors.age = "Age Shoud be Between 18 to 80 ";
+      }
+  
     // Password Validation
     if (!patientRegistation.password.trim()) {
       newErrors.Password = "Password is required";
