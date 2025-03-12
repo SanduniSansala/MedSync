@@ -64,11 +64,11 @@ import { ArrowRight, Info } from "lucide-react";
             </div>
 
             <div className="flex gap-4 items-center justify-center">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center">
+                <button className="bg-gray-200 hover:bg-blue-500 text-gray-800 px-4 py-2 rounded flex items-center">
                   <ArrowRight className="mr-2" size={18} />
                   Add Schedule
                 </button>
-                <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded flex items-center">
+                <button className="bg-gray-200 hover:bg-blue-500 text-gray-800 px-4 py-2 rounded flex items-center">
                   <Info className="mr-2" size={18} />
                   View Schedule
                 </button>
