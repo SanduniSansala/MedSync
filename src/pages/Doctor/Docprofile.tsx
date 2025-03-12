@@ -3,7 +3,7 @@ import Dheader2 from '../../components/Dheader2'
 import Footer from '../../components/Footer'
 import {Calendar, Phone, Clock} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
+import { ArrowRight, Info } from "lucide-react";
 
 
  const Docprofile:React.FC = () => {
@@ -63,12 +63,26 @@ import { useNavigate } from 'react-router-dom';
           <p className="border rounded px-3 py-2"></p>
             </div>
 
+            <div className="flex gap-4 items-center justify-center">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center">
+                  <ArrowRight className="mr-2" size={18} />
+                  Add Schedule
+                </button>
+                <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded flex items-center">
+                  <Info className="mr-2" size={18} />
+                  View Schedule
+                </button>
+              </div>
+          
            
     </div>
     <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-          
+
+     
         </div> 
         </div>
+
+        
             <Footer/>
           
       </div>
