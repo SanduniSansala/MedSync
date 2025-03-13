@@ -3,9 +3,19 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
 const Profile: React.FC = () => {
+
+  
   return (
     <>
+   
       <Header />
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 bg-primary-green" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/8.jpg")',
+           backgroundBlendMode: 'overlay',
+           backgroundColor: ''
+         }}>
+
       <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
         <h2 className="text-3xl font-bold text-center mb-4">Profile</h2>
         <div className="space-y-6">
@@ -54,6 +64,7 @@ const Profile: React.FC = () => {
           </div>
         </div>
       </div>
+     </div>
       <Footer />
     </>
   );

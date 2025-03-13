@@ -30,7 +30,7 @@ import { ArrowRight, Info } from "lucide-react";
          }}>
 
     <div className="container mx-auto py-8 px-4 ">
-      <div className="w-full max-w-md mx-auto bg-white/90 rounded-xl shadow-lg overflow-hidden">
+      <div className="w-full max-w-md mx-auto bg-white/60 rounded-xl shadow-lg overflow-hidden">
         {/* Profile header with gradient */}
         <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-16 w-full" />
         
@@ -79,12 +79,9 @@ import { ArrowRight, Info } from "lucide-react";
                   <Info className="mr-2" size={18} />
                   View Schedule
                 </button>
-              </div>
-          
-           
-    </div>
-    
-        </div>
+              </div>      
+          </div>
+      </div>
 
         </div>
             <Footer/>
