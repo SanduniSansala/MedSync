@@ -11,9 +11,11 @@ const Profile: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<Patient>({
     name: '',
-    age: '',
+    age: 0,
     email: '',
     contactNo: '',
+    password: '',
+    confirmPassword: ''
   });
 
   useEffect(() => {
