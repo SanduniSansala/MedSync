@@ -28,8 +28,8 @@ const DoctorLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
-      <Dheader />
+    <div className="min-h-screen bg-cover bg-center bg-fixed " style={{ backgroundImage: 'url("/src/assets/Images/WhatsApp Image 2025-02-01 at 01.46.44_2ac08b62.jpg")' }}>
+              <Dheader />
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
           <h2 className="text-3xl font-bold text-blue-800 text-center mb-4">Doctor Login</h2>
