@@ -18,7 +18,7 @@ export interface Doctor {
 
 export const createDoctor = async (doctor: Doctor) => {
   try {
-    const response = await axios.post('http://localhost:8081/Doctor/create', doctor); // Fix the URL typo
+    const response = await axios.post(`${BASE_URL}`, doctor); // Fix the URL typo
     return response.data;
   } catch (error) {
     console.error('Error creating doctor:', error);
@@ -123,9 +123,10 @@ export const updateDoctorById = async (doctorId: string, doctorData: any) => {
 export const getDoctorById = async (doctorId: string) => {
   try {
     const response = await axios.get(`${BASE_URL}/getById/${doctorId}`);
-    return response.data;
+    return response.data; // Ensure response data contains doctor details
   } catch (error) {
     console.error("Error fetching doctor:", error);
     return null;
   }
 };
+
