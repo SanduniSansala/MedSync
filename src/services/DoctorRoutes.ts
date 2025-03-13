@@ -18,7 +18,7 @@ export interface Doctor {
 
 export const createDoctor = async (doctor: Doctor) => {
   try {
-    const response = await axios.post(`${BASE_URL}`, doctor); // Fix the URL typo
+    const response = await axios.post(`${BASE_URL}/create`, doctor); // Fix the URL typo
     return response.data;
   } catch (error) {
     console.error('Error creating doctor:', error);
