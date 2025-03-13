@@ -1,4 +1,5 @@
 export interface Patient{
+    confirmPassword: string;
     id?: string;
     name: string;
     email: string;
