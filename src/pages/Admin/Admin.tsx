@@ -194,7 +194,7 @@ const Admin: React.FC = () => {
                     </li>
                   </ul>
                   <button 
-                    onClick={() => navigate("/Admin")}
+                    onClick={() => navigate("/AdminLogin")}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
                   >
                     Set Up Your Profile
