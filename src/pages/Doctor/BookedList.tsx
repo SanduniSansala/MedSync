@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {getBookingByDoctorName} from "../../services/BookingRoutes";
+import { useLocation } from 'react-router-dom';
 
 interface Booking {
     patientEmail: string;
@@ -9,12 +10,16 @@ interface Booking {
 } 
 
 export const BookedList: React.FC = () => {
+
+  const location = useLocation();
+  const {doctorID} = location.state || {};
+  
     const [booking, setBooking] = useState<Booking[]>([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
       const fetchBooking = async () => {
         try {
-          const data = await getBookingByDoctorName("Medsync001");
+          const data = await getBookingByDoctorName(doctorID);
           if (Array.isArray(data)) {
             setBooking(data);
           } else {

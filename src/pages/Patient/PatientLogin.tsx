@@ -10,7 +10,7 @@ import {Booking} from "../../types/BookingTypes";
 const PatientLogin: React.FC = () => {
 
   const location = useLocation();
-  const {id, day, time, name } = location.state || {};
+  const {id, name , day, time } = location.state || {};
 
   const [booking, setBooking] = useState<Booking>({
     patientEmail: "",
@@ -40,9 +40,10 @@ const PatientLogin: React.FC = () => {
             alert(response);
             await createBooking(booking);
 
-            navigate("/");
+            navigate("/Profile");
         } else if (responseData === "Patient not found") {
           localStorage.setItem("paitientEmail", email);
+          alert("You are Not register Paitient ")
             navigate("/PatientRegistation");  // ✅ Navigate to registration page
         } else {
             alert(responseData || "Unexpected error. No response data.");

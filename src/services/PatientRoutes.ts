@@ -35,8 +35,8 @@ export const getPatientById = async (id: string) => {
 
 // Removed duplicate getAll function
   
-  export const updatePatient = async (id: string, patient: Patient) => {
-    await apiClient.put(`${BASE_URL}/update/${id}`, patient)
+  export const updatePatient = async (email: string , patient: any) => {
+    await apiClient.put(`${BASE_URL}/update/${email}`, patient)
       .then((res) => {
         console.log(res);
       })
@@ -76,7 +76,7 @@ export const getAll = async () => {
 };
 export const getPatientByEmail = async (email: string) => {
   try {
-    const response = await axios.get<Patient>(`${BASE_URL}/getByEmail/${email}`);
+    const response = await axios.get(`${BASE_URL}/getByEmail/${email}`);
     console.log("Fetched patient data:", response.data);
     return response.data;
   } catch (error) {
@@ -84,20 +84,3 @@ export const getPatientByEmail = async (email: string) => {
     throw error;
   }
 };
-
-
-// export const login = async (email: string, password: string) => {
-//   try {
-//       const response = await axios.post(`${BASE_URL}/loging/${email}/${password}`);
-      
-//       if (response.data) {
-//           localStorage.setItem("userEmail", email); // ✅ Store user email in localStorage
-//           console.log("User logged in:", response.data);
-//       }
-      
-//       return response.data; 
-//   } catch (error) {
-//       console.error("Login Error:", error);
-//       throw error;
-//   }
-// };
