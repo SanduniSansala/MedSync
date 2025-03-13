@@ -96,7 +96,7 @@ const DocProfile: React.FC = () => {
                 <p><strong>Contact:</strong> {doctor.contactNumber}</p>
 
                 <div className="mt-6 flex space-x-4">
-                  <button onClick={() => navigate("/DoctorSchedule")} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                  <button onClick={() => navigate("/Schedule2")} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
                     Schedule
                   </button>
                   <button onClick={() => setIsEditing(true)} className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
