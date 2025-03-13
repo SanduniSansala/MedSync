@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import { useNavigate } from 'react-router-dom';
 import { createPatient } from '../../services/PatientRoutes';
 import { Patient } from '../../types/patientTypes';
 
@@ -9,9 +9,10 @@ const PatientRegistation: React.FC = () => {
   const navigate = useNavigate();
   const [patientRegistation, setPatientRegistation] = useState<Patient>({
     name: "",
-    age:  0,
+    age: 0,
     email: "",
     password: "",
+    confirmPassword: "", // New confirm password field
     contactNo: "",
   });
 
@@ -30,21 +31,25 @@ const PatientRegistation: React.FC = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
-      // Age Validation
-      if (patientRegistation.age <= 18 || patientRegistation.age > 80) {
-        newErrors.age = "Age Shoud be Between 18 to 80 ";
-      }
-  
+    // Age Validation
+    if (patientRegistation.age <= 18 || patientRegistation.age > 80) {
+      newErrors.age = "Age should be between 18 to 80";
+    }
+
     // Password Validation
     if (!patientRegistation.password.trim()) {
-      newErrors.Password = "Password is required";
+      newErrors.password = "Password is required";
+    }
+
+    // Confirm Password Validation
+    if (patientRegistation.confirmPassword !== patientRegistation.password) {
+      newErrors.confirmPassword = "Passwords do not match";
     }
 
     // Contact Number Validation (10 digits)
     if (!/^\d{10}$/.test(patientRegistation.contactNo)) {
-      newErrors.ContactNo = "Contact number must be 10 digits";
+      newErrors.contactNo = "Contact number must be 10 digits";
     }
-
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -69,9 +74,13 @@ const PatientRegistation: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       try {
-        await createPatient(patientRegistation);
+        // Create a new patient object without the confirmPassword field
+        const { confirmPassword, ...patientData } = patientRegistation;
+
+        // Submit the patient data without confirmPassword
+        await createPatient(patientData);
         alert("Registration successful");
-        navigate('/');
+        navigate('/Profile');
       } catch (error) {
         console.error('Error submitting form:', error);
       }
@@ -81,94 +90,111 @@ const PatientRegistation: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 flex flex-col">
       <Header />
-      <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
-        <h2 className="text-3xl font-bold text-center mb-4">Registration</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="bg-white/30 backdrop-blur-sm rounded-xl shadow-2xl max-w-md w-full p-8 border border-blue-100">
+          <h2 className="text-3xl font-bold text-blue-800 text-center mb-4">Patient Registration</h2>
+          <p className="text-gray-600 text-center mb-6">Join Our Health Platform</p>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-gray-700">Name</label>
+              <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 placeholder="Enter your name"
                 value={patientRegistation.name}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.name ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 required
               />
-              {errors.name && <p className="text-primary-color text-sm">{errors.name}</p>}
+              {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
+
             <div>
-              <label className="block text-gray-700">Age</label>
+              <label htmlFor="age" className="block text-gray-700 font-semibold mb-2">Age</label>
               <input
                 type="number"
+                id="age"
                 name="age"
                 placeholder="Enter your Age"
                 value={patientRegistation.age}
                 onChange={handleChange}
-                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
-              {errors.age && <p className="text-primary-color text-sm">{errors.age}</p>}
+              {errors.age && <p className="text-red-500 text-sm">{errors.age}</p>}
             </div>
+
             <div>
-              <label className="block text-gray-700">Email</label>
+              <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 placeholder="Enter your email"
                 value={patientRegistation.email}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.email ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
-              {errors.email && <p className="text-primary-color text-sm">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
+
             <div>
-              <label className="block text-gray-700">Password</label>
+              <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">Password</label>
               <input
                 type="password"
+                id="password"
                 name="password"
                 placeholder="Enter your Password"
                 value={patientRegistation.password}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.Password ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
-              {errors.Password && <p className="text-primary-color text-sm">{errors.password}</p>}
+              {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
             </div>
+
             <div>
-              <label className="block text-gray-700">Contact Number</label>
+              <label htmlFor="confirmPassword" className="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your Password"
+                value={patientRegistation.confirmPassword}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="contactNo" className="block text-gray-700 font-semibold mb-2">Contact Number</label>
               <input
                 type="tel"
+                id="contactNo"
                 name="contactNo"
                 placeholder="Enter your contact number"
                 value={patientRegistation.contactNo}
                 onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 maxLength={10}
-                className={`w-full border rounded px-3 py-2 focus:outline-none ${
-                  errors.ContactNo ? "border-primary-color" : "focus:ring focus:ring-blue-300"
-                }`}
               />
-              {errors.ContactNo && <p className="text-primary-color text-sm">{errors.ContactNo}</p>}
+              {errors.contactNo && <p className="text-red-500 text-sm">{errors.contactNo}</p>}
             </div>
-          </div>
-          <button
-            type="submit"
-            
-            className="w-full bg-teal-600 text-white font-semibold py-2 rounded hover:bg-teal-700 transition duration-300"
-          >
-            Submit
-          </button>
-        </form>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition transform hover:scale-[1.02]"
+            >
+              Register
+            </button>
+          </form>
+        </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
