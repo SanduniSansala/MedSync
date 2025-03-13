@@ -45,7 +45,7 @@ const Profile: React.FC = () => {
             </div>
             <div>
               <label className="block text-gray-700">NIC</label>
-              <p className="border rounded px-3 py-2">{patient?.nic || "N/A"}</p>
+              <p className="border rounded px-3 py-2">{patient?.age || "N/A"}</p>
             </div>
             <div>
               <label className="block text-gray-700">Phone number</label>
