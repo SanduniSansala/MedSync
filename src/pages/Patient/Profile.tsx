@@ -51,12 +51,25 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 flex flex-col">
+    <div className="min-h-screen flex flex-col" 
+         style={{
+           backgroundImage: 'url("/src/assets/Images/8.jpg")',
+           backgroundSize: "cover",
+           backgroundPosition: "center",
+           backgroundAttachment: "fixed"
+         }}>
+      <div className="absolute inset-0 bg-blue-900/20 backdrop-blur-sm"></div>
+      
       <Header />
-      <div className="flex-grow flex items-center justify-center p-4 md:p-8">
-        <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl max-w-md w-full p-8 border border-blue-100 transition-all duration-300 hover:shadow-blue-200">
+      
+      <div className="flex-grow flex items-center justify-center p-4 md:p-8 relative z-10">
+        <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl max-w-md w-full p-8 border border-blue-100 transition-all duration-300 hover:shadow-blue-200">
           <div className="text-center mb-8">
-           
+            <div className="h-24 w-24 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <span className="text-4xl font-bold text-white">
+                {patient?.name ? patient.name.charAt(0).toUpperCase() : '?'}
+              </span>
+            </div>
             <h2 className="text-3xl font-bold text-blue-800 mb-1">Patient Profile</h2>
             <div className="h-1 w-16 bg-blue-500 mx-auto mt-2 rounded-full"></div>
           </div>
@@ -108,6 +121,7 @@ const Profile: React.FC = () => {
           )}
         </div>
       </div>
+      
       <Footer />
 
       {/* Modal for updating profile */}
