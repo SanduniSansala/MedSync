@@ -60,52 +60,54 @@ export const ViewSchedule: React.FC = () =>{
     
 
     return (
-        <div className="min-h-screen bg-gray-100 p-4 md:p-6 lg:p-8">
-            <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Doctor's Schedule</h2>
-            {error ? (
-                <p className="text-center text-red-500 bg-red-50 p-4 rounded-lg shadow my-4">{error}</p>
-            ) : schedules.length === 0 ? (
-                <div className="text-center py-8 bg-white rounded-lg shadow-md">
-                    <p className="text-gray-500 text-lg">No schedules available</p>
-                </div>
-            ) : (
-                <div className="space-y-4 max-w-4xl mx-auto">
-                    {schedules.map((schedule, index) => {
-                        console.log("Schedule Data:", schedule);
+        <div className="min-h-screen p-4 md:p-6 lg:p-8 bg-cover bg-center bg-fixed" style={{backgroundImage: 'url("/src/assets/Images/WhatsApp Image 2025-03-13 at 16.49.04_d085376c.jpg")'}}>
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-5xl mx-auto">
+                <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Doctor's Schedule</h2>
+                {error ? (
+                    <p className="text-center text-red-500 bg-red-50 p-4 rounded-lg shadow my-4">{error}</p>
+                ) : schedules.length === 0 ? (
+                    <div className="text-center py-8 bg-white rounded-lg shadow-md">
+                        <p className="text-gray-500 text-lg">No schedules available</p>
+                    </div>
+                ) : (
+                    <div className="space-y-4 max-w-4xl mx-auto">
+                        {schedules.map((schedule, index) => {
+                            console.log("Schedule Data:", schedule);
 
-                        return (
-                            <div
-                                key={index}
-                                className="flex flex-col md:flex-row md:items-center justify-between bg-white shadow-md rounded-md p-4 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-                            >
-                                <div className="text-gray-700 mb-4 md:mb-0">
-                                    <p className="mb-2">
-                                        <strong className="text-blue-600">Day:</strong> <span className="font-medium">{schedule.day}</span>
-                                    </p>
-                                    <p className="mb-2">
-                                        <strong className="text-blue-600">Time:</strong> <span className="font-medium">{schedule.time}</span>
-                                    </p>
-                                    <p>
-                                        <strong className="text-blue-600">Available Slots:</strong>{" "}
-                                        <span className="font-medium">{schedule.count !== undefined ? schedule.count : "N/A"}</span>
-                                    </p>
-                                </div>
-                                
-                                {/* Button aligned to the right */}
-                                <button
-                                    className="ml-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color transition-colors duration-300 flex items-center justify-center"
-                                    onClick={() => handleDelete(schedule.doctorID, schedule.day , schedule.time)}
+                            return (
+                                <div
+                                    key={index}
+                                    className="flex flex-col md:flex-row md:items-center justify-between bg-white shadow-md rounded-md p-4 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                    Delete Schedule
-                                </button>
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
+                                    <div className="text-gray-700 mb-4 md:mb-0">
+                                        <p className="mb-2">
+                                            <strong className="text-blue-600">Day:</strong> <span className="font-medium">{schedule.day}</span>
+                                        </p>
+                                        <p className="mb-2">
+                                            <strong className="text-blue-600">Time:</strong> <span className="font-medium">{schedule.time}</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-blue-600">Available Slots:</strong>{" "}
+                                            <span className="font-medium">{schedule.count !== undefined ? schedule.count : "N/A"}</span>
+                                        </p>
+                                    </div>
+                                    
+                                    {/* Button aligned to the right */}
+                                    <button
+                                        className="ml-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color transition-colors duration-300 flex items-center justify-center"
+                                        onClick={() => handleDelete(schedule.doctorID, schedule.day , schedule.time)}
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                        Delete Schedule
+                                    </button>
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
