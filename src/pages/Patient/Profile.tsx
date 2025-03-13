@@ -25,10 +25,10 @@ const Profile: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-fixed" style={{ backgroundImage: 'url("/src/assets/Images/8.jpg")' }}>
+    <div className="min-h-screen bg-cover bg-center bg-fixed " style={{ backgroundImage: 'url("/src/assets/Images/6.jpg")' }}>
       <Header />
       <div className="pt-10 pb-20 px-4">
-        <div className="max-w-2xl mx-auto px-6 py-8 bg-white/70 bg-opacity-95 shadow-lg rounded-lg border border-gray-200 backdrop-blur-sm">
+        <div className="max-w-2xl mx-auto px-6 py-8 bg-white/50 bg-opacity-95 shadow-lg rounded-lg border border-gray-200 backdrop-blur-sm">
           <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Profile</h2>
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
