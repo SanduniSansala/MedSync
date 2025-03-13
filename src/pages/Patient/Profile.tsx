@@ -25,66 +25,68 @@ const Profile: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen bg-cover bg-center bg-fixed" style={{ backgroundImage: 'url("/src/assets/Images/8.jpg")' }}>
       <Header />
-      <div className="max-w-2xl mx-auto mt-10 px-6 py-8 bg-white shadow-md rounded-md">
-        <h2 className="text-3xl font-bold text-center mb-4">Profile</h2>
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-gray-700">Name</label>
-              <p className="border rounded px-3 py-2">
-                {patient?.name || "N/A"}
-              </p>
-            </div>
-            <div>
-              <label className="block text-gray-700">Email</label>
-              <p className="border rounded px-3 py-2">
-                {patient?.email || "N/A"}
-              </p>
-            </div>
-            <div>
-              <label className="block text-gray-700">NIC</label>
-              <p className="border rounded px-3 py-2">{patient?.age || "N/A"}</p>
-            </div>
-            <div>
-              <label className="block text-gray-700">Phone number</label>
-              <p className="border rounded px-3 py-2">
-                {patient?.contactNo || "N/A"}
-              </p>
-            </div>
-          </div>
-          <div className="mt-8">
-            <h3 className="text-2xl font-bold text-center mb-4">
-              Appointment Details
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="pt-10 pb-20 px-4">
+        <div className="max-w-2xl mx-auto px-6 py-8 bg-white/70 bg-opacity-95 shadow-lg rounded-lg border border-gray-200 backdrop-blur-sm">
+          <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Profile</h2>
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-700">Doctor's Name</label>
-                <p className="border rounded px-3 py-2">N/A</p>
+                <label className="block text-gray-700 font-medium mb-2">Name</label>
+                <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">
+                  {patient?.name || "N/A"}
+                </p>
               </div>
               <div>
-                <label className="block text-gray-700">Specialization</label>
-                <p className="border rounded px-3 py-2">N/A</p>
+                <label className="block text-gray-700 font-medium mb-2">Email</label>
+                <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">
+                  {patient?.email || "N/A"}
+                </p>
               </div>
               <div>
-                <label className="block text-gray-700">Date</label>
-                <p className="border rounded px-3 py-2">N/A</p>
+                <label className="block text-gray-700 font-medium mb-2">NIC</label>
+                <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">{patient?.age || "N/A"}</p>
               </div>
               <div>
-                <label className="block text-gray-700">Time</label>
-                <p className="border rounded px-3 py-2">N/A</p>
+                <label className="block text-gray-700 font-medium mb-2">Phone number</label>
+                <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">
+                  {patient?.contactNo || "N/A"}
+                </p>
               </div>
-              <div>
-                <label className="block text-gray-700">Appointment Number</label>
-                <p className="border rounded px-3 py-2">N/A</p>
+            </div>
+            <div className="mt-10 pt-6 border-t border-gray-200">
+              <h3 className="text-2xl font-bold text-center mb-6 text-blue-600">
+                Appointment Details
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Doctor's Name</label>
+                  <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">N/A</p>
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Specialization</label>
+                  <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">N/A</p>
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Date</label>
+                  <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">N/A</p>
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Time</label>
+                  <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">N/A</p>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-gray-700 font-medium mb-2">Appointment Number</label>
+                  <p className="border rounded-md px-4 py-3 bg-gray-50 text-gray-800">N/A</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
