@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getAll, updateDoctorById, deleteDoctor } from "../../services/DoctorRoutes";
 import { useNavigate } from "react-router-dom";
+import { deleteByDoctorId } from "../../services/BookingRoutes";
+import { deleteByDoctorId1 } from "../../services/ShedualeRoutes";
+
 
 interface Doctor {
   doctorID: string;
@@ -50,6 +53,8 @@ export const DoctorList: React.FC = () => {
     if (window.confirm("Are you sure you want to delete this doctor?")) {
       try {
         await deleteDoctor(doctorID);
+        await deleteByDoctorId(doctorID);
+        await deleteByDoctorId1(doctorID);
         setDoctors((prevDoctors) => prevDoctors.filter((doc) => doc.doctorID !== doctorID));
         alert("Doctor deleted successfully!");
       } catch (error) {

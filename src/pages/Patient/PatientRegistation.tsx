@@ -31,11 +31,11 @@ const PatientRegistation: React.FC = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
-    // Age Validation
-    if (patientRegistation.age <= 18 || patientRegistation.age > 80) {
-      newErrors.age = "Age should be between 18 to 80";
+    // NIC Validation
+    if (!patientRegistation.age) {
+      newErrors.NIC = "Age is required";
     }
-
+    
     // Password Validation
     if (!patientRegistation.password.trim()) {
       newErrors.password = "Password is required";
@@ -50,6 +50,7 @@ const PatientRegistation: React.FC = () => {
     if (!/^\d{10}$/.test(patientRegistation.contactNo)) {
       newErrors.contactNo = "Contact number must be 10 digits";
     }
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -114,17 +115,16 @@ const PatientRegistation: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="age" className="block text-gray-700 font-semibold mb-2">Age</label>
+              <label className="block text-gray-700">NIC</label>
               <input
-                type="number"
-                id="age"
-                name="age"
-                placeholder="Enter your Age"
+                type="text"
+                name="nic"
+                placeholder="Enter your NIC"
                 value={patientRegistation.age}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
-              {errors.age && <p className="text-red-500 text-sm">{errors.age}</p>}
+              {errors.nic && <p className="text-primary-color text-sm">{errors.nic}</p>}
             </div>
 
             <div>

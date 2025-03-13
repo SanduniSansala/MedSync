@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getScheduleByDoctorName } from "../services/ShedualeRoutes";
+import { getScheduleByDoctorName ,  deleteShedule} from "../../services/ShedualeRoutes";
+import { deleteByShedule } from "../../services/BookingRoutes";
 
-// Define the Sheduale interface
 export interface Sheduale {
     doctorID: string;
     day: string;
@@ -11,8 +11,7 @@ export interface Sheduale {
     id?: string;
 }
 
-const BookCard2: React.FC = () => {
-
+export const ViewSchedule: React.FC = () =>{
     const location = useLocation();
 
     const {dnames} = location.state || {};
@@ -42,6 +41,23 @@ const BookCard2: React.FC = () => {
 
         fetchData();
     }, []);
+
+    const handleDelete = async (doctorID: string, day: string, time: string) => {
+        if (window.confirm("Are you sure you want to delete this schedule?")) {
+            try {
+                await deleteShedule(doctorID, day, time);
+                await deleteByShedule(doctorID, day, time);
+                alert("Schedule deleted successfully!");
+    
+                // Remove the deleted schedule from the state
+                setSchedules((prev) => prev.filter(s => !(s.doctorID === doctorID && s.day === day && s.time === time)));
+            } catch (error) {
+                console.error("Error deleting schedule:", error);
+                alert("Failed to delete schedule. Please try again.");
+            }
+        }
+    };
+    
 
     return (
         <div className="min-h-screen bg-gray-100 p-4">
@@ -75,9 +91,9 @@ const BookCard2: React.FC = () => {
                                 {/* Button aligned to the right */}
                                 <button
                                     className="ml-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary-color"
-                                    onClick={() => navigate("/PatientLogin" , {state: {id : schedule.doctorID , name : dnames, day : schedule.day , time : schedule.time }})}
+                                    onClick={() => handleDelete(schedule.doctorID, schedule.day , schedule.time)}
                                 >
-                                    Book Appointment
+                                    Delete Schedule
                                 </button>
                             </div>
                         );
@@ -88,4 +104,4 @@ const BookCard2: React.FC = () => {
     );
 };
 
-export default BookCard2;
+export default ViewSchedule;

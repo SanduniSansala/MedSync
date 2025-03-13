@@ -82,3 +82,35 @@ export const getBookings = async () => {
         throw error;
     }
   };
+
+  export const getBookingByDoctorId = async (docterId: string) => {
+    try {
+        const response = await axios.get(`${BASE_URL}/getByDocterName/${docterId}`);
+        console.log(response.data);
+        return response.data; // Returns the list of schedules
+    } catch (error) {
+        console.error("Error fetching schedule:", error);
+        throw error;
+    }
+  };
+
+  export const deleteByShedule = async (doctorID: string, day: String , time: String) => {
+    try {
+        const response = await axios.delete(`${BASE_URL}/deletebyShedule/${doctorID}/${day}/${time}`);
+        console.log(response.data);
+        return response.data; // Returns the list of schedules
+    } catch (error) {
+        console.error("Error fetching schedule:", error);
+    }
+  };
+
+  export const deleteByDoctorId = async (doctorID: string) => {
+    try {
+        const response = await axios.delete(`${BASE_URL}/deleteBydoctorId/${doctorID}`);
+        console.log(response.data);
+        return response.data; // Returns the list of schedules
+    } catch (error) {
+        console.error("Error fetching schedule:", error);
+        throw error;
+    }
+  };

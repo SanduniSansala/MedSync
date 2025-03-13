@@ -102,10 +102,10 @@ const DocProfile: React.FC = () => {
                   <button onClick={() => setIsEditing(true)} className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
                     Update Profile
                   </button>
-                  <button onClick={() => navigate("/ViewBookings", { state: { doctorID: doctor.doctorID } })} className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition">
+                  <button onClick={() => navigate("/BookedList", { state: { doctorID: doctor.doctorID } })} className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition">
                     View Bookings
                   </button>
-                  <button onClick={() => navigate("/ViewSchedule", { state: { doctorID: doctor.doctorID } })} className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
+                  <button onClick={() =>  navigate("/ViewSchedule" , {state: {dnames : doctor.name }})} className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
                     View Schedule
                   </button>
                 </div>

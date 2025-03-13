@@ -28,6 +28,8 @@ import { AdminLogin } from "./pages/Admin/AdminLogin";
 import PatientList  from "./pages/Admin/PatientList";
 import BookingList from "./pages/patient/BookingList";
 import BookedList from "./pages/doctor/BookedList";
+import ViewSchedule from "./pages/Doctor/ViewSchedule"
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -65,6 +67,7 @@ function App() {
         <Route path="Login2" element={<Login2 />} />
         <Route path="BookedList" element={<BookedList/>} />
         <Route path="BookingList" element={<BookingList />} />
+        <Route path="/ViewSchedule" element={<ViewSchedule />} />
       </Routes>
     </BrowserRouter>
   );
