@@ -61,7 +61,7 @@ export const ViewSchedule: React.FC = () =>{
 
     return (
         <div className="min-h-screen p-4 md:p-6 lg:p-8 bg-cover bg-center bg-fixed" style={{backgroundImage: 'url("/src/assets/Images/WhatsApp Image 2025-03-13 at 16.49.04_d085376c.jpg")'}}>
-            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-5xl mx-auto">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-5xl mx-auto">
                 <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Doctor's Schedule</h2>
                 {error ? (
                     <p className="text-center text-red-500 bg-red-50 p-4 rounded-lg shadow my-4">{error}</p>
