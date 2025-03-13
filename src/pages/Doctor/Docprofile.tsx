@@ -1,92 +1,118 @@
-import React from 'react'
-import Dheader2 from '../../components/Dheader2'
-import Footer from '../../components/Footer'
-import {Calendar, Phone, Clock} from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Info } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { getDoctorById, updateDoctorById } from "../../services/DoctorRoutes";
+import Dheader from "../../components/Dheader";
+import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
+const DocProfile: React.FC = () => {
+  const [doctor, setDoctor] = useState<any>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [email, setEmail] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
- const Docprofile:React.FC = () => {
-  const [isAvailable, setIsAvailable] = React.useState(true);
-  const [appointmentsCount, setAppointmentsCount] = React.useState(0);
+  useEffect(() => {
+    const doctorID = localStorage.getItem("doctorID");
+    if (!doctorID) {
+      alert("No Doctor ID found. Please log in again.");
+      navigate("/DoctorLogin");
+      return;
+    }
 
-  const handleBookAppointment = () => {
-      setAppointmentsCount(prev => prev + 1);
+    const fetchDoctorDetails = async () => {
+      try {
+        const data = await getDoctorById(doctorID);
+        if (!data) {
+          alert("Doctor not found. Please log in again.");
+          navigate("/DoctorLogin");
+          return;
+        }
+        setDoctor(data);
+        setEmail(data.email);
+        setContactNumber(data.contactNumber);
+      } catch (error) {
+        console.error("Failed to fetch doctor details:", error);
+        alert("Error loading doctor details.");
+      }
     };
-  
-    const handleAvailability = () => {
-      setIsAvailable(prev => !prev);
+
+    fetchDoctorDetails();
+  }, [navigate]);
+
+  const handleSave = async () => {
+    if (!doctor) return;
+
+    const updatedDoctor = {
+      doctorID: doctor.doctorID,
+      name: doctor.name,
+      specialty: doctor.specialty,
+      email,
+      contactNumber,
+      password: password || undefined, // Only update password if provided
     };
+
+    try {
+      await updateDoctorById(doctor.doctorID, updatedDoctor);
+      alert("Profile updated successfully!");
+      setDoctor({ ...doctor, email, contactNumber });
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      alert("Profile updated successfully!");
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-    <Dheader2 />
-    
-    <div className="container mx-auto py-8 px-4">
-      <div className="w-full max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Profile header with gradient */}
-        //<div className="bg-gradient-to-r from-blue-500 to-purple-500 h-16 w-full" />
-        
-        <div className="p-6 relative">
-          {/* Profile image */}
-          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
-            <div className="w-24 h-24 rounded-full bg-white p-1 shadow-lg">
-              <img
-                src="/api/placeholder/96/96"
-                alt="Doctor profile"
-                className="w-full h-full rounded-full object-cover"
-              />
-            </div>
+    <div className="min-h-screen bg-gray-100">
+      <Dheader />
+      <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Doctor Profile</h2>
+
+        {doctor && (
+          <div className="space-y-3">
+            <p><strong>ID:</strong> {doctor.doctorID}</p>
+            <p><strong>Name:</strong> {doctor.name}</p>
+            <p><strong>Specialty:</strong> {doctor.specialty}</p>
+
+            {isEditing ? (
+              <>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="border p-2 w-full mb-2" />
+                <input type="text" value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} className="border p-2 w-full mb-2" />
+                <input type="password" placeholder="New Password (optional)" value={password} onChange={(e) => setPassword(e.target.value)} className="border p-2 w-full mb-2" />
+
+                <div className="mt-6 flex space-x-4">
+                  <button onClick={() => setIsEditing(false)} className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                    Cancel
+                  </button>
+                  <button onClick={handleSave} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    Save Changes
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p><strong>Email:</strong> {doctor.email}</p>
+                <p><strong>Contact:</strong> {doctor.contactNumber}</p>
+
+                <div className="mt-6 flex space-x-4">
+                  <button onClick={() => navigate("/DoctorSchedule")} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Schedule
+                  </button>
+                  <button onClick={() => setIsEditing(true)} className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                    Update Profile
+                  </button>
+                </div>
+              </>
+            )}
           </div>
+        )}
 
-          </div>
-          
-        <div className="text-center mt-16 mb-6">
-             <label className="text-blue-600 font-medium">Name</label>
-              <p className="border rounded px-3 py-2"></p>
-              </div>
-       
-              
-        
-          <div className="text-center mb-6">
-        <label className="text-blue-600 font-medium">Specialization</label>
-        <p className="border rounded px-3 py-2"></p>
-            </div> 
-
-            <div className="text-center mb-6">
-            <label className="text-blue-600 font-medium">Phone number</label>
-          <p className="border rounded px-3 py-2"></p>
-            </div>  
-
-            <div className="text-center mb-6">
-            <label className="text-blue-600 font-medium">Email</label>
-           <p className="border rounded px-3 py-2"></p>
-            </div>
-
-            <div className="flex gap-4 items-center justify-center">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center">
-                  <ArrowRight className="mr-2" size={18} />
-                  Add Schedule
-                </button>
-                <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded flex items-center">
-                  <Info className="mr-2" size={18} />
-                  View Schedule
-                </button>
-              </div>
-          
-           
-    </div>
-    <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-
-     
-        </div> 
-        </div>
-
-        
-            <Footer/>
-          
+        {!doctor && <p>Loading doctor details...</p>}
       </div>
-   
-  )
-}
-export default Docprofile;
+      <Footer />
+    </div>
+  );
+};
+
+export default DocProfile;
