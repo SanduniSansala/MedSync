@@ -20,14 +20,15 @@ export const updateSheduale = async (id: string, sheduale: Sheduale) => {
 };
 
 export const createSchedule = async (sheduale: Sheduale) => {
-  await axios.post(`${BASE_URL}/create`, sheduale)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+
+  try {
+    const response = await axios.post(`${BASE_URL}/create`, sheduale); // Fix the URL typo
+    return response.data;
+  } catch (error) {
+    console.error('Error creating doctor:', error);
+    throw error;
+  }
+}
 
 export const getShedualeById = async (id: string) => {
   await axios.get<Sheduale>(`${BASE_URL}/shedule/getByID/${id}`)
@@ -76,6 +77,6 @@ export const bookshedule = async (doctorID: string , day : string , time : strin
       return response.data; // Returns the list of schedules
   } catch (error) {
       console.error("Error fetching schedule:", error);
-      throw error;
-  }
+      throw error;
+  }
 };

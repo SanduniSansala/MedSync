@@ -49,7 +49,7 @@ const Header: React.FC = () => {
         <div className="flex gap-4">
           <div
             className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 ease-in-out focus:outline-none"
-            onClick={() => navigate("/PatientLogin")}
+            onClick={() => navigate("/Login2")}
           >
             Login
           </div>

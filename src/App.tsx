@@ -22,9 +22,12 @@ import AddDoctor from "./pages/Admin/AddDoctor";
 import Docprofile from "./pages/doctor/Docprofile";
 import  HadleSchedule  from "./pages/doctor/HadleSchedule";
 import UpdateDoctor from "./pages/Admin/UpdateDoctor";
+import Login2 from "./pages/patient/Login2";
 // import EditProfile from "./pages/doctor/EditProfile";
 import { AdminLogin } from "./pages/Admin/AdminLogin";
 import PatientList  from "./pages/Admin/PatientList";
+import BookingList from "./pages/patient/BookingList";
+import BookedList from "./pages/doctor/BookedList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -59,7 +62,9 @@ function App() {
         <Route path="PatientList" element={<PatientList />} />
         <Route path="UpdateDoctor" element={<UpdateDoctor />} />
         {/* <Route path="EditProfiler" element={<EditProfile />} /> */}
-        
+        <Route path="Login2" element={<Login2 />} />
+        <Route path="BookedList" element={<BookedList/>} />
+        <Route path="BookingList" element={<BookingList />} />
       </Routes>
     </BrowserRouter>
   );

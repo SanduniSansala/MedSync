@@ -59,7 +59,7 @@ const DocProfile: React.FC = () => {
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating profile:", error);
-      alert("Profile updated successfully!");
+      alert("Profile update failed.");
     }
   };
 
@@ -95,12 +95,18 @@ const DocProfile: React.FC = () => {
                 <p><strong>Email:</strong> {doctor.email}</p>
                 <p><strong>Contact:</strong> {doctor.contactNumber}</p>
 
-                <div className="mt-6 flex space-x-4">
-                  <button onClick={() => navigate("/Schedule2")} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <button onClick={() => navigate("/Schedule2", { state: { id: doctor.doctorID, name: doctor.name } })} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
                     Schedule
                   </button>
                   <button onClick={() => setIsEditing(true)} className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
                     Update Profile
+                  </button>
+                  <button onClick={() => navigate("/ViewBookings", { state: { doctorID: doctor.doctorID } })} className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition">
+                    View Bookings
+                  </button>
+                  <button onClick={() => navigate("/ViewSchedule", { state: { doctorID: doctor.doctorID } })} className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
+                    View Schedule
                   </button>
                 </div>
               </>

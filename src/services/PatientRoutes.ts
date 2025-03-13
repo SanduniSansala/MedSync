@@ -86,18 +86,18 @@ export const getPatientByEmail = async (email: string) => {
 };
 
 
-export const login = async (email: string, password: string) => {
-  try {
-      const response = await axios.post(`${BASE_URL}/loging/${email}/${password}`);
+// export const login = async (email: string, password: string) => {
+//   try {
+//       const response = await axios.post(`${BASE_URL}/loging/${email}/${password}`);
       
-      if (response.data) {
-          localStorage.setItem("userEmail", email); // ✅ Store user email in localStorage
-          console.log("User logged in:", response.data);
-      }
+//       if (response.data) {
+//           localStorage.setItem("userEmail", email); // ✅ Store user email in localStorage
+//           console.log("User logged in:", response.data);
+//       }
       
-      return response.data; 
-  } catch (error) {
-      console.error("Login Error:", error);
-      throw error;
-  }
-};
+//       return response.data; 
+//   } catch (error) {
+//       console.error("Login Error:", error);
+//       throw error;
+//   }
+// };

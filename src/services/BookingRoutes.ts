@@ -1,18 +1,18 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/Bokings";
+const BASE_URL = "http://localhost:8081/Booking";
 export interface Booking {
     id?: string;
-    paymentMethod: string;
+    patientEmail: string;
+    doctorName: string;
+    docterId: string;
     day: string;
     time: string;
-    doctorID?: string;
-    patientID?: string;   
 }
 
 
 export const getBookings = async () => {
-    await axios.get<Booking[]>(BASE_URL)
+    await axios.get<Booking[]>(`${BASE_URL}/create`)
       .then((res) => {
         console.log(res);
       })
@@ -22,7 +22,7 @@ export const getBookings = async () => {
   };
   
   export const createBooking = async (booking: Booking) => {
-    await axios.post(BASE_URL, booking)
+    await axios.post(`${BASE_URL}/create`, booking)
       .then((res) => {
         console.log(res);
       })
@@ -59,4 +59,26 @@ export const getBookings = async () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  export const getBookingByPaitient = async (patientEmail: string) => {
+    try {
+        const response = await axios.get(`${BASE_URL}/getByPAitentEmail/${patientEmail}`);
+        console.log(response.data);
+        return response.data; // Returns the list of schedules
+    } catch (error) {
+        console.error("Error fetching schedule:", error);
+        throw error;
+    }
+  };
+
+  export const getBookingByDoctorName = async (doctorName: string) => {
+    try {
+        const response = await axios.get(`${BASE_URL}/getByDocterName/${doctorName}`);
+        console.log(response.data);
+        return response.data; // Returns the list of schedules
+    } catch (error) {
+        console.error("Error fetching schedule:", error);
+        throw error;
+    }
   };

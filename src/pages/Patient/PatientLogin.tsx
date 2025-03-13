@@ -3,12 +3,22 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loging } from '../../services/PatientRoutes';
-import { bookshedule } from "../../services/ShedualeRoutes"
+import { bookshedule } from "../../services/ShedualeRoutes";
+import {createBooking } from "../../services/BookingRoutes";
+import {Booking} from "../../types/BookingTypes";
 
 const PatientLogin: React.FC = () => {
 
   const location = useLocation();
-  const {id, day, time} = location.state || {};
+  const {id, day, time, name } = location.state || {};
+
+  const [booking, setBooking] = useState<Booking>({
+    patientEmail: "",
+    doctorName: "",
+    docterId:"",
+    day: "",
+    time: "",
+  });
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -23,10 +33,16 @@ const PatientLogin: React.FC = () => {
 
         if (responseData === "Login Sucsessfull") { 
             const response = await bookshedule(id , day , time)
+            booking.docterId=id;
+            booking.doctorName = name;
+            booking.day = day;
+            booking.time = time;
             alert(response);
+            await createBooking(booking);
 
             navigate("/");
         } else if (responseData === "Patient not found") {
+          localStorage.setItem("paitientEmail", email);
             navigate("/PatientRegistation");  // ✅ Navigate to registration page
         } else {
             alert(responseData || "Unexpected error. No response data.");
@@ -65,12 +81,18 @@ const PatientLogin: React.FC = () => {
                 Email
               </label>
               <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
-                placeholder="Enter your email"
+                  type="email"
+                  id="email"
+                  value={email} // ✅ Use email state for input
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setBooking((prevBooking) => ({
+                      ...prevBooking,
+                      patientEmail: e.target.value, // ✅ Sync booking.patientEmail
+                    }));
+                  }}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out"
+                  placeholder="Enter your email"
               />
             </div>
             <div>
